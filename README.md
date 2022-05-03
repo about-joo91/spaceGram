@@ -7,6 +7,11 @@
 ## 와이어 프레임
 ![와이어 프레임](https://user-images.githubusercontent.com/55477835/166444571-fbbcbb50-3542-43cc-bfab-2f167fe884d3.png)
 
+## db 구조 설계
+
+<img width="1312" alt="spaceGram_api명세서" src="https://user-images.githubusercontent.com/55477835/166446885-44d81d2a-9684-4cfd-bde1-bf193d2f549b.png">
+
+
 - 안녕하세요 요가보이가 되고싶은 염기호입니다. 
 - 안녕하세요!! 요가보이로 편입하게된 고현우입니다!! 잘부탁드려요 ㅎㅎ
 - 안녕하세요! 김현입니다. 잘부탁드려요 ^^
