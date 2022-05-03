@@ -1,7 +1,8 @@
 # insta_yoga_boy
-팀 요가보이의 인스타클론 깃헙 리포입니다.
 
 ![mock_up_img](https://user-images.githubusercontent.com/55477835/166437485-603b98f5-25e7-4196-bb18-aa7b579bbb81.png)
+
+팀 요가보이의 인스타클론 깃헙 리포입니다.
 
 
 ## 와이어 프레임
