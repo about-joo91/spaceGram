@@ -4,6 +4,10 @@
 ![mock_up_img](https://user-images.githubusercontent.com/55477835/166437485-603b98f5-25e7-4196-bb18-aa7b579bbb81.png)
 
 
+## 와이어 프레임
+![와이어 프레임](https://user-images.githubusercontent.com/55477835/166444571-fbbcbb50-3542-43cc-bfab-2f167fe884d3.png)
+
+
 - 안녕하세요 요가보이가 되고싶은 염기호입니다. 
 - 안녕하세요!! 요가보이로 편입하게된 고현우입니다!! 잘부탁드려요 ㅎㅎ
 - 안녕하세요! 김현입니다. 잘부탁드려요 ^^
