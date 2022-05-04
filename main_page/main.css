@@ -1,11 +1,12 @@
 .html {
     height: 100%;
-    background-color: rgb(250, 250, 250);
+
 }
 
 .body {
     margin: 0;
     height: 100%;
+    background-color: rgb(250, 250, 250);
 }
 
 .main_header {
@@ -82,4 +83,71 @@
 .mh_i_heart {
     font-size: 25px;
     margin-right: 15px;
+}
+
+.mb_l_story_box_wrapper {
+    margin-top: 30px;
+    width: 2500px;
+    height: 120px;
+}
+
+.mb_l_sb {
+    display: flex;
+    overflow-x: hidden;
+    background-color: white;
+    list-style-type: none;
+    width: 615px;
+}
+
+.mb_l_sb_content {
+    margin: 10px;
+    width: 70px;
+    height: 90px;
+    float: left;
+}
+
+.mb_l_sb_c_img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.mb_l_sb_button {
+    display: flex;
+    height: 0;
+}
+
+.mb_l_sb_btn_prev {
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    z-index: 2;
+    top: -5.8rem;
+    left: 3rem;
+    font-size: 16px;
+    box-shadow: 0.5px 0.5px 1px 1px rgb(142, 142, 142);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mb_l_sb_btn_next {
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    top: -5.8rem;
+    left: 37.5rem;
+    z-index: 2;
+    font-size: 16px;
+    opacity: 0.8;
+    box-shadow: 0.5px 0.5px 1px 1px rgb(142, 142, 142);
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
