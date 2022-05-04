@@ -1,0 +1,44 @@
+/* 바디 전체 색상 지정 */
+body {
+    background-color: #fafafa;
+    margin: 0;
+}
+
+/* 2. 바디 > 메인 파트 */
+
+/* 메인태그 */
+main {
+    max-width: 935px;
+    /*background-color: darkred;*/
+    height: 3000px;
+    margin: 90px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+/* 로그인페이지 하위 스타일 */
+.login_page{
+    
+}
+
+.lp_box{
+
+}
+
+.lp_b_logo{
+
+}
+
+.lp_b_login{}
+
+.lp_b_li_id{
+
+}
+
+.lp_b_li_pw{
+
+}
+
+.lp_b_li_btn{
+    
+}
