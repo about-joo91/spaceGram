@@ -1,12 +1,11 @@
 .html {
     height: 100%;
-
 }
 
 .body {
     margin: 0;
     height: 100%;
-    background-color: rgb(250, 250, 250);
+
 }
 
 .main_header {
@@ -150,4 +149,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.mb_l_mc_header {
+    width: 615px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mb_l_mc_h_front {
+    display: flex;
+    align-items: center;
+
+}
+
+.mb_l_mc_h_f_circle_avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.mb_l_mc_h_f_id {
+    font-weight: bold;
 }
