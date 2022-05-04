@@ -2,13 +2,13 @@
             padding-top: 60px;
             width: 100%;
             height: 1360px;
-            background-color: beige;
+            background-color: #FAFAFA;
             display: block;
         }
         .header{
             width: 100%;
             height: 60px;
-            background-color: gray;
+            background-color: white;
             position: fixed;
             top: 0;
             left: 0;
@@ -26,12 +26,17 @@
             width: 34.33%;
             height: 100%;
             border: 1px solid gray;
+
         }
         .mp_mp_myimg_img{
             width: 46.72%;
             height: 100%;
             margin: 0 100px 0 71px;
             border: 1px solid blue;
+            /*object-fit: contain;*/
+            background-size: cover ;
+            background-image: url("https://www.instagram.com/static/images/mediaUpsell.jpg/6efc710a1d5a.jpg");
+            border-radius: 50%;
         }
 
         .mp_mp_mytext{
@@ -47,20 +52,35 @@
             display: flex;
         }
         .mp_mp_mt_top_nickname{
+            display: flex;
             width: 17.91%;
             height: 100%;
             margin-right: 20px;
             border: 1px solid red;
+            justify-content: center;
+            align-items: center;
+            font-size: 23px;
         }
         .mp_mp_mt_top_editprofile{
-            width: 14.65%;
+            width: 15.3%;
             height: 100%;
             border: 1px solid red;
+        }
+        .mp_mp_mt_top_ep_button{
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            background-color: #FAFAFA;
+            border-radius: 4px;
         }
         .mp_mp_mt_top_option{
             width: 6.51% ;
             height: 100%;
             border: 1px solid red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .mp_mp_mt_middle{
             width: 100%;
@@ -68,6 +88,7 @@
             margin-bottom: 20px;
             border: 1px solid blue;
             display: flex;
+            font-size: 16px;
         }
         .mp_mp_mt_md_intspan{
             width: 17.1%;
@@ -80,7 +101,7 @@
             border: 1px solid red;
         }
         .mp_mp_mt_md_intfollow{
-            width: 10.91%;
+            width: 17%;
             height: 100%;
             border: 1px solid red;
 
@@ -95,6 +116,7 @@
             width: 100%;
             height: 100%;
             border: 1px solid red;
+            font-weight: bold;
         }
         .mp_postimg{
             width: 49.21%;
