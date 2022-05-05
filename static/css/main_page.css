@@ -8,6 +8,17 @@
 
 }
 
+.main_box {
+    display: flex;
+    width: 930px;
+    margin: auto;
+    height: 3000000px;
+}
+
+.mb_left_box {
+    width: 615px;
+}
+
 /* 메인헤더 페이지 */
 
 .main_header {
@@ -102,6 +113,7 @@
     overflow-x: hidden;
     background-color: white;
     width: 615px;
+    padding: 0;
 }
 
 .mb_l_sb_content {
@@ -131,7 +143,7 @@
     height: 25px;
     z-index: 2;
     top: -5.8rem;
-    left: 3rem;
+    left: 1rem;
     font-size: 16px;
     box-shadow: 0.5px 0.5px 1px 1px rgb(142, 142, 142);
     display: flex;
@@ -146,7 +158,7 @@
     width: 25px;
     height: 25px;
     top: -5.8rem;
-    left: 37.5rem;
+    left: 35rem;
     z-index: 2;
     font-size: 16px;
     opacity: 0.8;
@@ -282,4 +294,89 @@
     padding: 3px 16px;
     width: 100%;
     font-size: 15px;
+}
+
+/*  라이트 플로팅 박스 */
+
+.mb_right_float_box {
+    position: sticky;
+    top: 100px;
+}
+
+.mb_right_float_box {
+    width: 315px;
+    height: 450px;
+    margin: 10px 30px;
+}
+
+.mb_rf_my_account {
+    width: 300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.mb_rf_ma_front {
+    display: flex;
+    align-items: center;
+}
+
+.mb_rf_ma_f_circle_avatar {
+    margin-right: 10px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.mb_rf_ma_f_tw_id {
+    font-weight: bold;
+}
+
+.mb_rf_mc_back {
+    color: rgb(65, 147, 239);
+    font-weight: bold;
+}
+
+.mb_rf_recommend_title {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mb_rf_recommend_account {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.mb_rf_ra_front {
+    display: flex;
+}
+
+.mb_rf_ra_f_circle_avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.mb_rf_ra_f_txt {
+    margin-left: 10px;
+}
+
+.mb_rf_ra_f_t_id {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.mb_rf_ra_f_t_follower {
+    font-size: 13px;
+}
+
+.mb_rf_ra_back {
+    color: rgb(65, 147, 239);
+    font-size: 14px;
+    font-weight: bold;
 }
