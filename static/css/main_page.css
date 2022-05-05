@@ -104,37 +104,43 @@
 /*  스토리박스 */
 .mb_l_story_box_wrapper {
     margin-top: 30px;
-    width: 2500px;
     height: 120px;
 }
 
-.mb_l_sb {
-    display: flex;
+.mb_l_w_seen_part {
     overflow-x: hidden;
     background-color: white;
+    border: 1px solid rgb(219, 219, 219);
+    box-shadow: 1px rgb(219, 219, 219);
     width: 615px;
-    padding: 0;
 }
 
-.mb_l_sb_content {
-    margin: 10px;
-    width: 70px;
-    height: 90px;
+.mb_l_w_sp_sb {
+    display: flex;
+    padding: 0;
+    margin: 0;
+
     float: left;
 }
 
-.mb_l_sb_c_img {
+.mb_l_w_sp_sb_content {
+    margin: 10px;
+    width: 70px;
+    height: 90px;
+}
+
+.mb_l_w_sp_sb_c_img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
 
-.mb_l_sb_button {
+.mb_l_w_sp_sb_button {
     display: flex;
     height: 0;
 }
 
-.mb_l_sb_btn_prev {
+.mb_l_w_sp_sb_btn_prev {
     background-color: white;
     opacity: 0.8;
     border-radius: 50%;
@@ -142,22 +148,27 @@
     width: 25px;
     height: 25px;
     z-index: 2;
-    top: -5.8rem;
+    top: -4.7rem;
     left: 1rem;
     font-size: 16px;
     box-shadow: 0.5px 0.5px 1px 1px rgb(142, 142, 142);
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
 }
 
-.mb_l_sb_btn_next {
+.mb_l_w_sp_sb_btn_prev:hover {
+    cursor: pointer;
+}
+
+.mb_l_w_sp_sb_btn_next {
     background-color: white;
     border-radius: 50%;
     position: relative;
     width: 25px;
     height: 25px;
-    top: -5.8rem;
+    top: -4.7rem;
     left: 35rem;
     z-index: 2;
     font-size: 16px;
@@ -167,9 +178,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
 }
 
-/* 메인 카드 페이지 */
+.mb_l_w_sp_sb_btn_next:hover {
+    cursor: pointer;
+}
+
+/* 메인 카드 헤더 */
 .mb_l_mc_header {
     width: 615px;
     height: 60px;
@@ -187,17 +203,85 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin: 20px;
+    margin: 10px;
 }
 
 .mb_l_mc_h_f_id {
     font-weight: bold;
 }
 
+/* 메인바디 캐러셀 */
+.mb_l_mc_mib_carousel {
+    float: left;
+}
+
+.mb_l_mc_main_image_box {
+    overflow-x: hidden;
+    width: 615px;
+}
+
+.mb_l_mc_mib_button {
+    display: flex;
+    height: 0;
+}
+
+.mb_l_mc_mib_btn_prev {
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    z-index: 2;
+    top: 22rem;
+    left: 1rem;
+    font-size: 16px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(142, 142, 142);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.mb_l_mc_mib_btn_prev:hover {
+    cursor: pointer;
+}
+
+.mb_l_mc_mib_btn_next {
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    top: 21.6rem;
+    left: 34.7rem;
+    z-index: 2;
+    font-size: 16px;
+    opacity: 0.8;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(142, 142, 142);
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.mb_l_mc_mib_btn_next:hover {
+    cursor: pointer;
+}
+
 /*  메인바디 커멘트 */
 .mb_l_mc_comment {
-    height: 195px;
-    width: 615px;
+    position: relative;
+    top: -4px;
+    width: 613px;
+    border-width: 0px 1px 1px 1px;
+    border-color: rgb(142, 142, 142);
+    border-style: solid;
+}
+
+.mb_l_mc_c_liked_box {
+    margin-left: 10px;
 }
 
 .mb_l_mc_c_lk_icon_box {
@@ -207,8 +291,8 @@
     line-height: 60px;
 }
 
-.mb_l_mc_c_lk_ic_f_icons {
-    margin: 5px;
+.mb_l_mc_c_lk_ic_icons {
+    margin-right: 10px;
 }
 
 .mb_l_mc_c_lk_lp_circle_avatar {
@@ -269,10 +353,9 @@
 
 .mb_l_mc_c_comment_input_box {
     display: flex;
-    width: 575px;
     height: 55px;
     margin-top: 10px;
-    border: 1px solid rgb(142, 142, 142);
+    border-top: 1px solid rgb(142, 142, 142);
     align-items: center;
     padding: 0 20px;
     justify-content: space-between;
