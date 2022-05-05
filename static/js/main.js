@@ -68,3 +68,10 @@ mb_l_mc_mib_btn_next.addEventListener('click', function () {
     mb_l_mc_mi_carousel.style.transition = 500 + "ms";
     mb_l_mc_mi_carousel.style.transform = "translate3d(-" + cur_idx_for_main_carousel * 615 + "px,0px,0px)";
 })
+
+
+const mh_circle_avatar = document.querySelector('.mh_circle_avatar')
+
+mh_circle_avatar.addEventListener('click', function () {
+    window.location.href = '/my_page'
+})
