@@ -1,10 +1,10 @@
 const story_box_wrapper = document.querySelector('.mb_l_story_box_wrapper');
 let story_box_width = 90;
-let story_boxes_cnt = document.querySelectorAll('.mb_l_w_sp_sb_content').length;
+let story_boxes_cnt = document.querySelectorAll('.mb_l_sbw_sp_sb_content').length;
 story_box_wrapper.style.width = (story_box_width * story_boxes_cnt) + "px";
-const mb_l_sb_btn_prev = document.querySelector('.mb_l_w_sp_sb_btn_prev');
-const mb_l_sb_btn_next = document.querySelector('.mb_l_w_sp_sb_btn_next');
-const mb_l_sb = document.querySelector('.mb_l_w_sp_sb')
+const mb_l_sb_btn_prev = document.querySelector('.mb_l_sbw_sp_sb_btn_prev');
+const mb_l_sb_btn_next = document.querySelector('.mb_l_sbw_sp_sb_btn_next');
+const mb_l_sb = document.querySelector('.mb_l_sbw_sp_sb')
 let cur_idx_for_story_carousel = 0
 let last_page = parseInt((story_box_width * story_boxes_cnt) / 315) - 1
 if (last_page >= 1) {
@@ -15,10 +15,10 @@ mb_l_sb_btn_next.addEventListener('click', function () {
     mb_l_sb.style.transition = 500 + 'ms'
     if (++cur_idx_for_story_carousel == last_page) {
         mb_l_sb_btn_next.style.visibility = 'hidden'
-        mb_l_sb.style.transform = "translate3d(-" + ((cur_idx_for_story_carousel * 315) - 30) + "px,0px,0px)"
+        mb_l_sb.style.transform = "translate3d(-" + ((story_box_width * story_boxes_cnt) - 615) + "px,0px,0px)"
     }
     else {
-        mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 315) + "px,0px,0px)"
+        mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 307) + "px,0px,0px)"
     }
 })
 mb_l_sb_btn_prev.addEventListener('click', function () {
@@ -26,10 +26,10 @@ mb_l_sb_btn_prev.addEventListener('click', function () {
     mb_l_sb.style.transition = 500 + 'ms'
     if (--cur_idx_for_story_carousel == 0) {
         mb_l_sb_btn_prev.style.visibility = 'hidden'
-        mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 315) + "px, 0px, 0px)"
+        mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 307) + "px, 0px, 0px)"
     }
     else {
-        mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 315) + "px, 0px, 0px)"
+        mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 307) + "px, 0px, 0px)"
     }
 })
 
