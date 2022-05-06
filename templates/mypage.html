@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>mypage</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
@@ -13,19 +12,22 @@
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous">
-        </script>
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+    </script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/mypage_style.css">
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+<!--    <link rel="stylesheet" href="../static/css/mypage_style.css">-->
+    <link rel="stylesheet" href="../static/css/prac.css">
 
     <style>
-        /*내 화면에서는 80% 비율일 떄 width 100가 1920px*/
+/*내 화면에서는 80% 비율일 떄 width 100가 1920px*/
+
     </style>
 
     <header>
@@ -33,163 +35,164 @@
 
     </header>
 </head>
-
 <body>
-    <div class="header"></div>
-    <div class="mypage">
-        <div class="mp_modal">
-            <div class="mp_modal_body">
-                <div class="mp_md_bd_list">
-                    비밀번호 변경
-                </div>
-                <div class="mp_md_bd_list">
-                    QR 코드
-                </div>
-                <div class="mp_md_bd_list">
-                    앱 및 웹사이트
-                </div>
-                <div class="mp_md_bd_list">
-                    알림
-                </div>
-                <div class="mp_md_bd_list">
-                    개인정보 및 보안
-                </div>
-                <div class="mp_md_bd_list">
-                    로그인 활동
-                </div>
-                <div class="mp_md_bd_list">
-                    spacegram에서 보낸 이메일
-                </div>
-                <div class="mp_md_bd_list">
-                    문제 신고
-                </div>
-                <div class="mp_md_bd_list">
-                    로그아웃
-                </div>
-                <div class="mp_md_bd_list">
-                    <p class="mp_md_exit">취소</p>
-                </div>
-
+        <div class="header"></div>
+<div class="mypage">
+    <div class="mp_modal">
+        <div class="mp_modal_body">
+            <div class="mp_md_bd_list">
+                비밀번호 변경
             </div>
-
-        </div>
-        <div class="mp_myprofile">
-
-
-            <div class="mp_mp_myimg">
-                <div class="mp_mp_myimg_img"></div>
+            <div class="mp_md_bd_list">
+                QR 코드
             </div>
-
-            <div class="mp_mp_mytext">
-                <div class="mp_mp_mt_top">
-                    <div class="mp_mp_mt_top_nickname">h_woo99</div>
-                    <div class="mp_mp_mt_top_editprofile">
-                        <button class="mp_mp_mt_top_ep_button">프로필 편집</button>
-                    </div>
-                    <div class="mp_mp_mt_top_option">
-                        <svg aria-label="옵션" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img"
-                            viewBox="0 0 24 24" width="24">
-                            <circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2"></circle>
-                            <path
-                                d="M14.232 3.656a1.269 1.269 0 01-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 01-.796.66m-.001 16.688a1.269 1.269 0 01.796.66l.505.996h1.862l.505-.996a1.269 1.269 0 01.796-.66M3.656 9.768a1.269 1.269 0 01-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 01.66.796m16.688-.001a1.269 1.269 0 01.66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 01-.66-.796M7.678 4.522a1.269 1.269 0 01-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 01-.096 1.03m11.8 11.799a1.269 1.269 0 011.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 01.096-1.03m-14.956.001a1.269 1.269 0 01.096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 011.03.096m11.799-11.8a1.269 1.269 0 01-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 01-1.03-.096"
-                                fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-                        </svg>
-                    </div>
-                </div>
-
-
-                <div class="mp_mp_mt_middle">
-                    <!--                id값을 받아올 int값과 아닌text를 구분-->
-                    <div class="mp_mp_mt_md_intspan">
-                        <div class="mp_mp_mt_md_is_text">게시물</div>
-                        <div class="mp_mp_mt_md_is_int">$0</div>
-                    </div>
-                    <div class="mp_mp_mt_md_intfollower">
-                        <div class="mp_mp_mt_md_ifwer_text">팔로워</div>
-                        <div class="mp_mp_mt_md_ifwer_int">$0</div>
-                    </div>
-                    <div class="mp_mp_mt_md_intfollow">
-                        <div class="mp_mp_mt_md_if_text">팔로우</div>
-                        <div class="mp_mp_mt_md_if_int">$0</div>
-                    </div>
-                </div>
-
-                <div class="mp_mp_mt_bottom">
-                    <div class="mp_mp_mt_bt_name">$내이름</div>
-                </div>
-
+            <div class="mp_md_bd_list">
+                앱 및 웹사이트
+            </div>
+            <div class="mp_md_bd_list">
+                알림
+            </div>
+            <div class="mp_md_bd_list">
+                개인정보 및 보안
+            </div>
+            <div class="mp_md_bd_list">
+                로그인 활동
+            </div>
+            <div class="mp_md_bd_list">
+                spacegram에서 보낸 이메일
+            </div>
+            <div class="mp_md_bd_list">
+                문제 신고
+            </div>
+            <div class="mp_md_bd_list">
+                로그아웃
+            </div>
+            <div class="mp_md_bd_list">
+                <p class="mp_md_exit">취소</p>
             </div>
 
         </div>
 
-        <div class="mp_postimg">
-            <div class="mp_pimg_headbar">
-                <div class="mp_pimg_hb_classify">
-                    <div class="mp_pimg_hb_cf_post">
-                        <svg aria-label="" class="_8-yf5 " color="#262626" fill="#262626" height="12" role="img"
-                            viewBox="0 0 24 24" width="12">
-                            <rect fill="none" height="18" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect>
-                            <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line>
-                            <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line>
-                            <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line>
-                            <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line>
-                        </svg>게시물
-                    </div>
-                    <div class="mp_pimg_hb_cf_save">
-                        <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img"
-                            viewBox="0 0 24 24" width="12">
-                            <polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon>
-                        </svg> 저장됨
-                    </div>
-                    <div class="mp_pimg_hb_cf_taged">
-                        <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img"
-                            viewBox="0 0 24 24" width="12">
-                            <path
-                                d="M10.201 3.797L12 1.997l1.799 1.8a1.59 1.59 0 001.124.465h5.259A1.818 1.818 0 0122 6.08v14.104a1.818 1.818 0 01-1.818 1.818H3.818A1.818 1.818 0 012 20.184V6.08a1.818 1.818 0 011.818-1.818h5.26a1.59 1.59 0 001.123-.465z"
-                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2"></path>
-                            <path
-                                d="M18.598 22.002V21.4a3.949 3.949 0 00-3.948-3.949H9.495A3.949 3.949 0 005.546 21.4v.603"
-                                fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2"></path>
-                            <circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor"
-                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
-                        </svg>태그됨
-                    </div>
-                </div>
-            </div>
-            <div class="mp_pimg_posts">
-                <div class="mp_pimg_pts_postline">
-                    <div class="mp_pimg_pts_pl_post"></div>
-                    <div class="mp_pimg_pts_pl_post"></div>
-                    <div class="mp_pimg_pts_pl_post"></div>
+    </div>
+    <div class="mp_myprofile">
 
+
+        <div class="mp_mp_myimg">
+            <div class="mp_mp_myimg_img"></div>
+        </div>
+
+        <div class="mp_mp_mytext">
+            <div class="mp_mp_mt_top">
+                <div class="mp_mp_mt_top_nickname">h_woo99</div>
+                <div class="mp_mp_mt_top_editprofile">
+                    <button class="mp_mp_mt_top_ep_button">프로필 편집</button>
                 </div>
-                <div class="mp_pimg_pts_postline">
-                    <div class="mp_pimg_pts_pl_post"></div>
-                    <div class="mp_pimg_pts_pl_post"></div>
-                    <div class="mp_pimg_pts_pl_post"></div>
-                </div>
-                <div class="mp_pimg_pts_postline">
-                    <div class="mp_pimg_pts_pl_post"></div>
-                    <div class="mp_pimg_pts_pl_post"></div>
-                    <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_mp_mt_top_option">
+                    <svg aria-label="옵션" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 01-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 01-.796.66m-.001 16.688a1.269 1.269 0 01.796.66l.505.996h1.862l.505-.996a1.269 1.269 0 01.796-.66M3.656 9.768a1.269 1.269 0 01-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 01.66.796m16.688-.001a1.269 1.269 0 01.66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 01-.66-.796M7.678 4.522a1.269 1.269 0 01-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 01-.096 1.03m11.8 11.799a1.269 1.269 0 011.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 01.096-1.03m-14.956.001a1.269 1.269 0 01.096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 011.03.096m11.799-11.8a1.269 1.269 0 01-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 01-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
                 </div>
             </div>
+
+
+            <div class="mp_mp_mt_middle">
+<!--                id값을 받아올 int값과 아닌text를 구분-->
+                <div class="mp_mp_mt_md_intspan">
+                    <div class="mp_mp_mt_md_is_text">게시물</div>
+                    <div class="mp_mp_mt_md_is_int">$0</div>
+                </div>
+                <div class="mp_mp_mt_md_intfollower">
+                    <div class="mp_mp_mt_md_ifwer_text">팔로워</div>
+                    <div class="mp_mp_mt_md_ifwer_int">$0</div>
+                </div>
+                <div class="mp_mp_mt_md_intfollow">
+                    <div class="mp_mp_mt_md_if_text">팔로우</div>
+                    <div class="mp_mp_mt_md_if_int">$0</div>
+                </div>
+            </div>
+
+            <div class="mp_mp_mt_bottom">
+                <div class="mp_mp_mt_bt_name">$내이름</div>
+            </div>
+
         </div>
+
     </div>
 
-    <footer>
-        <div class="mypage_footer"></div>
-    </footer>
+    <div class="mp_postimg">
+        <div class="mp_pimg_headbar">
+            <div class="mp_pimg_hb_classify">
+                <div onclick="mypost()" id ="mp_pimg_hb_cf_post"class="mp_pimg_hb_cf_post">
+                    <svg aria-label="" class="_8-yf5 " color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12"><rect fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line></svg>게시물
+                </div>
+                <div onclick="bookmarkpost()" id = "mp_pimg_hb_cf_bookmark"class="mp_pimg_hb_cf_bookmark">
+                    <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg> 저장됨
+                </div>
+                <div onclick="tagedpost()" id = "mp_pimg_hb_cf_taged"class="mp_pimg_hb_cf_taged">
+                    <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><path d="M10.201 3.797L12 1.997l1.799 1.8a1.59 1.59 0 001.124.465h5.259A1.818 1.818 0 0122 6.08v14.104a1.818 1.818 0 01-1.818 1.818H3.818A1.818 1.818 0 012 20.184V6.08a1.818 1.818 0 011.818-1.818h5.26a1.59 1.59 0 001.123-.465z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M18.598 22.002V21.4a3.949 3.949 0 00-3.948-3.949H9.495A3.949 3.949 0 005.546 21.4v.603" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle></svg>태그됨
+                </div>
+            </div>
+        </div>
+        <div id = "mp_pimg_posts" class="mp_pimg_posts">
+            <div class="mp_pimg_pts_postline">
+                <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_pimg_pts_pl_post"></div>
+
+            </div>
+            <div class="mp_pimg_pts_postline">
+                <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_pimg_pts_pl_post"></div>
+            </div>
+            <div class="mp_pimg_pts_postline">
+                <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_pimg_pts_pl_post"></div>
+                <div class="mp_pimg_pts_pl_post"></div>
+            </div>
+        </div>
+        <div id = "mp_pimg_bookmarks" class="mp_pimg_bookmarks">
+
+            <div class="mp_pimg_bm_postline">
+                <div class="mp_pimg_bm_pl_post"></div>
+                <div class="mp_pimg_bm_pl_post"></div>
+                <div class="mp_pimg_bm_pl_post"></div>
+
+            </div>
+            <div class="mp_pimg_bm_postline">
+                <div class="mp_pimg_bm_pl_post"></div>
+                <div class="mp_pimg_bm_pl_post"></div>
+                <div class="mp_pimg_bm_pl_post"></div>
+            </div>
+            <div class="mp_pimg_bm_postline">
+                <div class="mp_pimg_bm_pl_post"></div>
+                <div class="mp_pimg_bm_pl_post"></div>
+                <div class="mp_pimg_bm_pl_post"></div>
+            </div>
+        </div>
+        <div id = "mp_pimg_taged" class="mp_pimg_taged">
+            <div class="mp_pimg_tg_postline">
+                <div class="mp_pimg_tg_pl_post"></div>
+                <div class="mp_pimg_tg_pl_post"></div>
+                <div class="mp_pimg_tg_pl_post"></div>
+
+            </div>
+            <div class="mp_pimg_tg_postline">
+                <div class="mp_pimg_tg_pl_post"></div>
+                <div class="mp_pimg_tg_pl_post"></div>
+                <div class="mp_pimg_tg_pl_post"></div>
+            </div>
+            <div class="mp_pimg_tg_postline">
+                <div class="mp_pimg_tg_pl_post"></div>
+                <div class="mp_pimg_tg_pl_post"></div>
+                <div class="mp_pimg_tg_pl_post"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="mypage_footer"></div>
+</footer>
 </body>
 <script src="../static/js/my_page.js"></script>
-
 </html>
