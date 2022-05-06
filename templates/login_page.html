@@ -6,60 +6,84 @@
 
         <!-- 웹 폰트어썸, 제이쿼리 임포트-->
         <script src="https://kit.fontawesome.com/bc43dde373.js" crossorigin="anonymous"></script>
+        <link href="//db.onlinewebfonts.com/c/623c7118249e082fe87a78e08506cb4b?family=Segoe+UI" rel="stylesheet" type="text/css"/>
         <!-- JQuery Import -->
         <!-- src 부분을 https 로 변경해주면 로딩이 없어지는 상황이 있었음 -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
-
         <!-- 로컬 css, js 임포트-->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/footer.css">
-        <script src="js/placeholder_focus.js"></script>
-        <script src="js/modal.js"></script>
+        <link rel="stylesheet" href="../static/css/login_page.css">
 
     </head>
 
     <body>
         <!-- 로그인 페이지 -->
         <div class="login_page">
-            <!-- 로그인 박스 -->
-            <div class="lp_box">
-                <div class="lp_b_logo"></div>
-                <div class="lp_b_login">
-                    <div class="lp_b_li_id"></div>
-                    <div class="lp_b_li_pw"></div>
-                    <div class="lb_b_li_btn">
-                        <button class="lb_b_li_btn_blue"></button>
+            <div class="lp_set">
+                <!-- 로그인 박스 -->
+                <div class="lp_s_box">
+                    <div class="lp_s_b_logo"></div>
+                    <div class="lp_s_b_login">
+                        <div class="lp_s_b_li_set">
+                            <div class="lp_s_b_li_s_id">
+                                <div class ="lp_s_b_li_s_id_input">
+                                    <label class="lp_s_b_li_s_id_i_box">
+                                        <span class="lp_s_b_li_s_id_i_b_span"></span>
+                                        <input placeholder="전화번호, 사용자 이름 또는 이메일" aria-label="전화번호, 사용자 이름 또는 이메일" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="75" name="username" type="text" class="lp_s_b_li_s_id_i_b_input" value="">
+                                    </label>
+                                    <div class="lp_s_b_li_s_id_space"></div>
+                                </div>
+                            </div>
+                            <div class="lp_s_b_li_s_pw">
+                                <div class ="lp_s_b_li_s_pw_input">
+                                    <label class="lp_s_b_li_s_pw_i_box">
+                                        <input placeholder="비밀번호" aria-label="비밀번호" aria-required="true" autocapitalize="off" autocorrect="off" name="password" type="password" class="lp_s_b_li_s_pw_i_b_input" value="">
+                                    </label>
+                                    <div class="lp_s_b_li_s_pw_space"></div>
+                                </div>
+                            </div>
+                            <div class="lp_s_b_li_s_btn">
+                                <button class="lp_s_b_li_s_btn_blue" disabled type="submit">
+                                    로그인
+                                </button>
+                            </div>
+                            <div class="lp_s_b_li_s_highlight">
+                                <div class="lp_s_b_li_s_hl_line"></div>
+                                <div class="lp_s_b_li_s_hl_or">또는</div>
+                                <div class="lp_s_b_li_s_hl_line"></div>
+                            </div>
+                            <div class="lp_s_b_li_s_facebook">
+                                <div class="lp_s_b_li_s_fb_logo"></div>
+                                <div class="lp_s_b_li_s_fb_login"></div>
+                            </div>
+                        </div>
+                        <div class="lp_s_b_li_forgot">
+                            <a class="lp_s_b_li_forgot_box" href="/accounts/password/reset/" tabindex="0">비밀번호를 잊으셨나요?</a>
+                        </div>    
                     </div>
-                    <div class="lb_b_li_highlight">
-                        <div class="lb_b_li_hl_line"></div>
-                        <div class="lb_b_li_hl_or"></div>
-                        <div class="lb_b_li_hl_line"></div>
-                    </div>
-                    <div class="lb_b_li_facebook">
-                        <div class="lb_b_li_fb_logo"></div>
-                        <div class="lb_b_li_fb_login"></div>
-                    </div>
-                    <div class="lb_b_li_forgot"></div>
-                </div>
 
-            </div>
-            <div class="lp_newbie">
-                <div class="lp_nb_register">
-                    <div class="lp_nb_rg_ask"></div>
-                    <div class="lp_nb_rg_reigster_link"></div>
                 </div>
-            </div>
-            <div class="lp_download">
-                <div class="lp_dl_sentence"></div>
-                <div class="lp_dl_icon">
-                    <div class="lp_dl_i_apple"></div>
-                    <div class="lp_dl_i_android"></div>
+                <div class="lp_newbie">
+                    <div class="lp_nb_register">
+                        <p class="lp_nb_rg_ask">
+                            "계정이 없으신가요?"
+                            <a data-testid="sign-up-link" href="/accounts/emailsignup/" tabindex="0" >
+                                <span class="lp_nb_rg_a_link">
+                                    가입하기
+                                </span>
+                            </a>
+                        </p>
+                        
+                    </div>
+                </div>
+                <div class="lp_download">
+                    <div class="lp_dl_sentence"></div>
+                    <div class="lp_dl_icon">
+                        <div class="lp_dl_i_apple"></div>
+                        <div class="lp_dl_i_android"></div>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Footer -->
-        <footer class="text-center text-lg-start bg-light text-muted">
-       
-        </footer>
+        <footer class="text-center text-lg-start bg-light text-muted"></footer>
         <!-- Footer -->
     </body>
