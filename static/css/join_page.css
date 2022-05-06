@@ -13,20 +13,142 @@ body {
 
 /* 개인정보 입력 */
 .mj_personaldata{
+  width: 350px;
+  height: 504px;
   background-color: #fcfcfc;
   padding: 10px auto;
   border: 1px solid #dfdfdf;
-  border-radius: 3px;
+  border-radius: 1px;
+}
+
+img {
+  max-width: 50%;
+  max-height: 50%;
+  overflow: hidden;
+  transform: translate(0%, 80%);
+}
+
+.mj_p_suggest{
+  margin-top: 50px;
+  color: #8E8E8E;
+  font-weight: bolder
+}
+
+.mj_p_facebook_button{
+  background-color: #0095F6;
+  border: 1px;
+  border-radius: 5px;
+  width: 245px;
+  height: 31px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.mj_p_horizonline{
+  padding: 20px;
+}
+
+.leftHr {
+  float: left;
+  width: 35%;
+  box-sizing: border-box;
+}
+
+.or {
+  float: left;
+  width: 17%;
+  margin: 2px 5%;
+  font-size: 13px;
+  box-sizing: border-box;
+  
+  color: #999999;
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0px 15px;
+}
+
+.rightHr {
+  float: right;
+  width: 35%;
+  box-sizing: border-box;
+}
+
+.mj_p_textline_one{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: #f5f5f5;
+  width: 245px;
+  height: 37px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+.mj_p_textline_two{
+  margin-bottom: 5px;
+  background-color: #f5f5f5;
+  width: 245px;
+  height: 37px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+.mj_p_textline_three{
+  margin-bottom: 5px;
+  background-color: #f5f5f5;
+  width: 245px;
+  height: 37px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+.mj_p_textline_four{
+  margin-bottom: 14px;
+  background-color: #f5f5f5;
+  width: 245px;
+  height: 37px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;  
+}
+
+.mj_p_joiner_button{
+  display:;
+  background-color: #0095F6;
+  border: 1px;
+  border-radius: 5px;
+  width: 245px;
+  height: 31px;
+  font-weight: bold;
+  color: #FFFFFF;
 }
 
 /* 로그인 안내 */
 .mj_detourlogin{
+  width: 350px;
+  height: 70px;
+  background-color: #fcfcfc;
+  padding: 10px auto;
+  border: 1px solid #dfdfdf;
+  border-radius: 1px;
+  margin-top: 10px;
+  line-height: 35px;
+}
 
+.mj_d_loginpage{
+  color: #0095F6;
+  text-decoration-line:none;
 }
 
 /* 앱다운 안내 */
 .mj_appdownload{
-
+  padding-top: 5px;
 }
 
 /* 회원가입 하단부 화면 */
@@ -36,7 +158,7 @@ body {
 
 /* 앱, 회사 소개 */
 .mb_intro{
-
+  float: left;
 }
 
 /* 법인 */
