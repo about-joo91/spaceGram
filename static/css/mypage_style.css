@@ -234,9 +234,13 @@
     align-items: center;
     font-size: 14px;
     font-weight: bold;
+    border-top: 1px solid black;
+}
+.mp_pimg_hb_cf_post:hover{
+    cursor: pointer;
 }
 
-.mp_pimg_hb_cf_save {
+.mp_pimg_hb_cf_bookmark {
     width: 33.33%;
     height: 100%;
     /*border: 1px solid red;*/
@@ -244,7 +248,11 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    font-weight: none;
+    font-weight: normal;
+    border-top: none;
+}
+.mp_pimg_hb_cf_bookmark:hover{
+    cursor: pointer;
 }
 
 .mp_pimg_hb_cf_taged {
@@ -255,21 +263,27 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    font-weight: none;
+    font-weight: normal;
+    border-top: none;
+}
+.mp_pimg_hb_cf_taged:hover{
+    cursor: pointer;
 }
 
 .mp_pimg_posts {
     width: 100%;
     height: 100%;
+    display: block;
     /*border: 1px solid blue;*/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
 }
 
 .mp_pimg_pts_postline {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 28px;
 
 }
 
@@ -287,3 +301,54 @@
     padding-bottom: 100%;
 }
 
+.mp_pimg_bookmarks {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.mp_pimg_bm_postline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.mp_pimg_bm_pl_post {
+    width: 31.33%;
+    position: relative;
+    border: 1px solid red;
+    background-image: url("https://user-images.githubusercontent.com/55477835/166437485-603b98f5-25e7-4196-bb18-aa7b579bbb81.png");
+    background-size: cover;
+}
+
+.mp_pimg_bm_pl_post:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.mp_pimg_taged {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.mp_pimg_tg_postline {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.mp_pimg_tg_pl_post {
+    width: 31.33%;
+    position: relative;
+    border: 1px solid red;
+    background-image: url("https://mblogthumb-phinf.pstatic.net/MjAxNzAxMDdfMjI5/MDAxNDgzNzU1MzAwMjIw.RB3pBVb8OEFJs520bum7C-lRoZJwvVU76dtGf7GZK0Eg.HYc7RYoaXOxhmF3TSkU-sW15EOgNE_OCZLiZjLgqglUg.JPEG.candle_yt/reflection-lake-starry-night-wallpaper.jpg?type=w800");
+    background-size: cover;
+}
+
+.mp_pimg_tg_pl_post:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
