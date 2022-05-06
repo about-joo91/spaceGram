@@ -392,7 +392,8 @@ main {
 } 
 
 .lp_s_b_li_s_btn_blue{
-    background-color: #0095f6;;
+    background-color: #0095f6;
+    border-radius: 5px;
     opacity: 0.8;
     width: 100%;
     text-align: center;
@@ -403,6 +404,7 @@ main {
 
 /* 로그인 -> 비밀번호 잊음 */
 .lp_s_b_li_forgot{
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     color: #00376b;
