@@ -10,6 +10,9 @@
 ## db 구조 설계
 
 <img width="1312" alt="SpaceGram_db구조" src="https://user-images.githubusercontent.com/101394490/167047173-1b365162-b2f9-4e26-817e-a37f9664cad1.PNG">
+## api 구조 설계
+
+https://docs.google.com/spreadsheets/d/1vIvI1VCJ-4onYuVVAidv1d5giQntSBrioQWoXs0bhIY/edit#gid=0
 
 
 - 안녕하세요 요가보이가 되고싶은 염기호입니다. 

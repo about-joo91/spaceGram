@@ -7,7 +7,7 @@ body {
   margin: 90px auto;
   max-width: 340px;
   border: none;
-  padding: 20px;
+  padding: 0;
   text-align: center;
 }
 
@@ -44,8 +44,15 @@ img {
   color: #FFFFFF;
 }
 
+.mj_p_facebook_button img{
+  margin-top: -100px;
+  width: 15px;
+  height: 20px;
+}
+
 .mj_p_horizonline{
   padding: 20px;
+  margin: 10px 34px;
 }
 
 .leftHr {
@@ -59,7 +66,7 @@ img {
   width: 17%;
   margin: 2px 5%;
   font-size: 13px;
-  box-sizing: border-box;
+  box-sizing: content-box;
   
   color: #999999;
   font-size: 14px;
@@ -119,7 +126,6 @@ img {
 }
 
 .mj_p_joiner_button{
-  display:;
   background-color: #0095F6;
   border: 1px;
   border-radius: 5px;
@@ -147,22 +153,66 @@ img {
 }
 
 /* 앱다운 안내 */
-.mj_appdownload{
-  padding-top: 5px;
+.mj_download{
+  display: flex;
+  padding: 30px;
+  position: relative;
 }
+
+.mj_d_appstore img{
+  max-width: 70%;
+  max-height: 70%;
+  position: absolute;
+  margin-top: -60px;
+  left: 25px;
+}
+
+.mj_d_googleplay img{
+  max-width: 70%;
+  max-height: 70%;
+  position: absolute;
+  margin-top: -60px;
+  right: 25px;
+}
+
 
 /* 회원가입 하단부 화면 */
 .main_bottombox{
-
+  margin-top: -30px;
+  margin-left: 500px;
 }
 
 /* 앱, 회사 소개 */
 .mb_intro{
-  float: left;
+  display: flex;
+  margin-left: 50px;
+}
+
+.mb_i_margin{
+  margin-right: 20px;
+  color: #8E8E8E;
+  font-size: small;
+}
+
+.mb_i_line{
+  text-decoration-line: none
 }
 
 /* 법인 */
 .mb_corpor{
+  margin-left: 290px;
+  display: flex;
+  margin-top: 20px;
+  text-align: center;
+  color: #8E8E8E;
+  font-size: small;
+}
+
+.mb_c_language{
+  margin-right: 20px;
+}
+
+.mb_c_from{
 
 }
 
