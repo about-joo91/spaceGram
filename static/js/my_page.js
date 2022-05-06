@@ -1,10 +1,11 @@
+//모달을 구성할 때 받아오는 값들을 변수에 저장
 const body = document.querySelector('body');
 const modal = document.querySelector('.mp_modal');
 const btnOpenPopup = document.querySelector('.mp_mp_mt_top_option');
 const closePopup = document.querySelector('.mp_md_exit');
 
 
-//옆의 톱니바퀴를 누르면 모달이 열리는 창
+//옆의 톱니바퀴를 누르면 모달이 열리는 창 구현
 btnOpenPopup.addEventListener('click', function () {
     modal.classList.toggle('show');
     if (modal.classList.contains('show')) {
@@ -25,6 +26,7 @@ modal.addEventListener('click', function (event) {
     }
 });
 
+//여기는 게시물, 저장됨, 태그됨 버튼을 누를 경우 생기는 동작
 function mypost() {
         //누를 때 마다 게시물이 바뀌게
         document.getElementById("mp_pimg_posts").style.display = "block";

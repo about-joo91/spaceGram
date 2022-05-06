@@ -1,14 +1,17 @@
+html{
+    font-size: 62.5%;
+}
 .mypage {
     padding-top: 60px;
     width: 100%;
-    height: 1360px;
+    height: 136rem;
     background-color: #FAFAFA;
     display: block;
 }
 
 .header {
     width: 100%;
-    height: 60px;
+    height: 6rem;
     background-color: white;
     position: fixed;
     top: 0;
@@ -39,15 +42,14 @@
     left: 50%;
     width: 20.84%;
     height: 51.65%;
-    /*padding: 40px;*/
     text-align: center;
     background-color: rgb(255, 255, 255);
     border-radius: 13px;
-    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    box-shadow: 0 0.2rem 0.3rem 0 rgba(34, 36, 38, 0.15);
     transform: translateX(-50%) translateY(-50%);
     flex-direction: column;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 .mp_mp_mt_top_option:hover {
@@ -76,61 +78,50 @@
 }
 
 .mp_myprofile {
-    margin: 23px auto 0px auto;
-    width: 49.21%;
-    height: 150px;
-    /*border: 1px solid gray;*/
+    margin: 2.3rem auto 0px auto;
+    width: 93.5rem;
+    height: 15rem;
     display: flex;
 }
 
 .mp_mp_myimg {
-    width: 34.33%;
+    width: 32.1rem;
     height: 100%;
-    /*border: 1px solid gray;*/
-
 }
 
 .mp_mp_myimg_img {
-    width: 46.72%;
+    width: 15rem;
     height: 100%;
     margin: 0 100px 0 71px;
-    /*border: 1px solid blue;*/
-    /*object-fit: contain;*/
     background-size: cover;
     background-image: url("https://www.instagram.com/static/images/mediaUpsell.jpg/6efc710a1d5a.jpg");
     border-radius: 50%;
 }
 
 .mp_mp_mytext {
-    width: 65.66%;
+    width: 61.4rem;
     height: 100%;
-    /*border: 1px solid gray;*/
 }
 
 .mp_mp_mt_top {
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
-    /*border: 1px solid blue;*/
     display: flex;
 }
 
 .mp_mp_mt_top_nickname {
     display: flex;
-    width: 17.91%;
+    width: 11rem;
     height: 100%;
     margin-right: 20px;
     font-weight: lighter;
-    /*border: 1px solid red;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
     font-size: 23px;
 }
 
 .mp_mp_mt_top_editprofile {
-    width: 15.3%;
+    width: 9rem;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
     align-items: center;
 }
@@ -148,7 +139,6 @@
 .mp_mp_mt_top_option {
     width: 6.51%;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,29 +148,25 @@
     width: 100%;
     height: 24px;
     margin-bottom: 20px;
-    /*border: 1px solid blue;*/
     display: flex;
     font-size: 16px;
 }
 
 .mp_mp_mt_md_intspan {
-    width: 17.1%;
+    width: 10.5rem;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
 }
 
 .mp_mp_mt_md_intfollower {
-    width: 19.54%;
+    width: 12rem;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
 }
 
 .mp_mp_mt_md_intfollow {
-    width: 17%;
+    width: 6.7rem;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
 
 }
@@ -189,21 +175,18 @@
     width: 100%;
     height: 24px;
     margin-bottom: 20px;
-    /*border: 1px solid blue;*/
 }
 
 .mp_mp_mt_bt_name {
     width: 100%;
     height: 100%;
-    /*border: 1px solid red;*/
     font-weight: bold;
 }
 
 /*여기부터 post*/
 .mp_postimg {
-    width: 49.21%;
-    height: 988px;
-    /*border : 1px solid gray;*/
+    width: 93.4rem;
+    height: 98.8rem;
     margin: 0px auto;
     margin-top: 48px;
 
@@ -212,7 +195,6 @@
 .mp_pimg_headbar {
     width: 100%;
     height: 53px;
-    /*border: 1px solid blue;*/
     border-top: 0.1px solid lightgray;
 
 }
@@ -220,7 +202,6 @@
 .mp_pimg_hb_classify {
     width: 29.69%;
     height: 100%;
-    /*border: 1px solid blue;*/
     margin: 0px auto;
     display: flex;
 }
@@ -228,7 +209,6 @@
 .mp_pimg_hb_cf_post {
     width: 33.33%;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -243,7 +223,6 @@
 .mp_pimg_hb_cf_bookmark {
     width: 33.33%;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -258,7 +237,6 @@
 .mp_pimg_hb_cf_taged {
     width: 33.33%;
     height: 100%;
-    /*border: 1px solid red;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,10 +252,6 @@
     width: 100%;
     height: 100%;
     display: block;
-    /*border: 1px solid blue;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: space-between;*/
 }
 
 .mp_pimg_pts_postline {
