@@ -2,14 +2,25 @@
 body {
     background-color: #fafafa;
     -webkit-text-size-adjust: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
     margin: 0;
 }
 
+a{
+    text-decoration-line: none;
+}
 /* 2. 바디 > 메인 파트 */
 
 /* 메인태그 */
 main {
-    background-color: rgba(var(--b3f,250,250,250),1);
+    background-color: #fafafa;
     display: flex;
     box-sizing: border-box;
     -webkit-box-align: stretch;
@@ -45,31 +56,484 @@ main {
     
 }
 
-.lp_box{
-    background-color: #ffffff;
-    border: solid black 1px;
+.lp_set{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    justify-content: center;
     flex-direction: column;
-    justify-items: center;
-    align-items: center;
+    flex-shrink: 0;
+    align-items: stretch;
     max-width: 762px;
-    height: 395px;
-}
-
-.lp_b_logo{
-    background-image: url("../images/instagram_logo.png");
-    width
-}
-
-/* .lp_b_login{}
-
-.lp_b_li_id{
-
-}
-
-.lp_b_li_pw{
-
-}
-
-.lp_b_li_btn{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: baseline;
     
-} */
+}
+
+.lp_s_box{
+    background-color: #ffffff;
+    align-items: center;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    flex-shrink: 0;
+    vertical-align: baseline;
+    background-color: #fff;
+    border: solid #dbdbdb 1px;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    height: 395px;
+    position: relative;
+}
+
+.lp_s_b_logo{
+    margin-top: 36px;
+    margin-bottom: 12px;
+    -webkit-box-flex: 0;
+    -webkit-box-pack: start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-align: stretch;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    display: flex;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    background-image: url("../images/instagram_logo.png");
+    background-size: cover;
+    width: 175px;
+    height: 51px;
+    
+}
+
+.lp_b_login{
+    margin-bottom: 10px;
+    max-width: 762px;
+    width: 100%;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.lp_s_b_li_set{
+    margin-top: 24px;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    align-content: stretch;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.lp_b_li_s_id{
+    margin: 0 40px 6px;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+
+}
+
+.lp_s_b_li_s_id_input{
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #262626;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+}
+
+.lp_s_b_li_s_id_i_box{
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 0 0;
+    height: 36px;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    position: relative;
+}
+
+.lp_s_b_li_s_id_i_b_span{
+    font-size: 12px;
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.lp_s_b_li_s_id_i_b_input{
+    font-size: 16px;
+    background: #fafafa;
+    border: 0;
+    -webkit-box-flex: 1;
+    flex: 1 0 auto;
+    margin: 0;
+    outline: 0;
+    overflow: hidden;
+    padding: 9px 0 7px 8px;
+    text-overflow: ellipsis;
+    -webkit-appearance: none;
+    line-height: 18px;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+
+.lp_s_b_li_s_id_i_b_input::placeholder{
+    font-size: 12px;
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    align-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    /* position: absolute; */
+    right: 0;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    user-select: none;
+    white-space: nowrap;
+}
+
+
+.lp_s_b_li_s_id_space{
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: 100%;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+
+/* 로그인 -> 비밀번호 */
+.lp_b_li_pw{
+    margin: 0 40px 6px;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+
+}
+
+.lp_s_b_li_s_pw_input{
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #262626;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+}
+
+.lp_s_b_li_s_pw_i_box{
+    display: flex;
+    -webkit-box-flex: 1;
+    flex: 1 0 0;
+    height: 36px;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+    position: relative;
+}
+
+.lp_s_b_li_s_pw_i_b_span{
+    font-size: 12px;
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.lp_s_b_li_s_pw_i_b_input{
+    font-size: 16px;
+    background: #fafafa;
+    border: 0;
+    -webkit-box-flex: 1;
+    flex: 1 0 auto;
+    margin: 0;
+    outline: 0;
+    overflow: hidden;
+    padding: 9px 0 7px 8px;
+    text-overflow: ellipsis;
+    -webkit-appearance: none;
+    line-height: 18px;
+    -webkit-text-security: disc !important;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+
+.lp_s_b_li_s_pw_i_b_input::placeholder{
+    font-size: 12px;
+    height: 36px;
+    left: 8px;
+    line-height: 36px;
+    align-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    /* position: absolute; */
+    right: 0;
+    text-overflow: ellipsis;
+    transform-origin: left;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.lp_s_b_li_s_pw_space{
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: 100%;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+
+/* 로그인 버튼 */
+.lp_s_b_li_s_btn{
+    margin-top: 8px;
+    /* margin-right: 40px;
+    margin-left: 40px; */
+    margin-bottom: 8px;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    align-content: stretch;
+    display: flex;
+
+} 
+
+.lp_s_b_li_s_btn_blue{
+    background-color: #0095f6;;
+    opacity: 0.8;
+    width: 100%;
+    text-align: center;
+    color: #fff
+}
+
+
+
+/* 로그인 -> 비밀번호 잊음 */
+.lp_s_b_li_forgot{
+    display: flex;
+    justify-content: center;
+    color: #00376b;
+}
+
+.lp_s_b_li_forgot_box{
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* 로그인 -> 하이라이트 */
+.lp_s_b_li_s_highlight{
+    margin: 10px 0 18px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    align-items: stretch;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+    opacity: 0.6;
+    padding: 0;
+    position: relative;
+}
+
+.lp_s_b_li_s_hl_line{
+    background-color: #dbdbdb;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 1px;
+    position: relative;
+    top: 0.45em;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.lp_s_b_li_s_hl_or{
+    font-style: #8e8e8e;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15px;
+    margin: 0 18px;
+    text-transform: uppercase;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    border: 0 solid #000;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+}
+
+
+
+/* 회원 가입  */
+.lp_newbie{
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    height: 63px;
+    font: inherit;
+    vertical-align: baseline;
+
+}
+
+/* 회원가입 -> 회원가입 버튼 */
+.lp_nb_register{
+    display: block;
+    color: #8e8e8e;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: -3px;
+    margin-right: 0px;
+    margin-bottom: -4px;
+    margin-left: 0px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+
+}
+
+.lp_nb_rg_ask{
+    color: #262626;
+    font-size: 14px;
+    margin: 15px;
+    text-align: center;
+}
+
+.lp_nb_rg_a_link{
+    display: inline!important;
+    margin: 0!important;
+    color: #0095f6;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    
+}
+
+.lp_download{
+
+}
