@@ -179,19 +179,18 @@ img {
 /* 회원가입 하단부 화면 */
 .main_bottombox{
   margin-top: -30px;
-  margin-left: 500px;
 }
 
 /* 앱, 회사 소개 */
 .mb_intro{
   display: flex;
-  margin-left: 50px;
+  justify-content: center;
 }
 
 .mb_i_margin{
-  margin-right: 20px;
   color: #8E8E8E;
   font-size: small;
+  margin-left: 15px;
 }
 
 .mb_i_line{
@@ -200,12 +199,12 @@ img {
 
 /* 법인 */
 .mb_corpor{
-  margin-left: 290px;
   display: flex;
   margin-top: 20px;
   text-align: center;
   color: #8E8E8E;
   font-size: small;
+  justify-content: center;
 }
 
 .mb_c_language{

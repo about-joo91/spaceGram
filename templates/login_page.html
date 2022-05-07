@@ -11,6 +11,7 @@
         <!-- src 부분을 https 로 변경해주면 로딩이 없어지는 상황이 있었음 -->
         <!-- 로컬 css, js 임포트-->
         <link rel="stylesheet" href="../static/css/login_page.css">
+        <link rel="stylesheet" href="../static/css/join_page.css" />
 
     </head>
 
@@ -42,7 +43,7 @@
                             </div>
                             <div class="lp_s_b_li_s_btn">
                                 <button class="lp_s_b_li_s_btn_blue" disabled type="submit">
-                                    로그인
+                                    <a class="lp_s_b_li_s_btn_b_mainpage" href="main.html">로그인</a>
                                 </button>
                             </div>
                             <div class="lp_s_b_li_s_highlight">
@@ -51,8 +52,11 @@
                                 <div class="lp_s_b_li_s_hl_line"></div>
                             </div>
                             <div class="lp_s_b_li_s_facebook">
-                                <div class="lp_s_b_li_s_fb_logo"></div>
-                                <div class="lp_s_b_li_s_fb_login"></div>
+                                <!-- 현님 페이스북 버튼 가져옴 -->
+                                <button class="mj_p_facebook_button">
+                                    <img src="../static/images/facebook3.png" />
+                                    <a class ="mj_p_facebook_button_main" href="main.html">Facebook으로 로그인</a>
+                                </button>
                             </div>
                         </div>
                         <div class="lp_s_b_li_forgot">
@@ -83,7 +87,79 @@
                 </div>
             </div>
         </div>
-        <!-- Footer -->
-        <footer class="text-center text-lg-start bg-light text-muted"></footer>
+        <!-- Footer 김현님 코드 복붙-->
+        <div class="main_bottombox">
+            <br>
+            <!-- 앱, 회사 소개 -->
+            <div class="mb_intro">
+              <div class="mb_i_meta">
+                <a class="mb_i_line" href="#">
+                  <div class="mb_i_m_button mb_i_margin">meta</div>
+                </a>
+              </div>
+              <div class="mb_i_intro">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_i_button mb_i_margin">소개</div>
+                </a>
+              </div>
+              <div class="mb_i_blog">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_b_button mb_i_margin">블로그</div>
+                </a>
+              </div>
+              <div class="mb_i_recruit">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_r_button mb_i_margin">채용 정보</div>
+                </a>
+              </div>
+              <div class="mb_i_help">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_h_button mb_i_margin">도움말</div>
+                </a>
+              </div>
+              <div class="mb_i_api">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_a_button mb_i_margin">api</div>
+                </a>
+              </div>
+              <div class="mb_i_personalInfor">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_p_button mb_i_margin">개인정보처리방침</div>
+                </a>
+              </div>
+              <div class="mb_i_clause">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_c_button mb_i_margin">약관</div>
+                </a>
+              </div>
+              <div class="mb_i_popul">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_pop_button mb_i_margin">인기 계정</div>
+                </a>
+              </div>
+              <div class="mb_i_tag">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_t_button mb_i_margin">해시태그</div>
+                </a>
+              </div>
+              <div class="mb_i_location">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_l_button mb_i_margin">위치</div>
+                </a>
+              </div>
+              <div class="mb_i_lite">
+                <a class="mb_i_line" href="#" rel="nofollow noopener noreferrer">
+                  <div class="mb_i_lite_button mb_i_margin">Instagram Lite</div>
+                </a>
+              </div>
+            </div>
+            <!-- 법인 -->
+            <div class="mb_corpor">
+              <div class="mb_c_language">한국어</div>
+              <div class="mb_c_from">© 2022 spaceGram from Meta</div>
+            </div>
+            <!-- 빈공간 -->
+            <div class="mb_empty"></div>
+          </div>
         <!-- Footer -->
     </body>
