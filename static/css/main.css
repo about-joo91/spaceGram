@@ -250,13 +250,13 @@ body {
 }
 
 /* 메인바디 캐러셀 */
-.mb_l_mc_mib_carousel {
-    float: left;
-}
-
 .mb_l_mc_main_image_box {
     overflow-x: hidden;
     width: 615px;
+}
+
+.mb_l_mc_mib_carousel {
+    float: left;
 }
 
 .mb_l_mc_mib_button {
@@ -562,22 +562,31 @@ body {
 }
 
 .hm_w_body {
-    width: 80%;
-    max-height: 65rem;
-    max-width: 86rem;
-    margin: 10rem auto 0 auto;
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0, auto;
     background-color: white;
     display: flex;
 }
 
+
 .hm_w_b_img {
-    width: 60%;
-    object-fit: cover;
+    width: 100%;
 }
 
 .hm_w_b_content_box {
+    min-width: 30rem;
     width: 40%;
+
 }
+
 
 .hm_w_b_cb_my_account {
     margin: 15px;
@@ -599,6 +608,10 @@ body {
 
 .hm_w_b_cb_mc_f_txt {
     margin-left: 10px;
+}
+
+.hm_w_b_cb_ma_dot_icon:hover {
+    cursor: pointer;
 }
 
 .hm_w_b_cb_under {
@@ -638,10 +651,73 @@ body {
 .hm_w_x_button {
     color: white;
     font-size: 50px;
-    position: relative;
-    left: 75rem;
+    position: absolute;
+    left: 90%;
 }
 
 .hm_w_x_button:hover {
     cursor: pointer;
+}
+
+.hm_w_button_box {
+    height: 0;
+    position: relative;
+    top: 45%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.hm_w_btn_prev {
+    margin-left: 10px;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    box-shadow: 2px 1px 1px rgb(142, 142, 142);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    visibility: hidden;
+}
+
+.hm_w_btn_prev:hover {
+    cursor: pointer;
+}
+
+.hm_w_btn_next {
+    margin-right: 10px;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+    box-shadow: 2px 1px 1px rgb(142, 142, 142);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    visibility: hidden;
+}
+
+.hm_w_btn_next:hover {
+    cursor: pointer;
+}
+
+.hm_w_b_ib_img {
+    float: left;
+}
+
+.hm_w_b_img_wrapper {
+    overflow-x: hidden;
+    width: 60%;
+}
+
+.hm_w_b_iw_img_box {
+    display: flex;
+    float: left;
 }
