@@ -1,23 +1,112 @@
 html{
     font-size: 62.5%;
 }
+/*여기는 main의 header 가져옴*/
+.main_header {
+    height: 65px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    box-shadow: 2px 1px 0.5px rgb(230, 230, 230);
+}
+
+.mh_contents_wrapper {
+    height: 100%;
+    width: 945px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 0.7fr 1fr;
+}
+
+.mh_name {
+    font-size: x-large;
+}
+
+.mh_search_bar {
+    display: flex;
+}
+
+
+.mh_sb_ib_o_icon {
+    position: relative;
+    color: rgb(142, 142, 142);
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.mh_sb_ib_o_txt {
+    color: rgb(142, 142, 142);
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.mh_sb_input_box {
+    border-radius: 8px;
+    min-width: 125px;
+    height: 36px;
+    display: flex;
+    position: relative;
+    width: 26.8rem;
+
+}
+
+.mh_sb_ib_input {
+    outline: 0;
+    border: 0;
+    padding: 10px 30px 10px 20px;
+    font-size: 16px;
+    background-color: rgb(239, 239, 239);
+    border-radius: 8px;
+}
+
+.mh_sb_ib_overlap_box {
+    position: relative;
+    left: -95%;
+    top: 10px;
+    display: flex;
+    padding-left: 16px;
+}
+
+.mh_icons {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.mh_i_home,
+.mh_i_send,
+.mh_i_square,
+.mh_i_compass,
+.mh_i_heart {
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.mh_circle_avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+/*여기부터 mypage*/
 .mypage {
-    padding-top: 60px;
+    padding-top: 20px;
     width: 100%;
     height: 136rem;
     background-color: #FAFAFA;
     display: block;
 }
 
-.header {
-    width: 100%;
-    height: 6rem;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
+/*.header {*/
+/*    width: 100%;*/
+/*    height: 6rem;*/
+/*    background-color: white;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*}*/
 
 .mp_modal {
     z-index: 2;
