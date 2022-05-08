@@ -45,6 +45,10 @@ body {
     font-size: x-large;
 }
 
+.mh_name:hover {
+    cursor: pointer;
+}
+
 .mh_search_bar {
     display: flex;
 }
@@ -105,12 +109,23 @@ body {
     margin-right: 20px;
 }
 
+.mh_i_home:hover,
+.mh_i_send:hover,
+.mh_i_square:hover,
+.mh_i_compass:hover,
+.mh_i_heart:hover {
+    cursor: pointer;
+}
+
 .mh_circle_avatar {
     width: 25px;
     height: 25px;
     border-radius: 50%;
 }
 
+.mh_circle_avatar:hover {
+    cursor: pointer;
+}
 
 
 
@@ -728,7 +743,7 @@ body {
     height: 100vh;
     background: rgba(0, 0, 0, 0.7);
     z-index: 2;
-    display: flex;
+    display: none;
 }
 
 .upload_modal {

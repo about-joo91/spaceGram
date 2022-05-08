@@ -3,13 +3,15 @@ from flask import Flask, jsonify, render_template, request
 import datetime
 from pymongo import MongoClient
 import base64
-client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+from PIL import Image
+import hashlib
+client = MongoClient('mongodb+srv://test:sparta@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 db = client.dbsparta
 
 app = Flask(__name__)
-
-
+ab = hashlib.sha256('1234'.encode('utf-8')).hexdigest()
+print(ab)
 @app.route('/')
 def home():
     return render_template('main.html')
@@ -24,10 +26,10 @@ def post_file():
     user_id = ''
     files = request.files['img']
     content = request.form['content']
-    file_base64 = base64.b64encode(files.read())
+    image_base64 = base64.b64encode(files.read())
     doc = {
         'user_id': user_id,
-        'file' : file_base64,
+        'file' : image_base64,
         'content': content,
         'timestamp': datetime.datetime.utcnow()
     }
