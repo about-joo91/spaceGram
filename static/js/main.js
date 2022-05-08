@@ -197,7 +197,6 @@ if (length_of_image >= 1) {
 }
 
 const hm_w_b_img = document.querySelector('.hm_w_b_img')
-console.log(hm_w_b_img.parentElement.style.width)
 hm_w_btn_next.addEventListener('click', function () {
     if (++cur_idx_for_huge_modal == length_of_image - 1) {
         hm_w_btn_next.style.visibility = 'hidden'
@@ -221,6 +220,9 @@ const um_desc = document.querySelector('.um_desc');
 const um_header_next_btn = document.querySelector('.um_header_next_btn')
 const um_header_upload_btn = document.querySelector('.um_header_upload_btn');
 const um_comment_page = document.querySelector('.um_comment_page');
+const mh_i_square = document.querySelector('.mh_i_square')
+const upload_modal_wrapper = document.querySelector('.upload_modal_wrapper')
+
 function isValid(data) {
     if (data.types.indexOf('Files') < 0)
         return false;
@@ -235,11 +237,13 @@ function isValid(data) {
 }
 upload_modal.addEventListener('dragover', function (e) {
     e.preventDefault();
-    console.log('drag_over')
+    um_desc.style.transition = 500 + 'ms'
+    um_desc.style.color = 'rgb(65, 147, 239)'
 });
 upload_modal.addEventListener('dragleave', function (e) {
     e.preventDefault();
-    console.log('drag_leave')
+    um_desc.style.transition = 500 + 'ms'
+    um_desc.style.color = 'black'
 });
 
 const formData = new FormData();
@@ -271,7 +275,6 @@ um_header_next_btn.addEventListener('click', function () {
 um_header_upload_btn.addEventListener('click', () => {
     let content_give = $('#um_cp_ma_f_input').val()
     formData.append('content', content_give)
-    console.log(formData)
     $.ajax({
         type: "POST",
         url: "/posts",
@@ -285,6 +288,26 @@ um_header_upload_btn.addEventListener('click', () => {
 
     })
 
-
 }
 )
+function upload_modal_in() {
+    upload_modal_wrapper.style.display = 'flex';
+}
+function upload_modal_out() {
+    upload_modal_wrapper.style.display = 'none'
+}
+mh_i_square.addEventListener('click', upload_modal_in)
+upload_modal_wrapper.addEventListener('click', function (e) {
+    if (e.target.classList.contains('upload_modal_wrapper')) {
+        upload_modal_out()
+    }
+})
+
+// 홈화면 네비게이팅 
+const mh_i_home = document.querySelector('.mh_i_home')
+const mh_name = document.querySelector('.mh_name')
+function home_redirecting() {
+    window.location.replace('/')
+}
+mh_i_home.addEventListener('click', home_redirecting)
+mh_name.addEventListener('click', home_redirecting)
