@@ -214,3 +214,77 @@ hm_w_btn_prev.addEventListener('click', function () {
     hm_w_b_img_box.style.transition = 500 + "ms"
     hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)"
 })
+
+const upload_modal = document.querySelector('.upload_modal');
+const preview_image = document.getElementById('um_preview_image')
+const um_desc = document.querySelector('.um_desc');
+const um_header_next_btn = document.querySelector('.um_header_next_btn')
+const um_header_upload_btn = document.querySelector('.um_header_upload_btn');
+const um_comment_page = document.querySelector('.um_comment_page');
+function isValid(data) {
+    if (data.types.indexOf('Files') < 0)
+        return false;
+    if (data.files[0].type.indexOf('image') < 0) {
+        alert('이미지 파일만 업로드 가능합니다.')
+        return false;
+    }
+    if (data.files[0].size >= 1024 * 1024 * 50) {
+        alert('50MB 이상인 파일은 업로드 할 수 없습니다.')
+    }
+    return true;
+}
+upload_modal.addEventListener('dragover', function (e) {
+    e.preventDefault();
+    console.log('drag_over')
+});
+upload_modal.addEventListener('dragleave', function (e) {
+    e.preventDefault();
+    console.log('drag_leave')
+});
+
+const formData = new FormData();
+upload_modal.addEventListener('drop', function (e) {
+    e.preventDefault();
+    const data = e.dataTransfer;
+    if (!isValid(data)) return;
+
+    formData.append('img', data.files[0])
+    const reader = new FileReader();
+    reader.onload = () => {
+        preview_image.style.display = 'block'
+        um_desc.style.display = 'none'
+        um_header_next_btn.style.display = 'flex'
+        preview_image.src = reader.result;
+    }
+    reader.readAsDataURL(data.files[0])
+});
+um_header_next_btn.addEventListener('click', function () {
+    um_header_next_btn.style.display = 'none'
+    upload_modal.style.transition = 500 + "ms"
+    upload_modal.style.width = 800 + "px"
+
+    setTimeout(() => {
+        um_header_upload_btn.style.display = 'flex'
+        um_comment_page.style.display = 'block'
+    }, 500)
+})
+um_header_upload_btn.addEventListener('click', () => {
+    let content_give = $('#um_cp_ma_f_input').val()
+    formData.append('content', content_give)
+    console.log(formData)
+    $.ajax({
+        type: "POST",
+        url: "/posts",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            alert(response['msg'])
+            window.location.reload()
+        },
+
+    })
+
+
+}
+)
