@@ -82,7 +82,7 @@ def bookmark(user):
             'timestamp': datetime.utcnow()
         }
         if result is not None:
-            db.book_mark.insert_one({'book_mark_id':book_mark_id, 'user_id': user_id, 'post_id': post_id})
+            db.book_mark.insert_one(doc)
         else:
             db.book_mark.delete_one({'book_mark_id':book_mark_id, 'user_id': user_id, 'post_id': post_id})
         return jsonify({'result':'success'})  
