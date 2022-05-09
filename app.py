@@ -8,7 +8,7 @@ import jwt
 import hashlib
 
 from PIL import Image
-client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:bingo@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -29,7 +29,7 @@ def authrize(f):
         return f(user, *args, **kws)
     return decorated_function
     
-@app.route('/')
+@app.route('/home')
 @authrize
 def home(user):
     if user is not None:
@@ -39,7 +39,7 @@ def home(user):
             post['file'] = post['file'].decode('utf-8')
         return render_template('main.html', posts = post_list)
 
-@app.route('/login_page')
+@app.route('/')
 def login_page():
     return render_template('login_page.html')
 
@@ -93,7 +93,7 @@ def my_page(user):
     if user is not None:
         return render_template('mypage.html')
 
-@app.route('/login_page/login',methods=['POST'])
+@app.route('/login',methods=['POST'])
 def sign_in():
     email_receive = request.form['email_give']
     pw_receive = request.form['pw_give']
