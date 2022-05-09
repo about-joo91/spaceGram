@@ -10,7 +10,8 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:stopChanging@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://t@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+import certifi
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -53,7 +54,7 @@ def home(user):
             post['comment'] = user_info_comments
         return render_template('main.html', posts = post_list)
 
-@app.route('/')
+@app.route('/login_page')
 def login_page():
     return render_template('login_page.html')
 
@@ -105,7 +106,31 @@ def check():
 @authrize
 def my_page(user):
     if user is not None:
-        return render_template('mypage.html')
+        print("user= ", user)
+        my_post = list(db.posts.find({'user_id' : user["id"]}))
+        my_follower = list(db.follow_map.find({'user_id' : user["id"]}))
+        my_follow = list(db.follow_map.find({'target_user_id' : user["id"]}))
+
+        count_my_post = len(my_post)
+        count_my_follower = len(my_follower)
+        count_my_follow = len(my_follow)
+        print("포스트 개수 : ",count_my_post)
+        print("팔로워 개수 : ",count_my_follower)
+        print("팔로우 개수 : ",count_my_follow)
+
+        my_profile_dic = {
+            "count_my_post" : count_my_post,
+            "count_my_follower" : count_my_follower,
+            "count_my_follow" : count_my_follow
+        }
+
+        my_posts = list(db.posts.find({'user_id' : user["id"]}))
+        my_posts_url = my_posts['']
+        
+
+        return render_template('mypage.html',my_profile_dic = my_profile_dic)
+
+
 
 @app.route('/login',methods=['POST'])
 def sign_in():

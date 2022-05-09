@@ -106,26 +106,27 @@
                 </div>
             </div>
 
-
+            {% if my_profile_dic %}
             <div class="mp_mp_mt_middle">
 <!--                id값을 받아올 int값과 아닌text를 구분-->
                 <div class="mp_mp_mt_md_intspan">
                     <div class="mp_mp_mt_md_is_text">게시물</div>
-                    <div class="mp_mp_mt_md_is_int">$0</div>
+                    <div class="mp_mp_mt_md_is_int">{{my_profile_dic['count_my_post']}}</div>
                 </div>
                 <div class="mp_mp_mt_md_intfollower">
                     <div class="mp_mp_mt_md_ifwer_text">팔로워</div>
-                    <div class="mp_mp_mt_md_ifwer_int">$0</div>
+                    <div class="mp_mp_mt_md_ifwer_int">{{my_profile_dic['count_my_follower']}}</div>
                 </div>
                 <div class="mp_mp_mt_md_intfollow">
                     <div class="mp_mp_mt_md_if_text">팔로우</div>
-                    <div class="mp_mp_mt_md_if_int">$0</div>
+                    <div class="mp_mp_mt_md_if_int">{{my_profile_dic['count_my_follow']}}</div>
                 </div>
             </div>
 
             <div class="mp_mp_mt_bottom">
                 <div class="mp_mp_mt_bt_name">$내이름</div>
             </div>
+            {% endif %}
 
         </div>
 
