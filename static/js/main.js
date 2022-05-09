@@ -78,7 +78,7 @@ mh_circle_avatar.addEventListener('click', function () {
 const small_modal_wrapper = document.querySelector('.small_modal_wrapper');
 const small_modal_body = document.querySelector('.sm_w_body');
 let modal_left_now = parseInt((window.innerWidth * 0.7) / 2)
-let modal_top_now = parseInt((document.body.clientHeight) / 1.5)
+let modal_top_now = parseInt((document.documentElement.clientHeight) / 3)
 small_modal_body.innerHTML = `
                                     <div class="sm_w_body_txt sm_w_b_t_red">신고</div>
                                     <div class="sm_w_body_txt sm_w_b_t_red">팔로우 취소</div>
@@ -95,7 +95,7 @@ const mb_l_mc_h_b_dot_icon = document.querySelector('.mb_l_mc_h_b_dot_icon');
 const modal_cancel_button = document.querySelector('.modal_cancel_button')
 function small_modal_in() {
     small_modal_wrapper.style.display = 'block';
-    document.body.style.overflow = 'hidden'
+    // document.body.style.overflow = 'hidden'
 }
 function small_modal_out() {
     small_modal_wrapper.style.display = 'none';
@@ -305,7 +305,7 @@ upload_modal_wrapper.addEventListener('click', function (e) {
 const mh_i_home = document.querySelector('.mh_i_home')
 const mh_name = document.querySelector('.mh_name')
 function home_redirecting() {
-    window.location.replace('/')
+    window.location.replace('/home')
 }
 mh_i_home.addEventListener('click', home_redirecting)
 mh_name.addEventListener('click', home_redirecting)
