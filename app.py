@@ -8,7 +8,7 @@ import jwt
 import hashlib
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:bingo@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:bluemoon@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -139,6 +139,26 @@ def post_file(user):
         }
         db.posts.insert_one(doc)
         return jsonify({'msg': '저장완료!'})
+
+@app.route('/like', methods=['POST'])
+@authrize
+def likes(user):
+    if user is not None:
+        user_id = user.get('id')
+        post_id_receive = request.form['post_id']
+        action_receive = request.form['action_give']
+        doc = {
+            'user_id': user_id,
+            'post_id' : post_id_receive,
+            'timestamp': datetime.utcnow()
+        }
+        if action_receive == 'like':
+            db.likes.insert_one(doc)
+        else:
+            db.likes.delete_one(doc)
+        return jsonify({'result':'success'})      
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
