@@ -274,6 +274,11 @@ body {
     float: left;
 }
 
+.mb_l_mc_mib_c_img {
+    width: 614px;
+    height: 700px;
+}
+
 .mb_l_mc_mib_button {
     display: flex;
     height: 0;
