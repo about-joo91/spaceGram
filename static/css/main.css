@@ -380,15 +380,6 @@ body {
     margin-left: 5px;
 }
 
-.mb_l_mc_c_lk_comments_button {
-    color: rgb(142, 142, 142);
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-.mb_l_mc_c_lk_comments_button:hover {
-    cursor: pointer;
-}
 
 .mb_l_mc_c_lk_comments {
     margin-top: 5px;
@@ -438,6 +429,10 @@ body {
     padding: 3px 16px;
     width: 100%;
     font-size: 15px;
+}
+
+.mb_l_mc_c_ci_back {
+    color: rgb(65, 147, 239);
 }
 
 /*  라이트 플로팅 박스 */

@@ -1,15 +1,17 @@
 from functools import wraps
 from io import BytesIO
+from django.test import RequestFactory
 from flask import Flask, jsonify, render_template, request, abort
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pymongo import MongoClient
 import base64
 import jwt
 import hashlib
-import certifi
+from bson.objectid import ObjectId
 
-# from PIL import Image
-client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+from PIL import Image
+client = MongoClient('mongodb+srv://t@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+import certifi
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -38,6 +40,18 @@ def home(user):
         post_list = list(db.posts.find({'user_id' : user_id}))
         for post in post_list:
             post['file'] = post['file'].decode('utf-8')
+            post['timestamp'] = (datetime.utcnow() - post['timestamp']).days
+            comments = list(db.comment.find({'post_id':str(post['_id'])}, {"_id":0}))
+            user_info_comments =[]
+            for comment in comments:
+                user_dict = db.user.find_one({'_id':ObjectId(comment.get('user_id'))})
+                comment_dict = {
+                    'nick_name': user_dict.get('nick_name'),
+                    'profile_img' : user_dict.get('profile_img'),
+                    'comment': comment.get('content'),
+                }
+                user_info_comments.append(comment_dict)
+            post['comment'] = user_info_comments
         return render_template('main.html', posts = post_list)
 
 @app.route('/login_page')
@@ -128,7 +142,7 @@ def sign_in():
     if result is not None:
         payload = {
             'id' : str(result.get('_id')),
-            'email':email_receive,
+            'nick_name':result.get('nick_name'),
             'exp' : datetime.utcnow() + timedelta(seconds=60 * 60 * 24)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
@@ -143,7 +157,7 @@ def sign_in():
 def post_file(user):
     if user is not None:
         user_id = user.get('id')
-        user_email = user.get('email')
+        user_nick_name = user.get('nick_name')
         file = request.files['img']
         extension = file.filename.split('.')[-1]
         format = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
@@ -157,7 +171,7 @@ def post_file(user):
         content = request.form['content']
         doc = {
             'user_id': user_id,
-            'user_email': user_email,
+            'user_nick_name': user_nick_name,
             'file' : image_base64,
             'content': content,
             'timestamp': datetime.utcnow()
@@ -186,7 +200,20 @@ def likes(user):
             })
         return jsonify({'result':'success'})      
 
-
-
+@app.route('/comment', methods=['POST'])
+@authrize
+def comment(user):
+    if user is not None:
+        user_id = user.get('id')
+        post_id_receive = request.form['post_id']
+        comment_receive = request.form['comment_give']
+        doc = {
+            'post_id' : post_id_receive,
+            'user_id' : user_id,
+            'content' : comment_receive,
+            'timestamp': datetime.utcnow()
+        }
+        db.comment.insert_one(doc)
+        return jsonify({'result': 'success'})
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
