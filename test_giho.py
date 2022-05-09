@@ -52,6 +52,7 @@ def likes(user):
             'post_id' : post_id_receive,
             'timestamp': datetime.utcnow()
         }
+        # likes -> posts_like로 수정
         if action_receive == 'like':
             db.likes.insert_one(doc)
         else:

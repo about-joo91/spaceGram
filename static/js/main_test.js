@@ -349,7 +349,7 @@ function like(post_id) {
     }
 }
 
-//클릭시 색변화 
+//클릭
 const like = document.getElementById('like')
 like.addEventListener('click',like('627877fa2cc4018674a69780'))
 

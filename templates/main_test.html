@@ -156,11 +156,12 @@
                     </div>
                 </div>
             </div>
+            {% for post in posts %}
             <div class="mb_l_main_cards">
                 <div class="mb_l_mc_header">
                     <div class="mb_l_mc_h_front">
                         <img src="/static/images/profile.jpeg" class="mb_l_mc_h_f_circle_avatar">
-                        <div class="mb_l_mc_h_f_id">about_joo</div>
+                        <div class="mb_l_mc_h_f_id">{{post.user_email}}</div>
                     </div>
                     <div class="mb_l_mc_h_back">
                         <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon"></i>
@@ -175,19 +176,15 @@
                             <i class="bi bi-chevron-right"></i>
                         </div>
                     </div>
-                    <div class="mb_l_mc_mib_carousel"></div>
+                    <div class="mb_l_mc_mib_carousel">
+                        <img class="mb_l_mc_mib_c_img" src="data:image/jpeg;base64,{{post.file}}">
+                    </div>
                 </div>
                 <div class="mb_l_mc_comment">
                     <div class="mb_l_mc_c_liked_box">
                         <div class="mb_l_mc_c_lk_icon_box">
-                            <!-- ..수정 -->
-                            <!-- ..수정 -->
-                            <!-- ..수정 area-label 추가 -->
-                            <div class="mb_l_mc_c_lk_ic_front" aria-label="heart">
-                                <!-- ..수정 -->
-                                <!-- ..수정 -->
-                                <!-- ..수정  id 추가 -->
-                                <i id="like" class="bi bi-heart mb_l_mc_c_lk_ic_icons"></i>
+                            <div class="mb_l_mc_c_lk_ic_front">
+                                <i class="bi bi-heart mb_l_mc_c_lk_ic_icons"></i>
                                 <i class="bi bi-chat mb_l_mc_c_lk_ic_icons"></i>
                                 <i class="bi bi-send mb_l_mc_c_lk_ic_icons"></i>
                             </div>
@@ -200,8 +197,8 @@
                             <div class="mb_l_mc_c_lk_lp_id">about_joo 님 외 12명이 좋아합니다</div>
                         </div>
                         <div class="mb_l_mc_c_lk_my_comment">
-                            <div class="mb_l_mc_c_lk_mc_id">about_joo</div>
-                            <div class="mb_l_mc_c_lk_mc_comment">꽃이 너무 이쁘다</div>
+                            <div class="mb_l_mc_c_lk_mc_id">{{post.user_email}}</div>
+                            <div class="mb_l_mc_c_lk_mc_comment">{{post.content}}</div>
                         </div>
                         <div class="mb_l_mc_c_lk_comments_button">댓글 5개 모두 보기</div>
                         <div class="mb_l_mc_c_lk_comments">
@@ -221,7 +218,9 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
+
         <div class="mb_right_float_box">
             <div class="mb_rf_my_account">
                 <div class="mb_rf_ma_front">
@@ -247,9 +246,17 @@
                     <div class="mb_rf_ra_f_txt">
                         <div class="mb_rf_ra_f_t_id">about_joo</div>
                         <div class="mb_rf_ra_f_t_follower">blahblah님이 팔로우합니다</div>
+                        <!-- user.img data를 -->
+                        <!-- 다른사람 계정에서 팔로우 버튼 -> 팔로우가 되도록 
+                        다른 사람 상세페이지
+                        -> user _ id -> follow 수가 늘어나게 
+                        닉네임을 조회 ->  -->
                     </div>
                 </div>
-                <div class="mb_rf_ra_back">팔로우</div>
+                <!--  -->
+                <!--  -->
+                <!-- id 수정  -->
+                <div id="follow" class="mb_rf_ra_back">팔로우</div>
             </div>
         </div>
     </div>
