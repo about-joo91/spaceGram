@@ -399,6 +399,9 @@ main {
     text-align: center;
     color: #fff
 }
+.lp_s_b_li_s_btn_blue:hover{
+    cursor: pointer;
+}
 
 .lp_s_b_li_s_btn_b_mainpage{
     color: #fff

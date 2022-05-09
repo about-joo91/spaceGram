@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>로그인ㆍspaceGram</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../static/css/join_page.css" />
 </head>
 
@@ -28,10 +29,11 @@
         <div class="or">또는</div>
         <hr class="rightHr" />
       </div>
-      <input type="text" placeholder="휴대폰 번호 또는 이메일 주소" class="mj_p_textline_one" />
-      <input type="text" placeholder="성명" class="mj_p_textline_two" />
-      <input type="text" placeholder="사용자 이름" class="mj_p_textline_three" />
-      <input type="text" placeholder="비밀번호" class="mj_p_textline_four" />
+      <input type="text" id="new_id" placeholder="휴대폰 번호 또는 이메일 주소" class="mj_p_textline_one" />
+      <input type="text" id="new_nick_name" placeholder="성명(닉네임)" class="mj_p_textline_two" />
+      <input type="text" id="new_user_name" placeholder="사용자 이름" class="mj_p_textline_three" />
+      <input type="password" id="new_pw" placeholder="비밀번호" class="mj_p_textline_four" />
+      <!-- 100 * 100으로 올리기 이미지 -->
       <br />
       <button class="mj_p_joiner_button">가입</button>
     </div>
@@ -128,6 +130,8 @@
     <!-- 빈공간 -->
     <div class="mb_empty"></div>
   </div>
+  <!-- <button onclick="sign_up" -->
+    <script src="../static/js/join_page.js"></script>
 </body>
 
 </html>
