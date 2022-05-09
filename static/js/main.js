@@ -310,14 +310,11 @@ function home_redirecting() {
 mh_i_home.addEventListener('click', home_redirecting)
 mh_name.addEventListener('click', home_redirecting)
 
-//
-// 여기부터 아래로 수정 
-//
-// 좋아요 기능 구현 *동시성 문제?!
+//좋아요 버튼 기능
 function like_button(post_id) {
-    console.log(post_id)
     let heart_icon = document.getElementById(post_id)
-    if (heart_icon.classList.contains('bi-heart')) {
+    if (!heart_icon.classList.contains('bi-heart-fill')) {
+        console.log('like')
         $.ajax({
             type: 'POST',
             url: '/like',
@@ -326,11 +323,12 @@ function like_button(post_id) {
                 action_give: 'like'
             },
             success: function (response) {
-                console.log('like')
-                heart_icon.classList.replace('bi-heart', 'bi-heart-fill')
+                heart_icon.classList.replace('bi-heart', 'bi-heart-fill');
+                heart_icon.style.color = 'red';
             }
         })
     } else {
+        console.log('unlike')
         $.ajax({
             type: 'POST',
             url: '/like',
@@ -339,8 +337,8 @@ function like_button(post_id) {
                 action_give: 'unlike'
             },
             success: function (response) {
-                console.log('unlike')
                 heart_icon.classList.replace('bi-heart-fill', 'bi-heart')
+                heart_icon.style.color = 'black'
             }
         })
     }
