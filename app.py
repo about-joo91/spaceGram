@@ -8,7 +8,7 @@ import jwt
 import hashlib
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:bluemoon@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -155,7 +155,10 @@ def likes(user):
         if action_receive == 'like':
             db.likes.insert_one(doc)
         else:
-            db.likes.delete_one(doc)
+            db.likes.delete_one({
+                'user_id': user_id,
+                'post_id': post_id_receive
+            })
         return jsonify({'result':'success'})      
 
 
