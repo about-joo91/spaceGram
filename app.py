@@ -1,15 +1,13 @@
-from crypt import methods
 from functools import wraps
-from bson import encode
+from io import BytesIO
 from flask import Flask, jsonify, render_template, request, abort
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 import base64
 import jwt
 import hashlib
-
-from regex import P
-client = MongoClient('mongodb+srv://test:pasta@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+from PIL import Image
+client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -31,11 +29,17 @@ def authrize(f):
     return decorated_function
     
 @app.route('/')
-def home():
-    return render_template('main.html')
+@authrize
+def home(user):
+    if user is not None:
+        user_id = user.get('id')
+        post_list = list(db.posts.find({'user_id' : user_id}))
+        for post in post_list:
+            post['file'] = post['file'].decode('utf-8')
+        return render_template('main.html', posts = post_list)
 
 @app.route('/login_page')
-def login_page():   
+def login_page():
     return render_template('login_page.html')
 
 @app.route('/my_page')
@@ -53,7 +57,8 @@ def sign_in():
 
     if result is not None:
         payload = {
-            'id' : email_receive,
+            'id' : str(result.get('_id')),
+            'email':email_receive,
             'exp' : datetime.utcnow() + timedelta(seconds=60 * 60 * 24)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
@@ -68,16 +73,27 @@ def sign_in():
 def post_file(user):
     if user is not None:
         user_id = user.get('id')
-        files = request.files['img']
+        user_email = user.get('email')
+        file = request.files['img']
+        extension = file.filename.split('.')[-1]
+        format = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
+        img = Image.open(file)
+        wpercent = (614/ float(img.size[0]))
+        h_size = int((float(img.size[1]) * float(wpercent)))
+        img_resize = img.resize((614, h_size))
+        buffered = BytesIO()
+        img_resize.save(buffered, format)
+        image_base64 = base64.b64encode(buffered.getvalue())
         content = request.form['content']
-        image_base64 = base64.b64encode(files.read())
         doc = {
             'user_id': user_id,
+            'user_email': user_email,
             'file' : image_base64,
             'content': content,
             'timestamp': datetime.utcnow()
         }
         db.posts.insert_one(doc)
         return jsonify({'msg': '저장완료!'})
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

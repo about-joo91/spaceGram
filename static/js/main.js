@@ -35,20 +35,18 @@ mb_l_sb_btn_prev.addEventListener('click', function () {
 
 image_list = [
     "pretty_image.jpg",
-    "flower.jpg",
-    "beautiful.jpg"
 ]
 let length_of_image = image_list.length
-const mb_l_mc_mi_carousel = document.querySelector('.mb_l_mc_mib_carousel');
-mb_l_mc_mi_carousel.style.width = (615 * length_of_image) + "px";
-for (let i = 0; i < image_list.length; i++) {
-    image_html = `<img class="mb_l_mc_mi_c_img" src = "/static/images/${image_list[i]}">`;
-    mb_l_mc_mi_carousel.innerHTML += image_html
-}
+const mb_l_mc_mib_carousel = document.querySelector('.mb_l_mc_mib_carousel');
+// mb_l_mc_mib_carousel.style.width = (615 * length_of_image) + "px";
+// for (let i = 0; i < image_list.length; i++) {
+//     image_html = `<img class="mb_l_mc_mi_c_img" src = "/static/images/${image_list[i]}">`;
+//     mb_l_mc_mib_carousel.innerHTML += image_html
+// }
 const mb_l_mc_mib_btn_prev = document.querySelector('.mb_l_mc_mib_btn_prev');
 const mb_l_mc_mib_btn_next = document.querySelector('.mb_l_mc_mib_btn_next');
 let cur_idx_for_main_carousel = 0;
-if (length_of_image >= 1) {
+if (length_of_image > 1) {
     mb_l_mc_mib_btn_next.style.visibility = 'visible';
 }
 mb_l_mc_mib_btn_prev.addEventListener('click', function () {
@@ -56,8 +54,8 @@ mb_l_mc_mib_btn_prev.addEventListener('click', function () {
         mb_l_mc_mib_btn_prev.style.visibility = 'hidden';
     }
     mb_l_mc_mib_btn_next.style.visibility = 'visible';
-    mb_l_mc_mi_carousel.style.transition = 500 + "ms";
-    mb_l_mc_mi_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%, 0px,0px)";
+    mb_l_mc_mib_carousel.style.transition = 500 + "ms";
+    mb_l_mc_mib_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%, 0px,0px)";
 
 
 })
@@ -66,8 +64,8 @@ mb_l_mc_mib_btn_next.addEventListener('click', function () {
         mb_l_mc_mib_btn_next.style.visibility = 'hidden';
     }
     mb_l_mc_mib_btn_prev.style.visibility = 'visible'
-    mb_l_mc_mi_carousel.style.transition = 500 + "ms";
-    mb_l_mc_mi_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%,0px,0px)";
+    mb_l_mc_mib_carousel.style.transition = 500 + "ms";
+    mb_l_mc_mib_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%,0px,0px)";
 })
 
 
