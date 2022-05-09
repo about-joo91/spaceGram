@@ -109,7 +109,6 @@ small_modal_wrapper.addEventListener('click', function (e) {
 })
 modal_cancel_button.addEventListener('click', small_modal_out)
 
-const mb_l_mc_c_lk_comments_button = document.querySelector('.mb_l_mc_c_lk_comments_button');
 const huge_modal_body = document.querySelector('.hm_w_body');
 const hm_w_x_button = document.querySelector('.hm_w_x_button');
 const huge_modal_wrapper = document.querySelector('.huge_modal_wrapper');
@@ -175,7 +174,6 @@ huge_modal_wrapper.addEventListener('click', function (e) {
 const hm_w_b_cb_ma_dot_icon = document.querySelector('.hm_w_b_cb_ma_dot_icon');
 const hm_w_b_img_box = document.querySelector('.hm_w_b_iw_img_box');
 
-mb_l_mc_c_lk_comments_button.addEventListener('click', huge_modal_in)
 hm_w_b_cb_ma_dot_icon.addEventListener('click', small_modal_in);
 
 // 모달 안쪽에 사진 넣기
@@ -343,5 +341,36 @@ function like_button(post_id) {
         })
     }
 }
+function change_comment_input(obj) {
+    let post_id = obj.id.split('_')[2]
+    let submit_post_id = document.getElementById('submit_' + post_id)
+    value = obj.value;
+    if (value == '' || value == NaN) {
+        submit_post_id.style.fontWeight = '400';
+        submit_post_id.style.cursor = 'text'
+    } else {
+        submit_post_id.style.fontWeight = 'bold'
+        submit_post_id.addEventListener('mouseover', function () {
+            submit_post_id.style.cursor = 'pointer'
+        })
+    }
+}
 
+function comment_submit(post_id) {
+    let comment_content = document.getElementById('comment_input_' + post_id).value;
+    if (!comment_content == "") {
+        $.ajax({
+            type: 'POST',
+            url: '/comment',
+            data: {
+                post_id: post_id,
+                comment_give: comment_content
+            },
+            success: function (response) {
+                alert('댓글작성 완료!')
+                window.location.reload()
+            }
+        })
+    }
 
+}

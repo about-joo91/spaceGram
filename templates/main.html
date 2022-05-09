@@ -160,7 +160,7 @@
                 <div class="mb_l_mc_header">
                     <div class="mb_l_mc_h_front">
                         <img src="/static/images/profile.jpeg" class="mb_l_mc_h_f_circle_avatar">
-                        <div class="mb_l_mc_h_f_id">{{post.user_email}}</div>
+                        <div class="mb_l_mc_h_f_id">{{post.user_nick_name}}</div>
                     </div>
                     <div class="mb_l_mc_h_back">
                         <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon"></i>
@@ -197,22 +197,31 @@
                             <div class="mb_l_mc_c_lk_lp_id">about_joo 님 외 12명이 좋아합니다</div>
                         </div>
                         <div class="mb_l_mc_c_lk_my_comment">
-                            <div class="mb_l_mc_c_lk_mc_id">{{post.user_email}}</div>
+                            <div class="mb_l_mc_c_lk_mc_id">{{post.user_nick_name}}</div>
                             <div class="mb_l_mc_c_lk_mc_comment">{{post.content}}</div>
                         </div>
-                        <div class="mb_l_mc_c_lk_comments_button">댓글 5개 모두 보기</div>
-                        <div class="mb_l_mc_c_lk_comments">
-                            <div class="mb_l_mc_c_lk_c_id">about_joo</div>
-                            <div class="mb_l_mc_c_lk_c_content">너무 예쁘네 ㅎㅎ</div>
+                        {% if post['comment'] | length > 1 %}
+                        <div onclick="huge_modal_in()" onmouseover="this.style.cursor='pointer'">댓글 {{post['comment'] |
+                            length}}개 모두 보기
                         </div>
-                        <div class="mb_l_mc_c_lk_days_before">5일전</div>
+                        {% endif %}
+                        {% for comment in post['comment'] %}
+                        <div class="mb_l_mc_c_lk_comments">
+                            <div class="mb_l_mc_c_lk_c_id">{{comment.get('nick_name')}}</div>
+                            <div class="mb_l_mc_c_lk_c_content">{{comment.get('comment')}}</div>
+                        </div>
+                        {% endfor %}
+                        <div class="mb_l_mc_c_lk_days_before">{{post.timestamp}}일 전</div>
+
                     </div>
                     <div class="mb_l_mc_c_comment_input_box">
                         <div class="mb_l_mc_c_c_ib_front">
                             <i class="bi bi-emoji-smile mb_l_mc_c_c_ib_f_eb_smile"></i>
-                            <input type="text" class="mb_l_mc_c_c_ib_input">
+                            <input type="text" class="mb_l_mc_c_c_ib_input" id="comment_input_{{post._id}}"
+                                oninput="change_comment_input(this)">
                         </div>
-                        <div class="mb_l_mc_c_ci_back">
+                        <div id="submit_{{post._id}}" class="mb_l_mc_c_ci_back"
+                            onclick="comment_submit('{{post._id}}')">
                             게시
                         </div>
                     </div>
@@ -220,7 +229,6 @@
             </div>
             {% endfor %}
         </div>
-
         <div class="mb_right_float_box">
             <div class="mb_rf_my_account">
                 <div class="mb_rf_ma_front">
