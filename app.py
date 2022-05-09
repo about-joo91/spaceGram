@@ -6,6 +6,7 @@ from pymongo import MongoClient
 import base64
 import jwt
 import hashlib
+
 from PIL import Image
 client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
@@ -41,6 +42,50 @@ def home(user):
 @app.route('/login_page')
 def login_page():
     return render_template('login_page.html')
+
+@app.route('/join_page')
+def join_page():   
+    return render_template('join_page.html')
+
+
+
+@app.route('/join_page/sign_up', methods=["POST"])
+def check():
+    new_id_receive = request.form['new_id_give']
+    new_pw_receive = request.form['new_pw_give']
+    new_nick_name_receive = request.form['new_nick_name_give']
+    new_user_name_receive = request.form['new_user_name_give']
+    hashed_password = hashlib.sha256(new_pw_receive.encode('utf-8')).hexdigest()
+
+    doc1 = {
+        'email' : new_id_receive
+    }
+    doc2 = {
+        'nick_name' : new_nick_name_receive
+    }
+
+    check_id = db.user.find_one(doc1)
+    check_nick_name = db.user.find_one(doc2)
+
+    if check_id is None and check_nick_name is None:
+        doc3 = {
+        "email" : new_id_receive,  
+        "password" : hashed_password,  
+        "nick_name" : new_nick_name_receive,  
+        "user_name" : new_user_name_receive,
+        "profile_img": "static/images/profile_img.png",
+        }
+        db.user.insert_one(doc3)
+        return jsonify({"result": "success",'msg' : '회원가입을 축하합니다.','url' : "/login_page"})
+
+    elif check_id is not None:
+        return jsonify ({"result": "fail", 'msg': '중복되는 아이디가 있습니다.', 'url' : '/join_page'})
+    
+    elif check_nick_name is not None:
+        return jsonify ({"result": "fail", 'msg': '중복되는 닉네임이 있습니다.', 'url' : '/join_page'})
+
+
+
 
 @app.route('/my_page')
 @authrize
