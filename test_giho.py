@@ -54,8 +54,8 @@ def likes(user):
         }
         # likes -> posts_like로 수정
         if action_receive == 'like':
-            db.likes.insert_one(doc)
+            db.posts_like.insert_one(doc)
         else:
-            db.likes.delete_one(doc)
+            db.posts_like.delete_one(doc)
         return jsonify({'result':'success'})      
 

@@ -58,10 +58,10 @@ def follow(user):
         check_follow = db.user.find_one({'user_id':user_id, 'target_user_id':follow_receive})
 
         if check_follow is None :
-            db.follow.insert_one(doc)
+            db.follower_map.insert_one(doc)
 
         else:
-            db.follow.delete_one({'user_id':user_id, 'target_user_id':follow_receive})
+            db.follower_map.delete_one({'user_id':user_id, 'target_user_id':follow_receive})
 
         return jsonify({'result':'success'})
 
