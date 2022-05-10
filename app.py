@@ -1,5 +1,6 @@
 from functools import wraps
 from io import BytesIO
+import re
 from django.test import RequestFactory
 from flask import Flask, jsonify, render_template, request, abort
 from datetime import date, datetime, timedelta
@@ -76,6 +77,37 @@ def login_page():
 def join_page():   
     return render_template('join_page.html')
 
+
+@app.route('/edit_page')
+@authrize
+def edit_page(user):
+    if user is not None:
+        my_name = db.user.find_one({'_id': ObjectId(user["id"])})
+        print(my_name)
+
+        return render_template('edit_page.html', my_name = my_name)
+
+@app.route('/edit_page/updage', methods=['POST'])
+@authrize
+def update_user(user):
+    if user is not None:
+        new_nick_name_receive = request.form['new_nick_name_give']
+        new_user_name_receive = request.form['new_user_name_give']
+        new_email_receive = request.form['new_email_give']
+
+        doc = {
+        "email" : new_email_receive,  
+        "nick_name" : new_nick_name_receive,  
+        "user_name" : new_user_name_receive
+        # "profile_img": "static/images/profile_img.png",
+        }
+
+        name = ObjectId(user["id"])
+        print("name : ",name)
+        db.user.update_one({'_id' : name}, {'$set':doc})
+        return jsonify({"result" : "success", "msg" : "수정되었습니다!!"})
+
+
 @app.route('/join_page/sign_up', methods=["POST"])
 def check():
     new_id_receive = request.form['new_id_give']
@@ -119,11 +151,12 @@ def check():
 def my_page(user):
     if user is not None:
         print("user= ", user)
-        my_post = list(db.posts.find({'user_id' : user["id"]}))
-        my_follower = list(db.follow_map.find({'user_id' : user["id"]}))
-        my_follow = list(db.follow_map.find({'target_user_id' : user["id"]}))
-        my_name = db.user.find_one({'_id': ObjectId(user["id"])})
+        my_post = list(db.posts.find({'user_id' : user.get('id')}))
+        my_follower = list(db.follower_map.find({'user_id' : user.get('id')}))
+        my_follow = list(db.follower_map.find({'target_user_id' : user.get('id')}))
+        my_name = db.user.find_one({'_id': ObjectId(user.get('id'))})
 
+       
         count_my_post = len(my_post)
         count_my_follower = len(my_follower)
         count_my_follow = len(my_follow)

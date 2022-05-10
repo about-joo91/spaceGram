@@ -49,115 +49,130 @@
             <i class="bi bi-heart mh_i_heart"></i>
             <img src="/static/images/profile.jpeg" class="mh_circle_avatar">
         </div>
+        
     </div>
 </div>
-
-<div class="mypage">
-    <div class="mp_modal">
-        <div class="mp_modal_body">
-            <div class="mp_md_bd_list">
-                비밀번호 변경
+<div class="wrap">
+    <div class="mp_profile_modal">
+        <div class="profile_modal">
+            <div class="pm_my_page">
+                <svg aria-label="프로필" class="_8-yf5 " color="#262626" fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16"><circle cx="12.004" cy="12.004" fill="none" r="10.5" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"></circle><path d="M18.793 20.014a6.08 6.08 0 00-1.778-2.447 3.991 3.991 0 00-2.386-.791H9.38a3.994 3.994 0 00-2.386.791 6.09 6.09 0 00-1.779 2.447" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"></path><circle cx="12.006" cy="9.718" fill="none" r="4.109" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"></circle></svg> &ensp; 프로필
             </div>
-            <div class="mp_md_bd_list">
-                QR 코드
+            <div class="pm_book_mark">
+                <svg aria-label="저장됨" class="_8-yf5 " color="#262626" fill="#262626" height="16" role="img" viewBox="0 0 24 24" width="16"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg> &ensp; 저장됨
             </div>
-            <div class="mp_md_bd_list">
-                앱 및 웹사이트
+            <div class="pm_logout">
+                &ensp; 로그아웃
             </div>
-            <div class="mp_md_bd_list">
-                알림
-            </div>
-            <div class="mp_md_bd_list">
-                개인정보 및 보안
-            </div>
-            <div class="mp_md_bd_list">
-                로그인 활동
-            </div>
-            <div class="mp_md_bd_list">
-                spacegram에서 보낸 이메일
-            </div>
-            <div class="mp_md_bd_list">
-                문제 신고
-            </div>
-            <div class="mp_md_bd_list">
-                로그아웃
-            </div>
-            <div class="mp_md_bd_list">
-                <p class="mp_md_exit">취소</p>
-            </div>
-
         </div>
-
-    </div>
-    <div class="mp_myprofile">
-
-        {% if my_profile_dic %}
-        <div class="mp_mp_myimg">
-            <div class="mp_mp_myimg_img" style="background-image: url('/{{my_name.get('profile_img')}}');"></div>
-        </div>
-        <div class="mp_mp_mytext">
-            <div class="mp_mp_mt_top">
-                <div class="mp_mp_mt_top_nickname">{{my_name.get('nick_name')}}</div>
-                <div class="mp_mp_mt_top_editprofile">
-                    <button class="mp_mp_mt_top_ep_button">프로필 편집</button>
-                </div>
-                <div class="mp_mp_mt_top_option">
-                    <svg aria-label="옵션" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 01-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 01-.796.66m-.001 16.688a1.269 1.269 0 01.796.66l.505.996h1.862l.505-.996a1.269 1.269 0 01.796-.66M3.656 9.768a1.269 1.269 0 01-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 01.66.796m16.688-.001a1.269 1.269 0 01.66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 01-.66-.796M7.678 4.522a1.269 1.269 0 01-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 01-.096 1.03m11.8 11.799a1.269 1.269 0 011.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 01.096-1.03m-14.956.001a1.269 1.269 0 01.096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 011.03.096m11.799-11.8a1.269 1.269 0 01-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 01-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
-                </div>
-            </div>
-
-            
-            <div class="mp_mp_mt_middle">
-<!--                id값을 받아올 int값과 아닌text를 구분-->
-                <div class="mp_mp_mt_md_intspan">
-                    <div class="mp_mp_mt_md_is_text">게시물</div>
-                    <div class="mp_mp_mt_md_is_int">{{my_profile_dic['count_my_post']}}</div>
-                </div>
-                <div class="mp_mp_mt_md_intfollower">
-                    <div class="mp_mp_mt_md_ifwer_text">팔로워</div>
-                    <div class="mp_mp_mt_md_ifwer_int">{{my_profile_dic['count_my_follower']}}</div>
-                </div>
-                <div class="mp_mp_mt_md_intfollow">
-                    <div class="mp_mp_mt_md_if_text">팔로우</div>
-                    <div class="mp_mp_mt_md_if_int">{{my_profile_dic['count_my_follow']}}</div>
-                </div>
-            </div>
-
-            <div class="mp_mp_mt_bottom">
-                <div class="mp_mp_mt_bt_name">{{my_name.get('user_name')}}</div>
-            </div>
-            {% endif %}
-
-        </div>
-
     </div>
 
-    <div class="mp_postimg">
-        <div class="mp_pimg_headbar">
-            <div class="mp_pimg_hb_classify">
-                <div id ="mp_pimg_hb_cf_post"class="mp_pimg_hb_cf_post">
-                    <svg aria-label="" class="_8-yf5 " color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12"><rect fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line></svg>게시물
+    <div class="mypage">
+        <div class="mp_modal">
+            <div class="mp_modal_body">
+                <div class="mp_md_bd_list">
+                    비밀번호 변경
                 </div>
-                <div id ="mp_pimg_hb_cf_bookmark"class="mp_pimg_hb_cf_bookmark">
-                    <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg> 저장됨
+                <div class="mp_md_bd_list">
+                    QR 코드
                 </div>
-                <div id ="mp_pimg_hb_cf_taged"class="mp_pimg_hb_cf_taged">
-                    <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><path d="M10.201 3.797L12 1.997l1.799 1.8a1.59 1.59 0 001.124.465h5.259A1.818 1.818 0 0122 6.08v14.104a1.818 1.818 0 01-1.818 1.818H3.818A1.818 1.818 0 012 20.184V6.08a1.818 1.818 0 011.818-1.818h5.26a1.59 1.59 0 001.123-.465z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M18.598 22.002V21.4a3.949 3.949 0 00-3.948-3.949H9.495A3.949 3.949 0 005.546 21.4v.603" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle></svg>태그됨
+                <div class="mp_md_bd_list">
+                    앱 및 웹사이트
                 </div>
+                <div class="mp_md_bd_list">
+                    알림
+                </div>
+                <div class="mp_md_bd_list">
+                    개인정보 및 보안
+                </div>
+                <div class="mp_md_bd_list">
+                    로그인 활동
+                </div>
+                <div class="mp_md_bd_list">
+                    spacegram에서 보낸 이메일
+                </div>
+                <div class="mp_md_bd_list">
+                    문제 신고
+                </div>
+                <div class="mp_md_bd_list">
+                    로그아웃
+                </div>
+                <div class="mp_md_bd_list">
+                    <p class="mp_md_exit">취소</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="mp_myprofile">
+
+            {% if my_profile_dic %}
+            <div class="mp_mp_myimg">
+                <div class="mp_mp_myimg_img" style="background-image: url('/{{my_name.get('profile_img')}}');"></div>
+            </div>
+            <div class="mp_mp_mytext">
+                <div class="mp_mp_mt_top">
+                    <div class="mp_mp_mt_top_nickname">{{my_name.get('nick_name')}}</div>
+                    <div class="mp_mp_mt_top_editprofile">
+                        <button class="mp_mp_mt_top_ep_button">프로필 편집</button>
+                    </div>
+                    <div class="mp_mp_mt_top_option">
+                        <svg aria-label="옵션" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="M14.232 3.656a1.269 1.269 0 01-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 01-.796.66m-.001 16.688a1.269 1.269 0 01.796.66l.505.996h1.862l.505-.996a1.269 1.269 0 01.796-.66M3.656 9.768a1.269 1.269 0 01-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 01.66.796m16.688-.001a1.269 1.269 0 01.66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 01-.66-.796M7.678 4.522a1.269 1.269 0 01-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 01-.096 1.03m11.8 11.799a1.269 1.269 0 011.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 01.096-1.03m-14.956.001a1.269 1.269 0 01.096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 011.03.096m11.799-11.8a1.269 1.269 0 01-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 01-1.03-.096" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </div>
+                </div>
+
+                
+                <div class="mp_mp_mt_middle">
+    <!--                id값을 받아올 int값과 아닌text를 구분-->
+                    <div class="mp_mp_mt_md_intspan">
+                        <div class="mp_mp_mt_md_is_text">게시물</div>
+                        <div class="mp_mp_mt_md_is_int">{{my_profile_dic['count_my_post']}}</div>
+                    </div>
+                    <div class="mp_mp_mt_md_intfollower">
+                        <div class="mp_mp_mt_md_ifwer_text">팔로워</div>
+                        <div class="mp_mp_mt_md_ifwer_int">{{my_profile_dic['count_my_follower']}}</div>
+                    </div>
+                    <div class="mp_mp_mt_md_intfollow">
+                        <div class="mp_mp_mt_md_if_text">팔로우</div>
+                        <div class="mp_mp_mt_md_if_int">{{my_profile_dic['count_my_follow']}}</div>
+                    </div>
+                </div>
+
+                <div class="mp_mp_mt_bottom">
+                    <div class="mp_mp_mt_bt_name">{{my_name.get('user_name')}}</div>
+                </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="mp_postimg">
+            <div class="mp_pimg_headbar">
+                <div class="mp_pimg_hb_classify">
+                    <div id ="mp_pimg_hb_cf_post"class="mp_pimg_hb_cf_post">
+                        <svg aria-label="" class="_8-yf5 " color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12"><rect fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line></svg>게시물
+                    </div>
+                    <div id ="mp_pimg_hb_cf_bookmark"class="mp_pimg_hb_cf_bookmark">
+                        <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg> 저장됨
+                    </div>
+                    <div id ="mp_pimg_hb_cf_taged"class="mp_pimg_hb_cf_taged">
+                        <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><path d="M10.201 3.797L12 1.997l1.799 1.8a1.59 1.59 0 001.124.465h5.259A1.818 1.818 0 0122 6.08v14.104a1.818 1.818 0 01-1.818 1.818H3.818A1.818 1.818 0 012 20.184V6.08a1.818 1.818 0 011.818-1.818h5.26a1.59 1.59 0 001.123-.465z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M18.598 22.002V21.4a3.949 3.949 0 00-3.948-3.949H9.495A3.949 3.949 0 005.546 21.4v.603" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle></svg>태그됨
+                    </div>
+                    
+                </div>
+            </div>
+            <div id = "mp_pimg_posts" class="mp_pimg_posts">
+                    {% for post in myposts %}
+                        
+                    <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{post['file'][0]}}')"></div>
+                        
+                    {% endfor %}
                 
             </div>
         </div>
-        <div id = "mp_pimg_posts" class="mp_pimg_posts">
-                {% for post in myposts %}
-                    
-                <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{post['file'][0]}}')"></div>
-                    
-                {% endfor %}
-            
-        </div>
     </div>
 </div>
-
 <footer>
     <div class="mypage_footer"></div>
 </footer>

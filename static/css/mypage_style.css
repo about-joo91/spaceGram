@@ -1,6 +1,9 @@
 html{
     font-size: 62.5%;
 }
+.wrap{
+    position: relative;
+}
 /*여기는 main의 header 가져옴*/
 .main_header {
     height: 65px;
@@ -21,6 +24,9 @@ html{
 
 .mh_name {
     font-size: x-large;
+}
+.mh_name:hover{
+    cursor: pointer;
 }
 
 .mh_search_bar {
@@ -73,7 +79,9 @@ html{
     display: flex;
     align-items: center;
 }
-
+.bi bi-send mh_i_send:hover{
+    cursor: pointer;
+}
 .mh_i_home,
 .mh_i_send,
 .mh_i_square,
@@ -88,7 +96,55 @@ html{
     height: 25px;
     border-radius: 50%;
 }
+/* 여기가 프로필 모달 */
+.mp_profile_modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3;
+    display: none;
+}
 
+.profile_modal{
+    width: 15rem;
+    height: 9rem;
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 77%;
+    z-index: 4;
+    border-radius: 10px;
+    
+}
+.pm_my_page{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+
+}
+.pm_book_mark{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+}
+.pm_logout{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+    border-top: 1px solid gray;
+}
 /*여기부터 mypage*/
 .mypage {
     padding-top: 20px;
@@ -264,6 +320,7 @@ html{
     width: 100%;
     height: 24px;
     margin-bottom: 20px;
+    font-size: 16px;
 }
 
 .mp_mp_mt_bt_name {
@@ -359,6 +416,9 @@ html{
 .mp_pimg_pts_pl_post:after {
     content: "";
     display: block;
+}
+.mp_pimg_pts_pl_post:hover {
+    cursor: pointer;
 }
 
 .mp_pimg_bookmarks {
