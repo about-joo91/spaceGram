@@ -5,6 +5,55 @@ html{
     position: relative;
 }
 /*여기는 main의 header 가져옴*/
+/* 여기가 프로필 모달 */
+.mp_profile_modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 3;
+    display: none;
+}
+
+.profile_modal{
+    width: 15rem;
+    height: 9rem;
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    z-index: 4;
+    border-radius: 10px;
+    
+}
+.pm_my_page{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+
+}
+.pm_book_mark{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+}
+.pm_logout{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+    border-top: 1px solid gray;
+}
 .main_header {
     height: 65px;
     display: flex;
@@ -24,6 +73,9 @@ html{
 
 .mh_name {
     font-size: x-large;
+}
+.mh_name:hover{
+    cursor: pointer;
 }
 
 .mh_search_bar {

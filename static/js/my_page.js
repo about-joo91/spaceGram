@@ -130,9 +130,23 @@ function open_booK_mark(){
     book_mark_list()
 
 }
+//여기까지가 모달
 document.querySelector('.mp_mp_mt_top_ep_button').addEventListener('click',function(){
     open_edit_page()
 })
 function open_edit_page(){
     window.location.replace('/edit_page')
 }
+document.querySelector('.mp_pimg_pts_pl_post').addEventListener('click', function(){
+    go_home()
+})
+function go_home(){
+    window.location.replace('/home')
+}
+document.querySelector('.mh_name').addEventListener('click', function(){
+    go_home()
+})
+document.querySelector('.bi bi-send mh_i_send').addEventListener('click', function(){
+    go_home()
+})
+
