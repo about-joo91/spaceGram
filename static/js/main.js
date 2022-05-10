@@ -32,38 +32,32 @@ mb_l_sb_btn_prev.addEventListener('click', function () {
         mb_l_sb.style.transform = "translate3d(-" + (cur_idx_for_story_carousel * 307) + "px, 0px, 0px)"
     }
 })
-
-// let length_of_image = image_list.length
-// const mb_l_mc_mib_carousel = document.querySelector('.mb_l_mc_mib_carousel');
-// mb_l_mc_mib_carousel.style.width = (615 * length_of_image) + "px";
-// for (let i = 0; i < image_list.length; i++) {
-//     image_html = `<img class="mb_l_mc_mi_c_img" src = "/static/images/${image_list[i]}">`;
-//     mb_l_mc_mib_carousel.innerHTML += image_html
-// }
-// const mb_l_mc_mib_btn_prev = document.querySelector('.mb_l_mc_mib_btn_prev');
-// const mb_l_mc_mib_btn_next = document.querySelector('.mb_l_mc_mib_btn_next');
-// let cur_idx_for_main_carousel = 0;
-// if (length_of_image > 1) {
-//     mb_l_mc_mib_btn_next.style.visibility = 'visible';
-// }
-// mb_l_mc_mib_btn_prev.addEventListener('click', function () {
-//     if (--cur_idx_for_main_carousel == 0) {
-//         mb_l_mc_mib_btn_prev.style.visibility = 'hidden';
-//     }
-//     mb_l_mc_mib_btn_next.style.visibility = 'visible';
-//     mb_l_mc_mib_carousel.style.transition = 500 + "ms";
-//     mb_l_mc_mib_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%, 0px,0px)";
-
-
-// })
-mb_l_mc_mib_btn_next.addEventListener('click', function () {
+const mb_l_mc_main_image_box = document.querySelector('.mb_l_mc_main_image_box')
+let length_of_image = parseInt(mb_l_mc_main_image_box.parentNode.id.split('_')[2])
+const mb_l_mc_mib_btn_prev = document.querySelector('.mb_l_mc_mib_btn_prev');
+const mb_l_mc_mib_btn_next = document.querySelector('.mb_l_mc_mib_btn_next');
+let cur_idx_for_main_carousel = 0;
+if (length_of_image > 1) {
+    mb_l_mc_mib_btn_next.style.visibility = 'visible';
+}
+function mb_l_mc_mib_btn_prev_click(post_id) {
+    let carousel_now = document.getElementById('carousel_' + post_id)
+    if (--cur_idx_for_main_carousel == 0) {
+        mb_l_mc_mib_btn_prev.style.visibility = 'hidden';
+    }
+    mb_l_mc_mib_btn_next.style.visibility = 'visible';
+    carousel_now.style.transition = 500 + "ms";
+    carousel_now.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%, 0px,0px)";
+}
+function mb_l_mc_mib_btn_next_click(post_id) {
+    let carousel_now = document.getElementById('carousel_' + post_id)
     if (++cur_idx_for_main_carousel == length_of_image - 1) {
         mb_l_mc_mib_btn_next.style.visibility = 'hidden';
     }
     mb_l_mc_mib_btn_prev.style.visibility = 'visible'
-    mb_l_mc_mib_carousel.style.transition = 500 + "ms";
-    mb_l_mc_mib_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%,0px,0px)";
-})
+    carousel_now.style.transition = 500 + "ms";
+    carousel_now.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%,0px,0px)";
+}
 
 
 const mh_circle_avatar = document.querySelector('.mh_circle_avatar')
@@ -132,13 +126,6 @@ const hm_w_b_img_box = document.querySelector('.hm_w_b_iw_img_box');
 hm_w_b_cb_ma_dot_icon.addEventListener('click', small_modal_in);
 
 // 모달 안쪽에 사진 넣기
-hm_w_b_img_box.style.width = 100 * length_of_image + "%"
-for (let i = 0; i < length_of_image; i++) {
-    let modal_image_html = `
-    <img class="hm_w_b_img" src="/static/images/${image_list[i]}">
-    `
-    hm_w_b_img_box.innerHTML += modal_image_html
-}
 cur_idx_for_huge_modal = 0;
 
 const hm_w_btn_prev = document.querySelector('.hm_w_btn_prev');
@@ -231,7 +218,7 @@ upload_modal.addEventListener('drop', function (e) {
 ul_bb_cur_idx = 0
 ul_bb_next.addEventListener('click', function () {
     ul_bb_prev.style.visibility = 'visible'
-    if (++ul_bb_cur_idx == file_length) {
+    if (++ul_bb_cur_idx == file_length - 1) {
         ul_bb_next.style.visibility = 'hidden'
     }
     um_p_ib_wrapper.style.transition = 500 + 'ms'
