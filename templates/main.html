@@ -221,18 +221,30 @@
                         <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon"></i>
                     </div>
                 </div>
-
                 <div class="mb_l_mc_main_image_box">
+
                     <div class="mb_l_mc_mib_button">
-                        <div class="mb_l_mc_mib_btn_prev" onclick="mb_l_mc_mib_btn_prev_click('{{post._id}}')">
+
+                        <div class="mb_l_mc_mib_btn_prev" id="main_button_prev_{{post._id}}"
+                            onclick="mb_l_mc_mib_btn_prev_click('{{post._id}}')">
                             <i class="bi bi-chevron-left"></i>
                         </div>
-                        <div class="mb_l_mc_mib_btn_next" onclick="mb_l_mc_mib_btn_next_click('{{post._id}}')">
+                        {% if post.file | length > 1 %}
+                        <div class="mb_l_mc_mib_btn_next" style="visibility: visible;"
+                            id="main_button_next_{{post._id}}"
+                            onclick="mb_l_mc_mib_btn_next_click('{{post._id}}','{{post.file | length}}')">
                             <i class="bi bi-chevron-right"></i>
                         </div>
+                        {% else %}
+                        <div class="mb_l_mc_mib_btn_next" style="visibility: hidden;" id="main_button_next_{{post._id}}"
+                            onclick="mb_l_mc_mib_btn_next_click('{{post._id}}','{{post.file | length}}')">
+                            <i class="bi bi-chevron-right"></i>
+                        </div>
+                        {% endif %}
+
                     </div>
                     <div class="mb_l_mc_mib_carousel" id="carousel_{{post._id}}"
-                        style="width : {{ 615 * post.file |length }}px">
+                        style="width : {{ 614 * post.file |length }}px">
                         {% for image in post.file %}
                         <img class="main_card_image" src="data:image/jpeg;base64,{{image}}">
                         {% endfor %}
