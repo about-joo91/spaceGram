@@ -109,60 +109,19 @@ small_modal_wrapper.addEventListener('click', function (e) {
 })
 modal_cancel_button.addEventListener('click', small_modal_out)
 
-const huge_modal_body = document.querySelector('.hm_w_body');
 const hm_w_x_button = document.querySelector('.hm_w_x_button');
 const huge_modal_wrapper = document.querySelector('.huge_modal_wrapper');
-huge_modal_body.innerHTML = `
-                                <div class= "hm_w_b_img_wrapper">
-                                <div class="hm_w_button_box">
-                                    <div class="hm_w_btn_prev">
-                                        <i class="bi bi-chevron-left"></i>
-                                    </div>
-                                    <div class="hm_w_btn_next">
-                                        <i class="bi bi-chevron-right"></i>
-                                    </div>
-                                </div>
-                                <div class="hm_w_b_iw_img_box">
-                                </div>
-                                </div>
-                                <div class="hm_w_b_content_box">
-                                    <div class="hm_w_b_cb_my_account">
-                                        <div class="hm_w_b_cb_mc_front">
-                                            <img class="hm_w_b_cb_mc_f_circle_avatar" src="/static/images/df.jpeg">
-                                            <div class="hm_w_b_cb_mc_f_txt">
-                                                <div class="hm_w_b_cb_mc_f_t_id">about_joo
-                                                    <i class="bi bi-dot"></i>
-                                                    <span class="hm_w_b_cb_mc_f_t_i_following_button">팔로잉</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <i class="bi bi-three-dots hm_w_b_cb_ma_dot_icon"></i>
-                                    </div>
-                                    <div class="hm_w_b_cb_under">
-                                        <div class="hm_w_b_cb_u_my_account_box">
-                                            <img src="/static/images/df.jpeg" class="hm_w_b_cb_u_my_ab_circle_avatar">
-                                            <div class="hm_w_b_cb_u_my_ab_txt">
-                                                <div class="hm_w_b_cb_u_mc_my_id">about_joo</div>
-                                                <div class="hm_w_b_cb_u_mc_mydesc">꽃이 너무 예쁘다</div>
-                                            </div>
-                                        </div>
-                                        <div class="hm_w_b_cb_u_mc_day_before"></div>
-                                        <div class="hm_w_b_cb_u_my_desc"></div>
-                                        <div class="hm_w_b_cb_u_comments"></div>
-                                    </div>
-                                </div>
-                            `
 
 
-function huge_modal_in() {
-    huge_modal_wrapper.style.display = 'block';
+function huge_modal_in(post_id) {
+    let post_modal = document.getElementById('modal_wrapper' + post_id)
+    post_modal.style.display = 'flex'
     document.body.style.overflow = 'hidden';
 }
 function huge_modal_out() {
     huge_modal_wrapper.style.display = 'none';
     document.body.style.overflow = 'auto'
 }
-hm_w_x_button.addEventListener('click', huge_modal_out);
 huge_modal_wrapper.addEventListener('click', function (e) {
     if (e.target.classList.contains('huge_modal_wrapper')) {
         huge_modal_out()
@@ -171,53 +130,57 @@ huge_modal_wrapper.addEventListener('click', function (e) {
 
 
 // 큰 모달페이지의 버튼 컨트롤러
-const hm_w_b_cb_ma_dot_icon = document.querySelector('.hm_w_b_cb_ma_dot_icon');
-const hm_w_b_img_box = document.querySelector('.hm_w_b_iw_img_box');
+// const hm_w_b_cb_ma_dot_icon = document.querySelector('.hm_w_b_cb_ma_dot_icon');
+// const hm_w_b_img_box = document.querySelector('.hm_w_b_iw_img_box');
 
-hm_w_b_cb_ma_dot_icon.addEventListener('click', small_modal_in);
+// hm_w_b_cb_ma_dot_icon.addEventListener('click', small_modal_in);
 
 // 모달 안쪽에 사진 넣기
-hm_w_b_img_box.style.width = 100 * length_of_image + "%"
-for (let i = 0; i < length_of_image; i++) {
-    let modal_image_html = `
-    <img class="hm_w_b_img" src="/static/images/${image_list[i]}">
-    `
-    hm_w_b_img_box.innerHTML += modal_image_html
-}
-cur_idx_for_huge_modal = 0;
+// hm_w_b_img_box.style.width = 100 * length_of_image + "%"
+// for (let i = 0; i < length_of_image; i++) {
+//     let modal_image_html = `
+//     <img class="hm_w_b_img" src="/static/images/${image_list[i]}">
+//     `
+//     hm_w_b_img_box.innerHTML += modal_image_html
+// }
+// cur_idx_for_huge_modal = 0;
 
-const hm_w_btn_prev = document.querySelector('.hm_w_btn_prev');
-const hm_w_btn_next = document.querySelector('.hm_w_btn_next');
-if (length_of_image >= 1) {
-    hm_w_btn_next.style.visibility = 'visible'
-}
+// const hm_w_btn_prev = document.querySelector('.hm_w_btn_prev');
+// const hm_w_btn_next = document.querySelector('.hm_w_btn_next');
+// if (length_of_image >= 1) {
+//     hm_w_btn_next.style.visibility = 'visible'
+// }
 
-const hm_w_b_img = document.querySelector('.hm_w_b_img')
-hm_w_btn_next.addEventListener('click', function () {
-    if (++cur_idx_for_huge_modal == length_of_image - 1) {
-        hm_w_btn_next.style.visibility = 'hidden'
-    }
-    hm_w_btn_prev.style.visibility = 'visible'
-    hm_w_b_img_box.style.transition = 500 + "ms";
-    hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)";
-})
-hm_w_btn_prev.addEventListener('click', function () {
-    if (--cur_idx_for_huge_modal == 0) {
-        hm_w_btn_prev.style.visibility = 'hidden'
-    }
-    hm_w_btn_next.style.visibility = 'visible'
-    hm_w_b_img_box.style.transition = 500 + "ms"
-    hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)"
-})
+// const hm_w_b_img = document.querySelector('.hm_w_b_img')
+// hm_w_btn_next.addEventListener('click', function () {
+//     if (++cur_idx_for_huge_modal == length_of_image - 1) {
+//         hm_w_btn_next.style.visibility = 'hidden'
+//     }
+//     hm_w_btn_prev.style.visibility = 'visible'
+//     hm_w_b_img_box.style.transition = 500 + "ms";
+//     hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)";
+// })
+// hm_w_btn_prev.addEventListener('click', function () {
+//     if (--cur_idx_for_huge_modal == 0) {
+//         hm_w_btn_prev.style.visibility = 'hidden'
+//     }
+//     hm_w_btn_next.style.visibility = 'visible'
+//     hm_w_b_img_box.style.transition = 500 + "ms"
+//     hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)"
+// })
 
 const upload_modal = document.querySelector('.upload_modal');
-const preview_image = document.getElementById('um_preview_image')
+const preview_image = document.getElementById('um_preview_image_box')
+const um_p_ib_wrapper = document.getElementById('um_p_ib_wrapper')
 const um_desc = document.querySelector('.um_desc');
 const um_header_next_btn = document.querySelector('.um_header_next_btn')
 const um_header_upload_btn = document.querySelector('.um_header_upload_btn');
 const um_comment_page = document.querySelector('.um_comment_page');
 const mh_i_square = document.querySelector('.mh_i_square')
 const upload_modal_wrapper = document.querySelector('.upload_modal_wrapper')
+const ul_bb_prev = document.querySelector('.ul_bb_prev')
+const ul_bb_next = document.querySelector('.ul_bb_next')
+const um_preview_images = document.querySelector('.um_preview_images')
 
 function isValid(data) {
     if (data.types.indexOf('Files') < 0)
@@ -243,21 +206,50 @@ upload_modal.addEventListener('dragleave', function (e) {
 });
 
 const formData = new FormData();
+let file_length = 0
 upload_modal.addEventListener('drop', function (e) {
     e.preventDefault();
     const data = e.dataTransfer;
     if (!isValid(data)) return;
-
-    formData.append('img', data.files[0])
-    const reader = new FileReader();
-    reader.onload = () => {
-        preview_image.style.display = 'block'
-        um_desc.style.display = 'none'
-        um_header_next_btn.style.display = 'flex'
-        preview_image.src = reader.result;
+    um_p_ib_wrapper.style.width = 400 * data.files.length + "px"
+    file_length = data.files.length
+    for (let i = 0; i < data.files.length; i++) {
+        formData.append('img', data.files[i])
+        const reader = new FileReader();
+        reader.onload = () => {
+            um_p_ib_wrapper.innerHTML +=
+                `
+            <img class="um_preview_images" src="${reader.result}">
+            `
+        }
+        reader.readAsDataURL(data.files[i])
     }
-    reader.readAsDataURL(data.files[0])
+    preview_image.style.display = 'block'
+    um_desc.style.display = 'none'
+    um_header_next_btn.style.display = 'flex'
+    if (data.files.length > 1) {
+        ul_bb_next.style.visibility = 'visible'
+    }
+
 });
+ul_bb_cur_idx = 0
+ul_bb_next.addEventListener('click', function () {
+    ul_bb_prev.style.visibility = 'visible'
+    if (++ul_bb_cur_idx == file_length) {
+        ul_bb_next.style.visibility = 'hidden'
+    }
+    um_p_ib_wrapper.style.transition = 500 + 'ms'
+    um_p_ib_wrapper.style.transform = "translate3d(-" + (400 * ul_bb_cur_idx) + "px,0px,0px)"
+})
+ul_bb_prev.addEventListener('click', function () {
+    if (--ul_bb_cur_idx == 0) {
+        ul_bb_prev.style.visibility = 'hidden'
+    }
+    um_p_ib_wrapper.style.transform = "translate3d(-" + (400 * ul_bb_cur_idx) + "px, 0px, 0px)"
+    ul_bb_next.style.visibility = 'visible'
+    um_p_ib_wrapper.style.transition = 500 + 'ms'
+
+})
 um_header_next_btn.addEventListener('click', function () {
     um_header_next_btn.style.display = 'none'
     upload_modal.style.transition = 500 + "ms"
@@ -266,6 +258,7 @@ um_header_next_btn.addEventListener('click', function () {
     setTimeout(() => {
         um_header_upload_btn.style.display = 'flex'
         um_comment_page.style.display = 'block'
+        um_preview_images.style.borderRadius = "0px 0px 0px 0px";
     }, 500)
 })
 um_header_upload_btn.addEventListener('click', () => {
@@ -324,8 +317,8 @@ function like_button(post_id) {
                 action_give: 'like'
             },
             success: function (response) {
-                console.log('like')
                 heart_icon.classList.replace('bi-heart', 'bi-heart-fill')
+                heart_icon.style.color = 'red';
             }
         })
     } else {
@@ -337,8 +330,9 @@ function like_button(post_id) {
                 action_give: 'unlike'
             },
             success: function (response) {
-                console.log('unlike')
                 heart_icon.classList.replace('bi-heart-fill', 'bi-heart')
+                heart_icon.style.color = 'black';
+
             }
         })
     }

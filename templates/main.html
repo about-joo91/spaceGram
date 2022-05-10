@@ -12,11 +12,54 @@
 </head>
 
 <body>
-    <div class="huge_modal_wrapper">
-        <div class="hm_w_x_button">x</div>
+    {% for post in posts %}
+    <div id="modal_wrapper{{post._id}}" class="huge_modal_wrapper">
+        <div class="hm_w_x_button" onclick="huge_modal_out()">x</div>
         <div class="hm_w_body">
+            <div class="hm_w_b_img_wrapper">
+                <div class="hm_w_button_box">
+                    <div class="hm_w_btn_prev">
+                        <i class="bi bi-chevron-left"></i>
+                    </div>
+                    <div class="hm_w_btn_next">
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="hm_w_b_iw_img_box">
+                    {% for image in post.file %}
+                    <img src="data:image/jpeg;base64,{{image}}" class="main_card_image">
+                    {% endfor % }
+                </div>
+            </div>
+            <div class="hm_w_b_content_box">
+                <div class="hm_w_b_cb_my_account">
+                    <div class="hm_w_b_cb_mc_front">
+                        <img class="hm_w_b_cb_mc_f_circle_avatar" src="/static/images/df.jpeg">
+                        <div class="hm_w_b_cb_mc_f_txt">
+                            <div class="hm_w_b_cb_mc_f_t_id">{{post.user_nick_name}}
+                                <i class="bi bi-dot"></i>
+                                <span class="hm_w_b_cb_mc_f_t_i_following_button">팔로잉</span>
+                            </div>
+                        </div>
+                    </div>
+                    <i class="bi bi-three-dots hm_w_b_cb_ma_dot_icon"></i>
+                </div>
+                <div class="hm_w_b_cb_under">
+                    <div class="hm_w_b_cb_u_my_account_box">
+                        <img src="/static/images/df.jpeg" class="hm_w_b_cb_u_my_ab_circle_avatar">
+                        <div class="hm_w_b_cb_u_my_ab_txt">
+                            <div class="hm_w_b_cb_u_mc_my_id">{{post.user_nick_name}}</div>
+                            <div class="hm_w_b_cb_u_mc_mydesc">{{post.content}}</div>
+                        </div>
+                    </div>
+                    <div class="hm_w_b_cb_u_mc_day_before"></div>
+                    <div class="hm_w_b_cb_u_my_desc"></div>
+                    <div class="hm_w_b_cb_u_comments"></div>
+                </div>
+            </div>
         </div>
     </div>
+    {% endfor %}
     <div class="small_modal_wrapper">
         <div class="sm_w_body">
         </div>
@@ -29,7 +72,17 @@
                 <span class="um_header_upload_btn">공유</span>
             </div>
             <div class="um_body">
-                <img id="um_preview_image">
+                <div class="up_load_button_box">
+                    <div class="ul_bb_prev">
+                        <i class="bi bi-chevron-left"></i>
+                    </div>
+                    <div class="ul_bb_next">
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                </div>
+                <div id="um_preview_image_box">
+                    <div id="um_p_ib_wrapper"></div>
+                </div>
                 <div class="um_desc">파일을 끌어다 놓으세요</div>
                 <div class="um_comment_page">
                     <div class="um_cp_my_account">
@@ -176,7 +229,7 @@
                         </div>
                     </div>
                     <div class="mb_l_mc_mib_carousel">
-                        <img class="mb_l_mc_mib_c_img" src="data:image/jpeg;base64,{{post.file}}">
+                        <img class="main_card_image" src="data:image/jpeg;base64,{{post.file}}">
                     </div>
                 </div>
                 <div class="mb_l_mc_comment">
@@ -201,7 +254,8 @@
                             <div class="mb_l_mc_c_lk_mc_comment">{{post.content}}</div>
                         </div>
                         {% if post['comment'] | length > 1 %}
-                        <div onclick="huge_modal_in()" onmouseover="this.style.cursor='pointer'">댓글 {{post['comment'] |
+                        <div onclick="huge_modal_in('{{post._id}}')" onmouseover="this.style.cursor='pointer'">댓글
+                            {{post['comment'] |
                             length}}개 모두 보기
                         </div>
                         {% endif %}
