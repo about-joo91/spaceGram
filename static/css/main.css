@@ -1,12 +1,12 @@
 .html {
-    height: 100%;
+    height: 100vh;
     width: 100vw;
 
 }
 
 body {
     margin: 0px;
-    height: 100%;
+    height: 100vh;
     width: 100vw;
     background-color: rgb(250, 250, 250)
 }
@@ -530,7 +530,9 @@ body {
 /* 스몰 모달 페이지 */
 .small_modal_wrapper {
     display: none;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
@@ -564,9 +566,11 @@ body {
 
 /* 휴지 모달 페이지 */
 .huge_modal_wrapper {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.7);
     z-index: 2;
     display: none;
@@ -711,7 +715,6 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    visibility: hidden;
 }
 
 .hm_w_btn_next:hover {
@@ -722,13 +725,11 @@ body {
     float: left;
 }
 
-.hm_w_b_img_wrapper {
-    overflow-x: hidden;
-}
 
 .hm_w_b_iw_img_box {
-    display: flex;
-    float: left;
+    display: block;
+    width: 614px;
+    overflow-x: hidden;
 }
 
 .upload_modal_wrapper {

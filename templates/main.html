@@ -14,19 +14,28 @@
 <body>
     {% for post in posts %}
     <div id="modal_wrapper{{post._id}}" class="huge_modal_wrapper">
-        <div class="hm_w_x_button" onclick="huge_modal_out()">x</div>
+        <div class="hm_w_x_button" onclick="huge_modal_out('{{post._id}}')">x</div>
         <div class="hm_w_body">
             <div class="hm_w_b_img_wrapper">
                 <div class="hm_w_button_box">
-                    <div class="hm_w_btn_prev">
+                    <div class="hm_w_btn_prev" id="modal_button_prev_{{post._id}}"
+                        onclick="carousel_prev_btn('{{post._id}}', 'modal')">
                         <i class="bi bi-chevron-left"></i>
                     </div>
-                    <div class="hm_w_btn_next">
+                    {% if post.file | length > 1 %}
+                    <div onclick="carousel_next_btn('{{post._id}}', '{{post.file | length}}', 'modal')"
+                        id="modal_button_next_{{post._id}}" class="hm_w_btn_next" style="visibility: visible;">
                         <i class="bi bi-chevron-right"></i>
                     </div>
+                    {% else %}
+                    <div class="hm_w_btn_next" style="visibility: hidden;">
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="hm_w_b_iw_img_box">
-                    <div class="mb_l_mc_mib_carousel">
+                    <div id="modal_carousel_{{post._id}}" class="mb_l_mc_mib_carousel"
+                        style="width: {{614 * post.file | length}}px;">
                         {% for image in post.file %}
                         <img src="data:image/jpeg;base64,{{image}}" class="main_card_image">
                         {% endfor %}
@@ -222,28 +231,26 @@
                     </div>
                 </div>
                 <div class="mb_l_mc_main_image_box">
-
                     <div class="mb_l_mc_mib_button">
-
                         <div class="mb_l_mc_mib_btn_prev" id="main_button_prev_{{post._id}}"
-                            onclick="mb_l_mc_mib_btn_prev_click('{{post._id}}')">
+                            onclick="carousel_prev_btn('{{post._id}}', 'main')">
                             <i class="bi bi-chevron-left"></i>
                         </div>
                         {% if post.file | length > 1 %}
                         <div class="mb_l_mc_mib_btn_next" style="visibility: visible;"
                             id="main_button_next_{{post._id}}"
-                            onclick="mb_l_mc_mib_btn_next_click('{{post._id}}','{{post.file | length}}')">
+                            onclick="carousel_next_btn('{{post._id}}','{{post.file | length}}', 'main')">
                             <i class="bi bi-chevron-right"></i>
                         </div>
                         {% else %}
-                        <div class="mb_l_mc_mib_btn_next" style="visibility: hidden;" id="main_button_next_{{post._id}}"
-                            onclick="mb_l_mc_mib_btn_next_click('{{post._id}}','{{post.file | length}}')">
+                        <div class="mb_l_mc_mib_btn_next" style="visibility: hidden;"
+                            id="main_button_next_{{post._id}}">
                             <i class="bi bi-chevron-right"></i>
                         </div>
                         {% endif %}
 
                     </div>
-                    <div class="mb_l_mc_mib_carousel" id="carousel_{{post._id}}"
+                    <div class="mb_l_mc_mib_carousel" id="main_carousel_{{post._id}}"
                         style="width : {{ 614 * post.file |length }}px">
                         {% for image in post.file %}
                         <img class="main_card_image" src="data:image/jpeg;base64,{{image}}">

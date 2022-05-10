@@ -10,12 +10,11 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:spaceGram3@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:spaceGram4@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 import certifi
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
-
 app = Flask(__name__)
 
 def authrize(f):
