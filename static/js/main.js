@@ -33,32 +33,29 @@ mb_l_sb_btn_prev.addEventListener('click', function () {
     }
 })
 
-image_list = [
-    "pretty_image.jpg",
-]
-let length_of_image = image_list.length
-const mb_l_mc_mib_carousel = document.querySelector('.mb_l_mc_mib_carousel');
+// let length_of_image = image_list.length
+// const mb_l_mc_mib_carousel = document.querySelector('.mb_l_mc_mib_carousel');
 // mb_l_mc_mib_carousel.style.width = (615 * length_of_image) + "px";
 // for (let i = 0; i < image_list.length; i++) {
 //     image_html = `<img class="mb_l_mc_mi_c_img" src = "/static/images/${image_list[i]}">`;
 //     mb_l_mc_mib_carousel.innerHTML += image_html
 // }
-const mb_l_mc_mib_btn_prev = document.querySelector('.mb_l_mc_mib_btn_prev');
-const mb_l_mc_mib_btn_next = document.querySelector('.mb_l_mc_mib_btn_next');
-let cur_idx_for_main_carousel = 0;
-if (length_of_image > 1) {
-    mb_l_mc_mib_btn_next.style.visibility = 'visible';
-}
-mb_l_mc_mib_btn_prev.addEventListener('click', function () {
-    if (--cur_idx_for_main_carousel == 0) {
-        mb_l_mc_mib_btn_prev.style.visibility = 'hidden';
-    }
-    mb_l_mc_mib_btn_next.style.visibility = 'visible';
-    mb_l_mc_mib_carousel.style.transition = 500 + "ms";
-    mb_l_mc_mib_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%, 0px,0px)";
+// const mb_l_mc_mib_btn_prev = document.querySelector('.mb_l_mc_mib_btn_prev');
+// const mb_l_mc_mib_btn_next = document.querySelector('.mb_l_mc_mib_btn_next');
+// let cur_idx_for_main_carousel = 0;
+// if (length_of_image > 1) {
+//     mb_l_mc_mib_btn_next.style.visibility = 'visible';
+// }
+// mb_l_mc_mib_btn_prev.addEventListener('click', function () {
+//     if (--cur_idx_for_main_carousel == 0) {
+//         mb_l_mc_mib_btn_prev.style.visibility = 'hidden';
+//     }
+//     mb_l_mc_mib_btn_next.style.visibility = 'visible';
+//     mb_l_mc_mib_carousel.style.transition = 500 + "ms";
+//     mb_l_mc_mib_carousel.style.transform = "translate3d(-" + (cur_idx_for_main_carousel * (1 / length_of_image)) * 100 + "%, 0px,0px)";
 
 
-})
+// })
 mb_l_mc_mib_btn_next.addEventListener('click', function () {
     if (++cur_idx_for_main_carousel == length_of_image - 1) {
         mb_l_mc_mib_btn_next.style.visibility = 'hidden';
@@ -128,46 +125,45 @@ huge_modal_wrapper.addEventListener('click', function (e) {
     }
 })
 
-
 // 큰 모달페이지의 버튼 컨트롤러
-// const hm_w_b_cb_ma_dot_icon = document.querySelector('.hm_w_b_cb_ma_dot_icon');
-// const hm_w_b_img_box = document.querySelector('.hm_w_b_iw_img_box');
+const hm_w_b_cb_ma_dot_icon = document.querySelector('.hm_w_b_cb_ma_dot_icon');
+const hm_w_b_img_box = document.querySelector('.hm_w_b_iw_img_box');
 
-// hm_w_b_cb_ma_dot_icon.addEventListener('click', small_modal_in);
+hm_w_b_cb_ma_dot_icon.addEventListener('click', small_modal_in);
 
 // 모달 안쪽에 사진 넣기
-// hm_w_b_img_box.style.width = 100 * length_of_image + "%"
-// for (let i = 0; i < length_of_image; i++) {
-//     let modal_image_html = `
-//     <img class="hm_w_b_img" src="/static/images/${image_list[i]}">
-//     `
-//     hm_w_b_img_box.innerHTML += modal_image_html
-// }
-// cur_idx_for_huge_modal = 0;
+hm_w_b_img_box.style.width = 100 * length_of_image + "%"
+for (let i = 0; i < length_of_image; i++) {
+    let modal_image_html = `
+    <img class="hm_w_b_img" src="/static/images/${image_list[i]}">
+    `
+    hm_w_b_img_box.innerHTML += modal_image_html
+}
+cur_idx_for_huge_modal = 0;
 
-// const hm_w_btn_prev = document.querySelector('.hm_w_btn_prev');
-// const hm_w_btn_next = document.querySelector('.hm_w_btn_next');
-// if (length_of_image >= 1) {
-//     hm_w_btn_next.style.visibility = 'visible'
-// }
+const hm_w_btn_prev = document.querySelector('.hm_w_btn_prev');
+const hm_w_btn_next = document.querySelector('.hm_w_btn_next');
+if (length_of_image >= 1) {
+    hm_w_btn_next.style.visibility = 'visible'
+}
 
-// const hm_w_b_img = document.querySelector('.hm_w_b_img')
-// hm_w_btn_next.addEventListener('click', function () {
-//     if (++cur_idx_for_huge_modal == length_of_image - 1) {
-//         hm_w_btn_next.style.visibility = 'hidden'
-//     }
-//     hm_w_btn_prev.style.visibility = 'visible'
-//     hm_w_b_img_box.style.transition = 500 + "ms";
-//     hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)";
-// })
-// hm_w_btn_prev.addEventListener('click', function () {
-//     if (--cur_idx_for_huge_modal == 0) {
-//         hm_w_btn_prev.style.visibility = 'hidden'
-//     }
-//     hm_w_btn_next.style.visibility = 'visible'
-//     hm_w_b_img_box.style.transition = 500 + "ms"
-//     hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)"
-// })
+const hm_w_b_img = document.querySelector('.hm_w_b_img')
+hm_w_btn_next.addEventListener('click', function () {
+    if (++cur_idx_for_huge_modal == length_of_image - 1) {
+        hm_w_btn_next.style.visibility = 'hidden'
+    }
+    hm_w_btn_prev.style.visibility = 'visible'
+    hm_w_b_img_box.style.transition = 500 + "ms";
+    hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)";
+})
+hm_w_btn_prev.addEventListener('click', function () {
+    if (--cur_idx_for_huge_modal == 0) {
+        hm_w_btn_prev.style.visibility = 'hidden'
+    }
+    hm_w_btn_next.style.visibility = 'visible'
+    hm_w_b_img_box.style.transition = 500 + "ms"
+    hm_w_b_img_box.style.transform = "translate3d(-" + ((1 / length_of_image) * cur_idx_for_huge_modal) * 100 + "%,0px,0px)"
+})
 
 const upload_modal = document.querySelector('.upload_modal');
 const preview_image = document.getElementById('um_preview_image_box')
@@ -214,7 +210,7 @@ upload_modal.addEventListener('drop', function (e) {
     um_p_ib_wrapper.style.width = 400 * data.files.length + "px"
     file_length = data.files.length
     for (let i = 0; i < data.files.length; i++) {
-        formData.append('img', data.files[i])
+        formData.append(data.files[i].name, data.files[i])
         const reader = new FileReader();
         reader.onload = () => {
             um_p_ib_wrapper.innerHTML +=

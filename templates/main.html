@@ -26,9 +26,11 @@
                     </div>
                 </div>
                 <div class="hm_w_b_iw_img_box">
-                    {% for image in post.file %}
-                    <img src="data:image/jpeg;base64,{{image}}" class="main_card_image">
-                    {% endfor % }
+                    <div class="mb_l_mc_mib_carousel">
+                        {% for image in post.file %}
+                        <img src="data:image/jpeg;base64,{{image}}" class="main_card_image">
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
             <div class="hm_w_b_content_box">
@@ -229,7 +231,9 @@
                         </div>
                     </div>
                     <div class="mb_l_mc_mib_carousel">
-                        <img class="main_card_image" src="data:image/jpeg;base64,{{post.file}}">
+                        {% for image in post.file %}
+                        <img class="main_card_image" src="data:image/jpeg;base64,{{image}}">
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="mb_l_mc_comment">

@@ -10,7 +10,7 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:12345@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:spaceGram@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 import certifi
 
 SECRET_KEY = 'spaceGram'
@@ -39,7 +39,7 @@ def home(user):
         user_id = user.get('id')
         post_list = list(db.posts.find({'user_id' : user_id}))
         for post in post_list:
-            post['file'] = post['file'].decode('utf-8')
+            post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
             post['timestamp'] = (datetime.utcnow() - post['timestamp']).days
             comments = list(db.comment.find({'post_id':str(post['_id'])}, {"_id":0}))
             user_info_comments =[]
@@ -156,9 +156,9 @@ def sign_in():
 @authrize
 def post_file(user):
     if user is not None:
-        files = request.files['img']
+        files = request.files.to_dict()
         file_list = []
-        for file in files:
+        for file in files.values():
             extension = file.filename.split('.')[-1]
             format = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
             img = Image.open(file)

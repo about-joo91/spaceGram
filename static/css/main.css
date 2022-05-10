@@ -270,13 +270,10 @@ body {
     width: 615px;
 }
 
-.mb_l_mc_mib_carousel {
-    float: left;
-}
-
 .main_card_image {
     width: 614px;
     height: 700px;
+    float: left;
 }
 
 .mb_l_mc_mib_button {
