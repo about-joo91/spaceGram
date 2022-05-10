@@ -347,6 +347,9 @@ body {
     margin-right: 10px;
 }
 
+.mb_l_mc_c_lk_ic_icons:hover {
+    cursor: pointer;
+}
 
 .mb_l_mc_c_lk_lp_circle_avatar {
     width: 20px;
@@ -521,10 +524,28 @@ body {
     color: rgb(110, 110, 110);
 }
 
-.mb_rf_ra_back {
+.mb_rf_ra_back_following {
     color: rgb(65, 147, 239);
     font-size: 14px;
     font-weight: bold;
+}
+
+.mb_rf_ra_back_following:hover {
+    cursor: pointer;
+}
+
+.mb_rf_ra_back_follow {
+    color: rgb(65, 147, 239);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mb_rf_ra_back_follow:hover {
+    cursor: pointer;
+}
+
+.invisible {
+    display: none;
 }
 
 /* 스몰 모달 페이지 */
@@ -540,11 +561,13 @@ body {
 }
 
 .sm_w_body {
-    position: absolute;
-    width: 33%;
+    position: relative;
     border-radius: 5%;
+    width: 380px;
+    height: 380px;
     background-color: white;
     text-align: center;
+    z-index: 10;
 }
 
 .sm_w_body_txt {

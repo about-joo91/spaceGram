@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     {% for post in posts %}
     <div id="modal_wrapper{{post._id}}" class="huge_modal_wrapper">
         <div class="hm_w_x_button" onclick="huge_modal_out('{{post._id}}')">x</div>
@@ -53,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <i class="bi bi-three-dots hm_w_b_cb_ma_dot_icon"></i>
+                    <i class="bi bi-three-dots hm_w_b_cb_ma_dot_icon" onclick="small_modal_in('{{post._id}}')"></i>
                 </div>
                 <div class="hm_w_b_cb_under">
                     <div class="hm_w_b_cb_u_my_account_box">
@@ -70,11 +71,18 @@
             </div>
         </div>
     </div>
-    {% endfor %}
-    <div class="small_modal_wrapper">
-        <div class="sm_w_body">
+    <div class="small_modal_wrapper" id="small_modal_wrapper_{{post._id}}">
+        <div class="sm_w_body" id="sm_w_body_{{post._id}}">
+            <div class="sm_w_body_txt sm_w_b_t_red">신고</div>
+            <div class="sm_w_body_txt sm_w_b_t_red">팔로우 취소</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">게시물로 이동</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">공유 대상...</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">링크 복사</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">퍼가기</div>
+            <div class="sm_w_body_txt sm_w_b_t_black" onclick="small_modal_out('{{post._id}}')">취소</div>
         </div>
     </div>
+    {% endfor %}
     <div class="upload_modal_wrapper">
         <div class="upload_modal">
             <div class="um_header">
@@ -97,17 +105,17 @@
                 <div class="um_desc">파일을 끌어다 놓으세요</div>
                 <div class="um_comment_page">
                     <div class="um_cp_my_account">
-                        <img class="um_cp_ma_img" src="/static/images/df.jpeg" alt="">
-                        <div class="um_cp_ma_id">about_joo</div>
+                        {% if my_account is not none %}
+                        <img class="um_cp_ma_img" src="{{my_account.get('profile_img')}}" alt="">
+                        <div class="um_cp_ma_id">{{my_account.get('nick_name')}}</div>
+                        {% endif %}
                     </div>
                     <form class="um_cp_ma_form">
                         <textarea placeholder="문구입력..." type="text" id="um_cp_ma_f_input"></textarea>
                     </form>
                 </div>
             </div>
-
         </div>
-
     </div>
     <div class="main_header">
         <div class="mh_contents_wrapper">
@@ -127,7 +135,9 @@
                 <i class="bi bi-plus-square mh_i_square"></i>
                 <i class="bi bi-compass mh_i_compass"></i>
                 <i class="bi bi-heart mh_i_heart"></i>
-                <img src="/static/images/profile.jpeg" class="mh_circle_avatar">
+                {% if my_account is not none %}
+                <img src="{{my_account.get('profile_img')}}" class="mh_circle_avatar">
+                {% endif %}
             </div>
         </div>
     </div>
@@ -223,11 +233,11 @@
             <div class="mb_l_main_cards" id="image_{{post._id}}_{{post.file | length}}">
                 <div class="mb_l_mc_header">
                     <div class="mb_l_mc_h_front">
-                        <img src="/static/images/profile.jpeg" class="mb_l_mc_h_f_circle_avatar">
-                        <div class="mb_l_mc_h_f_id">{{post.user_nick_name}}</div>
+                        <img src="{{post.get('user_info').get('profile_img')}}" class="mb_l_mc_h_f_circle_avatar">
+                        <div class="mb_l_mc_h_f_id">{{post.get('user_info').get('nick_name')}}</div>
                     </div>
                     <div class="mb_l_mc_h_back">
-                        <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon"></i>
+                        <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon" onclick="small_modal_in('{{post._id}}')"></i>
                     </div>
                 </div>
                 <div class="mb_l_mc_main_image_box">
@@ -262,19 +272,29 @@
                     <div class="mb_l_mc_c_liked_box">
                         <div class="mb_l_mc_c_lk_icon_box">
                             <div class="mb_l_mc_c_lk_ic_front">
+                                {% if my_account._id | string in post.liked_people %}
+                                <i id="{{post._id}}" onclick="like_button('{{post._id}}')" style="color: red;"
+                                    class="bi bi-heart-fill mb_l_mc_c_lk_ic_icons"></i>
+                                {% else %}
                                 <i id="{{post._id}}" onclick="like_button('{{post._id}}')"
                                     class="bi bi-heart mb_l_mc_c_lk_ic_icons"></i>
-                                <i class="bi bi-chat mb_l_mc_c_lk_ic_icons"></i>
+                                {% endif %}
+                                <i class="bi bi-chat mb_l_mc_c_lk_ic_icons" onclick="huge_modal_in('{{post._id}}')"></i>
                                 <i class="bi bi-send mb_l_mc_c_lk_ic_icons"></i>
                             </div>
                             <div class="mb_l_mc_c_lk_ic_back">
                                 <i class="bi bi-bookmark mb_l_mc_c_lk_ic_icons"></i>
                             </div>
                         </div>
+                        {% if post.liked_people | length > 0 %}
                         <div class="mb_l_mc_c_lk_liked_person">
-                            <img src="/static/images/df.jpeg" class="mb_l_mc_c_lk_lp_circle_avatar">
-                            <div class="mb_l_mc_c_lk_lp_id">about_joo 님 외 12명이 좋아합니다</div>
+                            <img src="{{post.get('liked_person_info')[-1].profile_img}}"
+                                class="mb_l_mc_c_lk_lp_circle_avatar">
+                            <div class="mb_l_mc_c_lk_lp_id">{{post.get('liked_person_info')[-1].nick_name}} 님 외
+                                {{post.liked_people |
+                                length -1}}명이 좋아합니다</div>
                         </div>
+                        {% endif %}
                         <div class="mb_l_mc_c_lk_my_comment">
                             <div class="mb_l_mc_c_lk_mc_id">{{post.user_nick_name}}</div>
                             <div class="mb_l_mc_c_lk_mc_comment">{{post.content}}</div>
@@ -291,7 +311,7 @@
                             <div class="mb_l_mc_c_lk_c_content">{{comment.get('comment')}}</div>
                         </div>
                         {% endfor %}
-                        <div class="mb_l_mc_c_lk_days_before">{{post.timestamp}}일 전</div>
+                        <div class="mb_l_mc_c_lk_days_before">{{post.timestamp.days}}일 전</div>
 
                     </div>
                     <div class="mb_l_mc_c_comment_input_box">
@@ -312,10 +332,13 @@
         <div class="mb_right_float_box">
             <div class="mb_rf_my_account">
                 <div class="mb_rf_ma_front">
-                    <img src="/static/images/df.jpeg" class="mb_rf_ma_f_circle_avatar">
+                    {% if my_account is not none %}
+                    <img src="{{my_account.get('profile_img')}}" class="mb_rf_ma_f_circle_avatar">
+
                     <div class="mb_rf_ma_f_txt_wrapper">
-                        <div class="mb_rf_ma_f_tw_id">about_joo</div>
-                        <div class="mb_rf_ma_f_tw_name">joo</div>
+                        <div class="mb_rf_ma_f_tw_id">{{my_account.get('nick_name')}}</div>
+                        <div class="mb_rf_ma_f_tw_name">{{my_account.get('user_name')}}</div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="mb_rf_mc_back">전환</div>
@@ -328,19 +351,26 @@
                     모두보기
                 </div>
             </div>
+            {% for user in users %}
             <div class="mb_rf_recommend_account">
                 <div class="mb_rf_ra_front">
-                    <img src="/static/images/profile.jpeg" class="mb_rf_ra_f_circle_avatar">
+                    <img src="{{user.get('profile_img')}}" class="mb_rf_ra_f_circle_avatar">
                     <div class="mb_rf_ra_f_txt">
-                        <div class="mb_rf_ra_f_t_id">about_joo</div>
+                        <div class="mb_rf_ra_f_t_id">{{user.get('nick_name')}}</div>
                         <div class="mb_rf_ra_f_t_follower">blahblah님이 팔로우합니다</div>
                     </div>
                 </div>
-                <div class="mb_rf_ra_back">팔로우</div>
+                <div class="mb_rf_ra_back_follow" id="follow_btn_{{user.get('_id')}}" onclick="follow_btn(this)">팔로우
+                </div>
+                <div class="mb_rf_ra_back_following invisible" id="following_btn_{{user.get('_id')}}"
+                    onclick="follow_btn(this)">
+                    팔로잉</div>
             </div>
+            {% endfor %}
         </div>
     </div>
     <script src="/static/js/main.js"></script>
+
 </body>
 
 </html>

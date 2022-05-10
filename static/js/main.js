@@ -45,39 +45,30 @@ mh_circle_avatar.addEventListener('click', function () {
     window.location.href = '/my_page'
 })
 
-const small_modal_wrapper = document.querySelector('.small_modal_wrapper');
-const small_modal_body = document.querySelector('.sm_w_body');
-let modal_top_now = parseInt((window.innerHeight * 0.66) / 2 + window.scrollY)
-let modal_left_now = parseInt((window.innerWidth * 0.66) / 2 + window.scrollX)
-small_modal_body.innerHTML = `
-                                    <div class="sm_w_body_txt sm_w_b_t_red">신고</div>
-                                    <div class="sm_w_body_txt sm_w_b_t_red">팔로우 취소</div>
-                                    <div class="sm_w_body_txt sm_w_b_t_black">게시물로 이동</div>
-                                    <div class="sm_w_body_txt sm_w_b_t_black">공유 대상...</div>
-                                    <div class="sm_w_body_txt sm_w_b_t_black">링크 복사</div>
-                                    <div class="sm_w_body_txt sm_w_b_t_black">퍼가기</div>
-                                    <div class="sm_w_body_txt sm_w_b_t_black modal_cancel_button">취소</div>
-                                    `
-small_modal_body.style.left = modal_left_now + "px";
-small_modal_body.style.top = modal_top_now + "px";
-small_modal_body.style.zIndex = "3";
-const mb_l_mc_h_b_dot_icon = document.querySelector('.mb_l_mc_h_b_dot_icon');
+
+
 const modal_cancel_button = document.querySelector('.modal_cancel_button')
-function small_modal_in() {
+function small_modal_in(post_id) {
+    let small_modal_wrapper = document.getElementById('small_modal_wrapper_' + post_id)
+    console.log(document.documentElement.scrollTop)
+    let modal_top_now = parseInt((window.innerHeight - 380) / 2)
+    let modal_left_now = parseInt((window.innerWidth - 380) / 2)
+    let small_modal_body = document.getElementById('sm_w_body_' + post_id);
+    small_modal_body.style.left = modal_left_now + "px";
+    small_modal_body.style.top = modal_top_now + "px";
     small_modal_wrapper.style.display = 'block';
-    document.body.style.overflow = 'hidden'
+    // document.body.style.overflow = 'hidden'
+    small_modal_wrapper.addEventListener('click', function (e) {
+        if (e.target.classList.contains("small_modal_wrapper")) {
+            small_modal_out(post_id)
+        }
+    })
 }
-function small_modal_out() {
+function small_modal_out(post_id) {
+    let small_modal_wrapper = document.getElementById('small_modal_wrapper_' + post_id)
     small_modal_wrapper.style.display = 'none';
     document.body.style.overflow = 'auto'
 }
-mb_l_mc_h_b_dot_icon.addEventListener('click', small_modal_in)
-small_modal_wrapper.addEventListener('click', function (e) {
-    if (e.target.classList.contains("small_modal_wrapper")) {
-        small_modal_out()
-    }
-})
-modal_cancel_button.addEventListener('click', small_modal_out)
 
 const huge_modal_wrapper = document.querySelector('.huge_modal_wrapper');
 function huge_modal_in(post_id) {
@@ -234,7 +225,6 @@ mh_name.addEventListener('click', home_redirecting)
 //
 // 좋아요 기능 구현 *동시성 문제?!
 function like_button(post_id) {
-    console.log(post_id)
     let heart_icon = document.getElementById(post_id)
     if (heart_icon.classList.contains('bi-heart')) {
         $.ajax({
@@ -297,4 +287,21 @@ function comment_submit(post_id) {
         })
     }
 
+}
+function follow_btn(obj) {
+    target_user_id = obj.id.split('_')[2]
+    let following = document.getElementById('following_btn_' + target_user_id)
+    let follow = document.getElementById('follow_btn_' + target_user_id)
+    $.ajax({
+        type: 'POST',
+        url: '/follow_map',
+        data: {
+            target_user_id: target_user_id
+        },
+        success: function (response) {
+            follow.classList.toggle('invisible')
+            following.classList.toggle('invisible')
+            window.location.reload()
+        }
+    })
 }
