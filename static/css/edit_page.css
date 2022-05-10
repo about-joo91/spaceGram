@@ -1,0 +1,368 @@
+html{
+    font-size: 62.5%;
+}
+.wrap{
+    position: relative;
+}
+/*여기는 main의 header 가져옴*/
+.main_header {
+    height: 65px;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    box-shadow: 2px 1px 0.5px rgb(230, 230, 230);
+}
+
+.mh_contents_wrapper {
+    height: 100%;
+    width: 945px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 0.7fr 1fr;
+}
+
+.mh_name {
+    font-size: x-large;
+}
+
+.mh_search_bar {
+    display: flex;
+}
+
+
+.mh_sb_ib_o_icon {
+    position: relative;
+    color: rgb(142, 142, 142);
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.mh_sb_ib_o_txt {
+    color: rgb(142, 142, 142);
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.mh_sb_input_box {
+    border-radius: 8px;
+    min-width: 125px;
+    height: 36px;
+    display: flex;
+    position: relative;
+    width: 26.8rem;
+
+}
+
+.mh_sb_ib_input {
+    outline: 0;
+    border: 0;
+    padding: 10px 30px 10px 20px;
+    font-size: 16px;
+    background-color: rgb(239, 239, 239);
+    border-radius: 8px;
+}
+
+.mh_sb_ib_overlap_box {
+    position: relative;
+    left: -95%;
+    top: 10px;
+    display: flex;
+    padding-left: 16px;
+}
+
+.mh_icons {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.mh_i_home,
+.mh_i_send,
+.mh_i_square,
+.mh_i_compass,
+.mh_i_heart {
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.mh_circle_avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+/*여기부터 mypage*/
+.profile_modal{
+    width: 15rem;
+    height: 9rem;
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+    position: absolute;
+    top: 6rem;
+    left: 80rem;
+    z-index: 50;
+    border-radius: 10px;
+    
+}
+.pm_my_page{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+
+}
+.pm_book_mark{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+}
+.pm_logout{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+    border-top: 1px solid gray;
+}
+.wrap{
+    background-color: #FAFAFA;
+    height: 68.5rem;
+}
+/* 여기부터 edit_page */
+.edit_page{
+    width: 70.4rem;
+    height: 66.8rem;
+    background-color: white;
+    padding-top: 3.5rem;
+    margin: 0rem auto;
+
+}
+.ep_my_title{
+    width: 50rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+    justify-content: center;
+}
+.ep_mt_my_img{
+    width: 20%;
+    height: 100%;
+    background-size: cover;
+}
+.ep_mt_edit_profile{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.ep_mt_ep_nick_name{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-left: 2rem;
+    font-size: 16px;
+    font-weight: 530;
+}
+.ep_mt_ep_change_profile{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: blue;
+    margin-left: 2rem;
+    font-weight: 600;
+}
+.ep_user_name{
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+}
+.ep_un_text{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.ep_un_input_change_user_name{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+}
+.ep_user_under_comment{
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+}
+.ep_uuc_none{
+    width: 20%;
+    height: 100%;
+
+}
+.ep_uuc_comments{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.ep_uuc_top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+    color: gray;
+}
+.ep_uuc_under{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+    color: gray;
+}
+.ep_my_nick_name{
+    width: 50rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+}
+.ep_mnn_nick_text{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+
+
+}
+.ep_mnn_input_change_nick_name{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+}
+.ep_nick_name_under_comment{
+    width: 50rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+}
+.ep_nnuc_none{
+    width: 20%;
+    height: 100%;
+}
+.ep_nnuc_comment{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+    color: gray;
+}
+
+.ep_user_comment_under_comment{
+    width: 50rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+}
+.ep_ucud_none{
+    width: 20%;
+    height: 100%;
+}
+.ep_ucud_comment{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ep_ucuc_top{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-left: 3rem;
+    color: gray;
+    font-weight: 700;
+}
+.ep_ucuc_under{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 3rem;
+    color: gray;
+}
+.ep_email{
+    width: 50rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+}
+.ep_email_comment{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+.ep_email_input_email{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 2rem;
+}
+.summit{
+    width: 7rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(145, 145, 231);
+    border-radius: 13px;    
+    color: white;
+    font-size: 13px;
+}

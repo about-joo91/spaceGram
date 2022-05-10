@@ -1,5 +1,5 @@
 $("#mp_pimg_hb_cf_post").addClass("is_highlight")
-// $("#mp_pimg_hb_cf_post").addClass("is_none")
+
            
 
 //모달을 구성할 때 받아오는 값들을 변수에 저장
@@ -97,4 +97,35 @@ function tag_list(){
         }
     });
 
+}
+// 프로필 모달 버튼!!
+document.querySelector('.mh_circle_avatar').addEventListener('click', function(){
+    open_profile_modal()
+})
+function open_profile_modal(){
+    document.querySelector('.profile_modal').style.display = "block";
+}
+
+document.querySelector('.pm_my_page').addEventListener('click', function(){
+    open_my_page()})
+function open_my_page(){
+    window.location.replace('/my_page')
+}
+document.querySelector('.pm_book_mark').addEventListener('click', function(){
+    open_booK_mark()})
+    // 만약 여기서 오류가 생긴다면, my_page를 먼저 불러오고 함수를 실행해야 함
+function open_booK_mark(){
+    if (window.location.href == '/my_page'){
+        book_mark_list()
+    }
+    else {
+        window.location.replace('/my_page')
+        
+    }
+}
+document.querySelector('.mp_mp_mt_top_ep_button').addEventListener('click', function(){
+    edit_page()
+})
+function edit_page(){
+    window.location.replace('/edit_page') 
 }
