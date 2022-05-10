@@ -114,7 +114,5 @@ function sign_up() {
             window.location.replace(response['url'])
         }
     });
-
-document.querySelector('.mj_p_joiner_button').addEventListener('click',function(){
-    sign_up()
-})}
+}
+document.querySelector('.mj_p_joiner_button').addEventListener('click',function(){sign_up()})
