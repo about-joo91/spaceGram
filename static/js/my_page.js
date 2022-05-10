@@ -1,3 +1,7 @@
+$("#mp_pimg_hb_cf_post").addClass("is_highlight")
+// $("#mp_pimg_hb_cf_post").addClass("is_none")
+           
+
 //모달을 구성할 때 받아오는 값들을 변수에 저장
 const body = document.querySelector('body');
 const modal = document.querySelector('.mp_modal');
@@ -26,42 +30,71 @@ modal.addEventListener('click', function (event) {
     }
 });
 
-//여기는 게시물, 저장됨, 태그됨 버튼을 누를 경우 생기는 동작
-function mypost() {
-        //누를 때 마다 게시물이 바뀌게
-        document.getElementById("mp_pimg_posts").style.display = "block";
-        document.getElementById("mp_pimg_bookmarks").style.display = "none";
-        document.getElementById("mp_pimg_taged").style.display = "none";
-        //누를 때 마다 굵기, 상단에 줄 생기게
-        document.getElementById("mp_pimg_hb_cf_post").style.fontWeight = "bold";
-        document.getElementById("mp_pimg_hb_cf_post").style.borderTop="1px solid black"
-        document.getElementById("mp_pimg_hb_cf_bookmark").style.fontWeight = "normal";
-        document.getElementById("mp_pimg_hb_cf_bookmark").style.borderTop = "none";
-        document.getElementById("mp_pimg_hb_cf_taged").style.fontWeight = "normal";
-        document.getElementById("mp_pimg_hb_cf_taged").style.borderTop = "none";
 
-    }
-    function bookmarkpost() {
-        document.getElementById("mp_pimg_posts").style.display = "none";
-        document.getElementById("mp_pimg_bookmarks").style.display = "block";
-        document.getElementById("mp_pimg_taged").style.display = "none";
-        document.getElementById("mp_pimg_hb_cf_post").style.fontWeight = "normal";
-        document.getElementById("mp_pimg_hb_cf_post").style.borderTop="none"
-        document.getElementById("mp_pimg_hb_cf_bookmark").style.fontWeight = "bold";
-        document.getElementById("mp_pimg_hb_cf_bookmark").style.borderTop = "0.5px solid black"
-        document.getElementById("mp_pimg_hb_cf_taged").style.fontWeight = "normal";
-        document.getElementById("mp_pimg_hb_cf_taged").style.borderTop = "none"
+document.querySelector('.mp_pimg_hb_cf_post').addEventListener('click',function(){my_post_list()})
 
-    }
+function my_post_list(){
+    window.location.reload('/my_page')
+}
 
-    function tagedpost() {
-        document.getElementById("mp_pimg_posts").style.display = "none";
-        document.getElementById("mp_pimg_bookmarks").style.display = "none";
-        document.getElementById("mp_pimg_taged").style.display = "block";
-        document.getElementById("mp_pimg_hb_cf_post").style.fontWeight = "normal";
-        document.getElementById("mp_pimg_hb_cf_post").style.borderTop = "none";
-        document.getElementById("mp_pimg_hb_cf_bookmark").style.fontWeight = "normal";
-        document.getElementById("mp_pimg_hb_cf_bookmark").style.borderTop = "none";
-        document.getElementById("mp_pimg_hb_cf_taged").style.fontWeight = "bold";
-        document.getElementById("mp_pimg_hb_cf_taged").style.borderTop = "0.5px solid black";
-    }
+document.querySelector('.mp_pimg_hb_cf_bookmark').addEventListener('click',function(){book_mark_list()})
+
+function book_mark_list(){
+
+    $.ajax({
+        type: "GET",
+        url: "/my_page/book_mark",
+        data: {
+        },
+        success: function (response) {
+            console.log("success")
+            $('#mp_pimg_posts').empty()
+            let post = response['post'];
+            console.log(post)
+            for (var w = 0; w < post.length; w++){
+                temp_html = `
+            <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w]}"></div>
+            `
+            $('#mp_pimg_posts').append(temp_html);
+            }
+            
+            $("#mp_pimg_hb_cf_post").removeClass("")
+            $("#mp_pimg_hb_cf_post").addClass("is_none")
+            $("#mp_pimg_hb_cf_bookmark").removeClass("")
+            $("#mp_pimg_hb_cf_bookmark").removeClass("is_none")
+            $("#mp_pimg_hb_cf_bookmark").addClass("is_highlight")
+            $("#mp_pimg_hb_cf_taged").removeClass("")
+            $("#mp_pimg_hb_cf_taged").addClass("is_none")
+        }
+    });
+}
+
+document.querySelector('.mp_pimg_hb_cf_taged').addEventListener('click',function(){tag_list()})
+
+function tag_list(){
+    $.ajax({
+        type: "GET",
+        url: "/my_page/tag",
+        data: {
+        },
+        success: function (response) {
+            $('#mp_pimg_posts').empty()
+            let post = response['post'];
+            console.log(post)
+            for (var w = 0; w < post.length; w++){
+                temp_html = `
+            <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w]}"></div>
+            `
+            $('#mp_pimg_posts').append(temp_html);
+            }
+            $("#mp_pimg_hb_cf_post").removeClass("")
+            $("#mp_pimg_hb_cf_post").addClass("is_none")
+            $("#mp_pimg_hb_cf_bookmark").removeClass("")
+            $("#mp_pimg_hb_cf_bookmark").addClass("is_none")
+            $("#mp_pimg_hb_cf_taged").removeClass("")
+            $("#mp_pimg_hb_cf_taged").removeClass("is_none")
+            $("#mp_pimg_hb_cf_taged").addClass("is_highlight")
+        }
+    });
+
+}

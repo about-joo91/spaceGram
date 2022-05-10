@@ -183,7 +183,7 @@ html{
     height: 100%;
     margin: 0 100px 0 71px;
     background-size: cover;
-    background-image: url("https://www.instagram.com/static/images/mediaUpsell.jpg/6efc710a1d5a.jpg");
+    /* background-image: url("https://www.instagram.com/static/images/mediaUpsell.jpg/6efc710a1d5a.jpg"); */
     border-radius: 50%;
 }
 
@@ -302,8 +302,6 @@ html{
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    font-weight: bold;
-    border-top: 1px solid black;
 }
 .mp_pimg_hb_cf_post:hover{
     cursor: pointer;
@@ -339,29 +337,28 @@ html{
 
 .mp_pimg_posts {
     width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.mp_pimg_pts_postline {
+    /* height: 50%; */
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 28px;
-
+    flex-flow: row wrap;
+    margin: 0 auto;
+    justify-content: flex-start;
+    
 }
 
 .mp_pimg_pts_pl_post {
-    width: 31.33%;
+    width: 29.3rem;
+    height: 29.3rem;
+    margin-right: 1.8rem;
+    margin-bottom: 1.8rem;
     position: relative;
     border: 1px solid red;
-    background-image: url("https://post-phinf.pstatic.net/MjAxOTA1MjdfOTMg/MDAxNTU4OTE2NDcwMjg0.3xdGTshNqyGA44Heo63tM5OvR3E9TVIseskgCqNXr_Mg.FRpKURMjEjO01DW4Fp0NDRQ-gnCROFUAJtKddGV8Qlkg.JPEG/0.jpg?type=w1200");
+    /* background-image: url("https://post-phinf.pstatic.net/MjAxOTA1MjdfOTMg/MDAxNTU4OTE2NDcwMjg0.3xdGTshNqyGA44Heo63tM5OvR3E9TVIseskgCqNXr_Mg.FRpKURMjEjO01DW4Fp0NDRQ-gnCROFUAJtKddGV8Qlkg.JPEG/0.jpg?type=w1200"); */
     background-size: cover;
 }
 
 .mp_pimg_pts_pl_post:after {
     content: "";
     display: block;
-    padding-bottom: 100%;
 }
 
 .mp_pimg_bookmarks {
@@ -414,4 +411,12 @@ html{
     content: "";
     display: block;
     padding-bottom: 100%;
+}
+.is_highlight{
+    font-weight: bold !important;
+    border-top: 0.5px solid black !important;
+}
+.is_none{
+    font-weight: normal !important;
+    border-top: none !important;
 }
