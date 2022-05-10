@@ -10,8 +10,9 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:spaceGram4@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 import certifi
+client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
@@ -109,25 +110,51 @@ def my_page(user):
         my_post = list(db.posts.find({'user_id' : user["id"]}))
         my_follower = list(db.follow_map.find({'user_id' : user["id"]}))
         my_follow = list(db.follow_map.find({'target_user_id' : user["id"]}))
+        my_name = db.user.find_one({'_id': ObjectId(user["id"])})
 
         count_my_post = len(my_post)
         count_my_follower = len(my_follower)
         count_my_follow = len(my_follow)
-        print("포스트 개수 : ",count_my_post)
-        print("팔로워 개수 : ",count_my_follower)
-        print("팔로우 개수 : ",count_my_follow)
 
         my_profile_dic = {
             "count_my_post" : count_my_post,
             "count_my_follower" : count_my_follower,
-            "count_my_follow" : count_my_follow
+            "count_my_follow" : count_my_follow,
+            "my_name" : my_name
         }
 
-        my_posts = list(db.posts.find({'user_id' : user["id"]}))
-        my_posts_url = my_posts['']
-        
+        for post in my_post:
+            post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
 
-        return render_template('mypage.html',my_profile_dic = my_profile_dic)
+        return render_template('mypage.html',my_profile_dic = my_profile_dic, my_name = my_name, myposts = my_post)
+
+# 여기는 북마크 게시판
+
+@app.route('/my_page/book_mark')
+@authrize
+def book_mark_list(user):
+    if user is not None:
+        book_mark_post = list(db.book_mark.find({'user_id' : user["id"]}))
+
+
+        for post in book_mark_post:
+            post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
+
+        return jsonify({"result" : "success", 'post' : book_mark_post})
+
+
+@app.route('/my_page/tag')
+@authrize
+def tag_list(user):
+    if user is not None:
+        
+        tag_post = list(db.tag_post_map.find({'user_id' : user["id"]}))
+        
+        for post in tag_post:
+            post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
+
+        return jsonify({"result" : "success", 'post' : tag_post})
+
 
 
 

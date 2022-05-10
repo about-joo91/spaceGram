@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,14 +91,13 @@
     </div>
     <div class="mp_myprofile">
 
-
+        {% if my_profile_dic %}
         <div class="mp_mp_myimg">
-            <div class="mp_mp_myimg_img"></div>
+            <div class="mp_mp_myimg_img" style="background-image: url('/{{my_name.get('profile_img')}}');"></div>
         </div>
-
         <div class="mp_mp_mytext">
             <div class="mp_mp_mt_top">
-                <div class="mp_mp_mt_top_nickname">h_woo99</div>
+                <div class="mp_mp_mt_top_nickname">{{my_name.get('nick_name')}}</div>
                 <div class="mp_mp_mt_top_editprofile">
                     <button class="mp_mp_mt_top_ep_button">프로필 편집</button>
                 </div>
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            {% if my_profile_dic %}
+            
             <div class="mp_mp_mt_middle">
 <!--                id값을 받아올 int값과 아닌text를 구분-->
                 <div class="mp_mp_mt_md_intspan">
@@ -124,7 +124,7 @@
             </div>
 
             <div class="mp_mp_mt_bottom">
-                <div class="mp_mp_mt_bt_name">$내이름</div>
+                <div class="mp_mp_mt_bt_name">{{my_name.get('user_name')}}</div>
             </div>
             {% endif %}
 
@@ -135,36 +135,28 @@
     <div class="mp_postimg">
         <div class="mp_pimg_headbar">
             <div class="mp_pimg_hb_classify">
-                <div onclick="mypost()" id ="mp_pimg_hb_cf_post"class="mp_pimg_hb_cf_post">
+                <div id ="mp_pimg_hb_cf_post"class="mp_pimg_hb_cf_post">
                     <svg aria-label="" class="_8-yf5 " color="#262626" fill="#262626" height="12" role="img" viewBox="0 0 24 24" width="12"><rect fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="18" x="3" y="3"></rect><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="9.015" x2="9.015" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="14.985" x2="14.985" y1="3" y2="21"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line></svg>게시물
                 </div>
-                <div onclick="bookmarkpost()" id = "mp_pimg_hb_cf_bookmark"class="mp_pimg_hb_cf_bookmark">
+                <div id ="mp_pimg_hb_cf_bookmark"class="mp_pimg_hb_cf_bookmark">
                     <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg> 저장됨
                 </div>
-                <div onclick="tagedpost()" id = "mp_pimg_hb_cf_taged"class="mp_pimg_hb_cf_taged">
+                <div id ="mp_pimg_hb_cf_taged"class="mp_pimg_hb_cf_taged">
                     <svg aria-label="" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="12" role="img" viewBox="0 0 24 24" width="12"><path d="M10.201 3.797L12 1.997l1.799 1.8a1.59 1.59 0 001.124.465h5.259A1.818 1.818 0 0122 6.08v14.104a1.818 1.818 0 01-1.818 1.818H3.818A1.818 1.818 0 012 20.184V6.08a1.818 1.818 0 011.818-1.818h5.26a1.59 1.59 0 001.123-.465z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M18.598 22.002V21.4a3.949 3.949 0 00-3.948-3.949H9.495A3.949 3.949 0 005.546 21.4v.603" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="12.072" cy="11.075" fill="none" r="3.556" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle></svg>태그됨
                 </div>
+                
             </div>
         </div>
         <div id = "mp_pimg_posts" class="mp_pimg_posts">
-            <div class="mp_pimg_pts_postline">
-                <div class="mp_pimg_pts_pl_post"></div>
-                <div class="mp_pimg_pts_pl_post"></div>
-                <div class="mp_pimg_pts_pl_post"></div>
-
-            </div>
-            <div class="mp_pimg_pts_postline">
-                <div class="mp_pimg_pts_pl_post"></div>
-                <div class="mp_pimg_pts_pl_post"></div>
-                <div class="mp_pimg_pts_pl_post"></div>
-            </div>
-            <div class="mp_pimg_pts_postline">
-                <div class="mp_pimg_pts_pl_post"></div>
-                <div class="mp_pimg_pts_pl_post"></div>
-                <div class="mp_pimg_pts_pl_post"></div>
-            </div>
+                {% for post in myposts %}
+                    {% for image in post.get('file') %}
+                <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{image}}')"></div>
+                <!-- <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{post.get('file')}}')"></div> -->
+                    {% endfor %}
+                {% endfor %}
+            
         </div>
-        <div id = "mp_pimg_bookmarks" class="mp_pimg_bookmarks">
+        <!-- <div id = "mp_pimg_bookmarks" class="mp_pimg_bookmarks">
 
             <div class="mp_pimg_bm_postline">
                 <div class="mp_pimg_bm_pl_post"></div>
@@ -200,7 +192,7 @@
                 <div class="mp_pimg_tg_pl_post"></div>
                 <div class="mp_pimg_tg_pl_post"></div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>
