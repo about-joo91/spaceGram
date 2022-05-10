@@ -10,7 +10,8 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:spaceGram@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+
 import certifi
 
 SECRET_KEY = 'spaceGram'
@@ -54,7 +55,7 @@ def home(user):
             post['comment'] = user_info_comments
         return render_template('main.html', posts = post_list)
 
-@app.route('/login_page')
+@app.route('/')
 def login_page():
     return render_template('login_page.html')
 
@@ -156,23 +157,26 @@ def sign_in():
 @authrize
 def post_file(user):
     if user is not None:
+        files = request.files['img']
+        file_list = []
+        for file in files:
+            extension = file.filename.split('.')[-1]
+            format = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
+            img = Image.open(file)
+            wpercent = (614/ float(img.size[0]))
+            h_size = int((float(img.size[1]) * float(wpercent)))
+            img_resize = img.resize((614, h_size))
+            buffered = BytesIO()
+            img_resize.save(buffered, format)
+            image_base64 = base64.b64encode(buffered.getvalue())
+            file_list.append(image_base64)
         user_id = user.get('id')
         user_nick_name = user.get('nick_name')
-        file = request.files['img']
-        extension = file.filename.split('.')[-1]
-        format = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
-        img = Image.open(file)
-        wpercent = (614/ float(img.size[0]))
-        h_size = int((float(img.size[1]) * float(wpercent)))
-        img_resize = img.resize((614, h_size))
-        buffered = BytesIO()
-        img_resize.save(buffered, format)
-        image_base64 = base64.b64encode(buffered.getvalue())
         content = request.form['content']
         doc = {
             'user_id': user_id,
             'user_nick_name': user_nick_name,
-            'file' : image_base64,
+            'file' : file_list,
             'content': content,
             'timestamp': datetime.utcnow()
         }
@@ -215,5 +219,50 @@ def comment(user):
         }
         db.comment.insert_one(doc)
         return jsonify({'result': 'success'})
+
+
+@app.route('/follow_map', methods=['POST'])
+@authrize
+def follow(user):
+    if user is not None:
+        user_id = user.get('id')
+        follow_receive = request.form['target_user_id']
+        #
+        doc = {
+            'user_id': user_id,
+            'target_user_id': follow_receive,
+            'timestamp': datetime.utcnow()
+        }
+        check_follow = db.user.find_one({'user_id':user_id, 'target_user_id':follow_receive})
+
+        if check_follow is None :
+            db.follower_map.insert_one(doc)
+
+        else:
+            db.follower_map.delete_one({'user_id':user_id, 'target_user_id':follow_receive})
+
+        return jsonify({'result':'success'})
+
+
+
+# 북마크 
+@app.route('/mypage/book_mark', methods=['POST'])
+@authrize
+def bookmark(user):
+    if user is not None:
+        user_id = user.get('_id'),
+        post_id = request.form['post_id']
+        result = db.book_mark.find_one({'user_id': user_id, 'post_id': post_id})
+        doc = {
+            'user_id': user_id,
+            'post_id': post_id,
+            'timestamp': datetime.utcnow()
+        }
+        if result is not None:
+            db.book_mark.insert_one(doc)
+        else:
+            db.book_mark.delete_one({'user_id': user_id, 'post_id': post_id})
+        return jsonify({'result':'success'})  
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
