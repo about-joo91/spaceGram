@@ -16,7 +16,6 @@ client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?
 
 SECRET_KEY = 'spaceGram'
 db = client.dbsparta
-
 app = Flask(__name__)
 
 def authrize(f):
