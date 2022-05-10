@@ -9,10 +9,9 @@ import base64
 import jwt
 import hashlib
 from bson.objectid import ObjectId
-
 from PIL import Image
 import certifi
-client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+client = MongoClient('mongodb+srv://test:spaceGram5@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 
 
 SECRET_KEY = 'spaceGram'
@@ -32,16 +31,23 @@ def authrize(f):
             abort(401)
         return f(user, *args, **kws)
     return decorated_function
-    
 @app.route('/home')
 @authrize
 def home(user):
     if user is not None:
         user_id = user.get('id')
         post_list = list(db.posts.find({'user_id' : user_id}))
+        followers = list(db.follower_map.find({'user_id' : user_id}))
+        user_list = list(filter(lambda x: str(x.get('_id')) != user_id , list(db.user.find({}))))
+        my_account = db.user.find_one({'_id':ObjectId(user_id)},{'password':0})
+        for follower in followers:
+            target_user_id = follower.get('target_user_id')
+            post_list += list(db.posts.find({'user_id': target_user_id}))
+            user_list = list(filter(lambda x: str(x.get('_id')) != target_user_id, user_list))
         for post in post_list:
             post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
-            post['timestamp'] = (datetime.utcnow() - post['timestamp']).days
+            post['timestamp'] = (datetime.utcnow() - post['timestamp'])
+            post['user_info'] = db.user.find_one({'_id' : ObjectId(post.get('user_id'))})
             comments = list(db.comment.find({'post_id':str(post['_id'])}, {"_id":0}))
             user_info_comments =[]
             for comment in comments:
@@ -53,7 +59,15 @@ def home(user):
                 }
                 user_info_comments.append(comment_dict)
             post['comment'] = user_info_comments
-        return render_template('main.html', posts = post_list)
+            # 좋아요를 눌렀는지 검증하기 위한 리스트
+            post['liked_people'] = list(map(lambda x: x['user_id'], list(db.likes.find({'post_id' : str(post.get('_id'))}, {'_id':0, 'post_id':0, 'timestamp':0}))))
+            # 좋아요를 누른 유저의 정보 조회를 위한 리스트
+            post['liked_person_info'] = []
+            for liked_person in post['liked_people']:
+                post['liked_person_info'].append(db.user.find_one({'_id' : ObjectId(liked_person)}, {'password':0}))
+        post_list = sorted(post_list, key=lambda post: (post['timestamp']))
+        
+        return render_template('main.html', posts = post_list , users=user_list, my_account = my_account)
 
 @app.route('/')
 def login_page():
@@ -62,6 +76,7 @@ def login_page():
 @app.route('/join_page')
 def join_page():   
     return render_template('join_page.html')
+
 
 @app.route('/edit_page')
 @authrize
@@ -282,20 +297,16 @@ def follow(user):
     if user is not None:
         user_id = user.get('id')
         follow_receive = request.form['target_user_id']
-        
         doc = {
             'user_id': user_id,
             'target_user_id': follow_receive,
             'timestamp': datetime.utcnow()
         }
-        check_follow = db.user.find_one({'user_id':user_id, 'target_user_id':follow_receive})
-
-        if check_follow is None :
-            db.follower_map.insert_one(doc)
-
+        check_follow = db.follower_map.find_one({'user_id':user_id, 'target_user_id':follow_receive})
+        if check_follow is not None :
+            db.follower_map.delete_one({'user_id':user_id, 'target_user_id':follow_receive})   
         else:
-            db.follower_map.delete_one({'user_id':user_id, 'target_user_id':follow_receive})
-
+            db.follower_map.insert_one(doc)
         return jsonify({'result':'success'})
 
 
