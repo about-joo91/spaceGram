@@ -211,7 +211,7 @@
                 </div>
             </div>
             {% for post in posts %}
-            <div class="mb_l_main_cards">
+            <div class="mb_l_main_cards" id="image_{{post._id}}_{{post.file | length}}">
                 <div class="mb_l_mc_header">
                     <div class="mb_l_mc_h_front">
                         <img src="/static/images/profile.jpeg" class="mb_l_mc_h_f_circle_avatar">
@@ -221,21 +221,24 @@
                         <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon"></i>
                     </div>
                 </div>
+
                 <div class="mb_l_mc_main_image_box">
                     <div class="mb_l_mc_mib_button">
-                        <div class="mb_l_mc_mib_btn_prev">
+                        <div class="mb_l_mc_mib_btn_prev" onclick="mb_l_mc_mib_btn_prev_click('{{post._id}}')">
                             <i class="bi bi-chevron-left"></i>
                         </div>
-                        <div class="mb_l_mc_mib_btn_next">
+                        <div class="mb_l_mc_mib_btn_next" onclick="mb_l_mc_mib_btn_next_click('{{post._id}}')">
                             <i class="bi bi-chevron-right"></i>
                         </div>
                     </div>
-                    <div class="mb_l_mc_mib_carousel">
+                    <div class="mb_l_mc_mib_carousel" id="carousel_{{post._id}}"
+                        style="width : {{ 615 * post.file |length }}px">
                         {% for image in post.file %}
                         <img class="main_card_image" src="data:image/jpeg;base64,{{image}}">
                         {% endfor %}
                     </div>
                 </div>
+
                 <div class="mb_l_mc_comment">
                     <div class="mb_l_mc_c_liked_box">
                         <div class="mb_l_mc_c_lk_icon_box">
