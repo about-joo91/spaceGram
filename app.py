@@ -10,7 +10,7 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://t@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:spaceGram@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 import certifi
 
 SECRET_KEY = 'spaceGram'
@@ -88,7 +88,7 @@ def check():
         "password" : hashed_password,  
         "nick_name" : new_nick_name_receive,  
         "user_name" : new_user_name_receive,
-        "profile_img": "static/images/profile_img.png",
+        "profile_img": "static/images/profile_img.png"
         }
         db.user.insert_one(doc3)
         return jsonify({"result": "success",'msg' : '회원가입을 축하합니다.','url' : "/login_page"})
