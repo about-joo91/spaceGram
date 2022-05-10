@@ -136,11 +136,12 @@ def check():
 def my_page(user):
     if user is not None:
         print("user= ", user)
-        my_post = list(db.posts.find({'user_id' : user["id"]}))
-        my_follower = list(db.follow_map.find({'user_id' : user["id"]}))
-        my_follow = list(db.follow_map.find({'target_user_id' : user["id"]}))
-        my_name = db.user.find_one({'_id': ObjectId(user["id"])})
+        my_post = list(db.posts.find({'user_id' : user.get('id')}))
+        my_follower = list(db.follower_map.find({'user_id' : user.get('id')}))
+        my_follow = list(db.follower_map.find({'target_user_id' : user.get('id')}))
+        my_name = db.user.find_one({'_id': ObjectId(user.get('id'))})
 
+       
         count_my_post = len(my_post)
         count_my_follower = len(my_follower)
         count_my_follow = len(my_follow)
