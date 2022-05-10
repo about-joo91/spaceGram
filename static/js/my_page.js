@@ -53,7 +53,7 @@ function book_mark_list(){
             console.log(post)
             for (var w = 0; w < post.length; w++){
                 temp_html = `
-            <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w]}"></div>
+            <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w][0]}"></div>
             `
             $('#mp_pimg_posts').append(temp_html);
             }
@@ -83,7 +83,7 @@ function tag_list(){
             console.log(post)
             for (var w = 0; w < post.length; w++){
                 temp_html = `
-            <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w]}"></div>
+            <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w][0]}"></div>
             `
             $('#mp_pimg_posts').append(temp_html);
             }
