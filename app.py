@@ -10,7 +10,7 @@ import hashlib
 from bson.objectid import ObjectId
 
 from PIL import Image
-client = MongoClient('mongodb+srv://test:spaceGram2@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:spaceGram3@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 import certifi
 
 SECRET_KEY = 'spaceGram'
