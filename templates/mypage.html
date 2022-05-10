@@ -149,51 +149,12 @@
         </div>
         <div id = "mp_pimg_posts" class="mp_pimg_posts">
                 {% for post in myposts %}
-                    {% for image in post.get('file') %}
-                <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{image}}')"></div>
-                <!-- <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{post.get('file')}}')"></div> -->
-                    {% endfor %}
+                    
+                <div class="mp_pimg_pts_pl_post"style="background-image: url('data:image/png;base64,{{post['file'][0]}}')"></div>
+                    
                 {% endfor %}
             
         </div>
-        <!-- <div id = "mp_pimg_bookmarks" class="mp_pimg_bookmarks">
-
-            <div class="mp_pimg_bm_postline">
-                <div class="mp_pimg_bm_pl_post"></div>
-                <div class="mp_pimg_bm_pl_post"></div>
-                <div class="mp_pimg_bm_pl_post"></div>
-
-            </div>
-            <div class="mp_pimg_bm_postline">
-                <div class="mp_pimg_bm_pl_post"></div>
-                <div class="mp_pimg_bm_pl_post"></div>
-                <div class="mp_pimg_bm_pl_post"></div>
-            </div>
-            <div class="mp_pimg_bm_postline">
-                <div class="mp_pimg_bm_pl_post"></div>
-                <div class="mp_pimg_bm_pl_post"></div>
-                <div class="mp_pimg_bm_pl_post"></div>
-            </div>
-        </div>
-        <div id = "mp_pimg_taged" class="mp_pimg_taged">
-            <div class="mp_pimg_tg_postline">
-                <div class="mp_pimg_tg_pl_post"></div>
-                <div class="mp_pimg_tg_pl_post"></div>
-                <div class="mp_pimg_tg_pl_post"></div>
-
-            </div>
-            <div class="mp_pimg_tg_postline">
-                <div class="mp_pimg_tg_pl_post"></div>
-                <div class="mp_pimg_tg_pl_post"></div>
-                <div class="mp_pimg_tg_pl_post"></div>
-            </div>
-            <div class="mp_pimg_tg_postline">
-                <div class="mp_pimg_tg_pl_post"></div>
-                <div class="mp_pimg_tg_pl_post"></div>
-                <div class="mp_pimg_tg_pl_post"></div>
-            </div>
-        </div> -->
-
     </div>
 </div>
 
