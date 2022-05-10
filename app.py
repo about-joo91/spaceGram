@@ -1,5 +1,6 @@
 from functools import wraps
 from io import BytesIO
+import re
 from django.test import RequestFactory
 from flask import Flask, jsonify, render_template, request, abort
 from datetime import date, datetime, timedelta
@@ -62,6 +63,34 @@ def login_page():
 def join_page():   
     return render_template('join_page.html')
 
+@app.route('/edit_page')
+@authrize
+def edit_page(user):
+    if user is not None:
+        my_name = db.user.find_one({'_id': ObjectId(user["id"])})
+        print(my_name)
+
+        return render_template('edit_page.html', my_name = my_name)
+
+@app.route('/edit_page/updage', methods=['POST'])
+@authrize
+def update_user(user):
+    if user is not None:
+        new_nick_name_receive = request.form['new_nick_name_give']
+        new_user_name_receive = request.form['new_user_name_give']
+        new_email_receive = request.form['new_email_give']
+
+        doc = {
+        "email" : new_email_receive,  
+        "nick_name" : new_nick_name_receive,  
+        "user_name" : new_user_name_receive
+        # "profile_img": "static/images/profile_img.png",
+        }
+
+        name = ObjectId(user["id"])
+        print("name : ",name)
+        db.user.update_one({'_id' : name}, {'$set':doc})
+        return jsonify({"result" : "success", "msg" : "수정되었습니다!!"})
 
 
 @app.route('/join_page/sign_up', methods=["POST"])
@@ -252,7 +281,7 @@ def follow(user):
     if user is not None:
         user_id = user.get('id')
         follow_receive = request.form['target_user_id']
-        #
+        
         doc = {
             'user_id': user_id,
             'target_user_id': follow_receive,

@@ -1,6 +1,9 @@
 html{
     font-size: 62.5%;
 }
+.wrap{
+    position: relative;
+}
 /*여기는 main의 header 가져옴*/
 .main_header {
     height: 65px;
@@ -90,6 +93,46 @@ html{
 }
 
 /*여기부터 mypage*/
+.profile_modal{
+    width: 15rem;
+    height: 9rem;
+    background-color: white;
+    border: 1px solid black;
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    border-radius: 10px;
+    
+}
+.pm_my_page{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+
+}
+.pm_book_mark{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+}
+.pm_logout{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+    border-top: 1px solid gray;
+}
+
 .mypage {
     padding-top: 20px;
     width: 100%;
