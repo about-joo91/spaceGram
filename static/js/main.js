@@ -254,6 +254,7 @@ function like_button(post_id) {
             }
         })
     }
+    window.location.reload()
 }
 function change_comment_input(obj) {
     let post_id = obj.id.split('_')[2]

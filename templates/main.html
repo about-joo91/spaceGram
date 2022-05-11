@@ -58,15 +58,19 @@
                 </div>
                 <div class="hm_w_b_cb_under">
                     <div class="hm_w_b_cb_u_my_account_box">
-                        <img src="/static/images/df.jpeg" class="hm_w_b_cb_u_my_ab_circle_avatar">
+                        <img src={{my_account.profile_img}} class="hm_w_b_cb_u_my_ab_circle_avatar">
                         <div class="hm_w_b_cb_u_my_ab_txt">
                             <div class="hm_w_b_cb_u_mc_my_id">{{post.user_nick_name}}</div>
                             <div class="hm_w_b_cb_u_mc_mydesc">{{post.content}}</div>
                         </div>
                     </div>
-                    <div class="hm_w_b_cb_u_mc_day_before"></div>
-                    <div class="hm_w_b_cb_u_my_desc"></div>
-                    <div class="hm_w_b_cb_u_comments"></div>
+                    {% for comment in post.comment %}
+                    <div class="hm_w_b_cb_other_account_box">
+                        <img src="{{comment.profile_img}}" class="hm_w_b_cb_u_circle_avatar">
+                        <div class="hm_w_b_cb_u_other_id">{{comment.nick_name}}</div>
+                        <div class="hm_w_b_cb_u_comments">{{comment.comment}}</div>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

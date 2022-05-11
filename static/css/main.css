@@ -345,6 +345,7 @@ body {
 
 .mb_l_mc_c_lk_ic_icons {
     margin-right: 10px;
+    vertical-align: text-bottom;
 }
 
 .mb_l_mc_c_lk_ic_icons:hover {
@@ -356,6 +357,10 @@ body {
     height: 20px;
     border-radius: 50%;
     margin-right: 5px;
+}
+
+.mb_l_mc_c_lk_lp_id {
+    margin-bottom: 5px;
 }
 
 .mb_l_mc_c_lk_liked_person {
@@ -753,6 +758,27 @@ body {
     display: block;
     width: 614px;
     overflow-x: hidden;
+}
+
+.hm_w_b_cb_other_account_box {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.hm_w_b_cb_u_other_id {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.hm_w_b_cb_u_comments {
+    margin-left: 10px;
+}
+
+.hm_w_b_cb_u_circle_avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .upload_modal_wrapper {
