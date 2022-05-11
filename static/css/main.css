@@ -262,6 +262,8 @@ body {
 
 .mb_l_mc_h_f_id {
     font-weight: bold;
+    text-decoration-line: none;
+    text-decoration: none;
 }
 
 /* 메인바디 캐러셀 */
@@ -377,11 +379,12 @@ body {
 }
 
 .mb_l_mc_c_lk_my_comment {
-    align-items: flex-end;
+    align-items: baseline;
 }
 
 .mb_l_mc_c_lk_mc_comment {
     margin-left: 5px;
+    margin-right: 10px;
 }
 
 

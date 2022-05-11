@@ -122,7 +122,8 @@
 
                 {% if my_profile_dic %}
                 <div class="mp_mp_myimg">
-                    <div class="mp_mp_myimg_img" style="background-image: url('/{{my_name.get('profile_img')}}');">
+                    <div class="mp_mp_myimg_img"
+                        style="background-image: url(data:image/jpeg;base64,{{my_name.get('profile_img')}});">
                     </div>
                 </div>
                 <div class="mp_mp_mytext">

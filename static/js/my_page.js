@@ -1,6 +1,6 @@
 $("#mp_pimg_hb_cf_post").addClass("is_highlight")
 
-           
+
 
 //모달을 구성할 때 받아오는 값들을 변수에 저장
 const body = document.querySelector('body');
@@ -31,15 +31,15 @@ modal.addEventListener('click', function (event) {
 });
 
 
-document.querySelector('.mp_pimg_hb_cf_post').addEventListener('click',function(){my_post_list()})
+document.querySelector('.mp_pimg_hb_cf_post').addEventListener('click', function () { my_post_list() })
 
-function my_post_list(){
+function my_post_list() {
     window.location.reload('/my_page')
 }
 
-document.querySelector('.mp_pimg_hb_cf_bookmark').addEventListener('click',function(){book_mark_list()})
+document.querySelector('.mp_pimg_hb_cf_bookmark').addEventListener('click', function () { book_mark_list() })
 
-function book_mark_list(){
+function book_mark_list() {
 
     $.ajax({
         type: "GET",
@@ -51,13 +51,13 @@ function book_mark_list(){
             $('#mp_pimg_posts').empty()
             let post = response['post'];
             console.log(post)
-            for (var w = 0; w < post.length; w++){
+            for (var w = 0; w < post.length; w++) {
                 temp_html = `
             <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w][0]}"></div>
             `
-            $('#mp_pimg_posts').append(temp_html);
+                $('#mp_pimg_posts').append(temp_html);
             }
-            
+
             $("#mp_pimg_hb_cf_post").removeClass("")
             $("#mp_pimg_hb_cf_post").addClass("is_none")
             $("#mp_pimg_hb_cf_bookmark").removeClass("")
@@ -69,9 +69,9 @@ function book_mark_list(){
     });
 }
 
-document.querySelector('.mp_pimg_hb_cf_taged').addEventListener('click',function(){tag_list()})
+document.querySelector('.mp_pimg_hb_cf_taged').addEventListener('click', function () { tag_list() })
 
-function tag_list(){
+function tag_list() {
     $.ajax({
         type: "GET",
         url: "/my_page/tag",
@@ -81,11 +81,11 @@ function tag_list(){
             $('#mp_pimg_posts').empty()
             let post = response['post'];
             console.log(post)
-            for (var w = 0; w < post.length; w++){
+            for (var w = 0; w < post.length; w++) {
                 temp_html = `
             <div class="mp_pimg_pts_pl_post" style="background-image : url('data:image/png;base64,${post[w][0]}"></div>
             `
-            $('#mp_pimg_posts').append(temp_html);
+                $('#mp_pimg_posts').append(temp_html);
             }
             $("#mp_pimg_hb_cf_post").removeClass("")
             $("#mp_pimg_hb_cf_post").addClass("is_none")
@@ -99,54 +99,53 @@ function tag_list(){
 
 }
 // 프로필 모달 버튼!!
-document.querySelector('.mh_circle_avatar').addEventListener('click', function(){
+document.querySelector('.mh_circle_avatar').addEventListener('click', function () {
     open_profile_modal()
 })
-function open_profile_modal(){
+function open_profile_modal() {
     document.querySelector('.profile_modal').style.display = "block";
     document.querySelector('.mp_profile_modal').style.display = "block";
 }
-if (document.querySelector('.profile_modal').style.display == "block"){
-    document.querySelector('.mp_profile_modal').addEventListener('click', function(){
+if (document.querySelector('.profile_modal').style.display == "block") {
+    document.querySelector('.mp_profile_modal').addEventListener('click', function () {
         close_profile_modal()
     })
-    
+
 }
-function close_profile_modal(){ 
+function close_profile_modal() {
     document.querySelector('.profile_modal').style.display = "none";
     document.querySelector('.mp_profile_modal').style.display = "none";
 
 }
-document.querySelector('.pm_my_page').addEventListener('click', function(){
-    open_my_page()})
-function open_my_page(){
+document.querySelector('.pm_my_page').addEventListener('click', function () {
+    open_my_page()
+})
+function open_my_page() {
     window.location.replace('/my_page')
 }
-document.querySelector('.pm_book_mark').addEventListener('click', function(){
+document.querySelector('.pm_book_mark').addEventListener('click', function () {
     open_booK_mark()
-    close_profile_modal()})
-    // 만약 여기서 오류가 생긴다면, my_page를 먼저 불러오고 함수를 실행해야 함
-function open_booK_mark(){
+    close_profile_modal()
+})
+// 만약 여기서 오류가 생긴다면, my_page를 먼저 불러오고 함수를 실행해야 함
+function open_booK_mark() {
     book_mark_list()
 
 }
 //여기까지가 모달
-document.querySelector('.mp_mp_mt_top_ep_button').addEventListener('click',function(){
+document.querySelector('.mp_mp_mt_top_ep_button').addEventListener('click', function () {
     open_edit_page()
 })
-function open_edit_page(){
+function open_edit_page() {
     window.location.replace('/edit_page')
 }
-document.querySelector('.mp_pimg_pts_pl_post').addEventListener('click', function(){
+document.querySelector('.mp_pimg_pts_pl_post').addEventListener('click', function () {
     go_home()
 })
-function go_home(){
+function go_home() {
     window.location.replace('/home')
 }
-document.querySelector('.mh_name').addEventListener('click', function(){
-    go_home()
-})
-document.querySelector('.bi bi-send mh_i_send').addEventListener('click', function(){
+document.querySelector('.mh_name').addEventListener('click', function () {
     go_home()
 })
 

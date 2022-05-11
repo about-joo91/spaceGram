@@ -302,7 +302,23 @@ function follow_btn(obj) {
         success: function (response) {
             follow.classList.toggle('invisible')
             following.classList.toggle('invisible')
+
+        }
+    })
+    window.location.reload()
+}
+
+function delete_post(post_id) {
+    $.ajax({
+        type: 'POST',
+        url: '/posts/delete',
+        data: {
+            post_id: post_id
+        },
+        success: function (response) {
+            alert(response['msg'])
             window.location.reload()
         }
     })
+
 }
