@@ -1,12 +1,14 @@
-html{
+html {
     font-size: 62.5%;
 }
-.wrap{
+
+.wrap {
     position: relative;
 }
+
 /*여기는 main의 header 가져옴*/
 /* 여기가 프로필 모달 */
-.mp_profile_modal{
+.mp_profile_modal {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -15,7 +17,7 @@ html{
     display: none;
 }
 
-.profile_modal{
+.profile_modal {
     width: 15rem;
     height: 9rem;
     background-color: white;
@@ -26,9 +28,10 @@ html{
     left: 90%;
     z-index: 4;
     border-radius: 10px;
-    
+
 }
-.pm_my_page{
+
+.pm_my_page {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -37,7 +40,8 @@ html{
     padding-left: 0.8rem;
 
 }
-.pm_book_mark{
+
+.pm_book_mark {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -45,7 +49,8 @@ html{
     align-items: center;
     padding-left: 0.8rem;
 }
-.pm_logout{
+
+.pm_logout {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -54,6 +59,7 @@ html{
     padding-left: 0.8rem;
     border-top: 1px solid gray;
 }
+
 .main_header {
     height: 65px;
     display: flex;
@@ -74,7 +80,8 @@ html{
 .mh_name {
     font-size: x-large;
 }
-.mh_name:hover{
+
+.mh_name:hover {
     cursor: pointer;
 }
 
@@ -145,7 +152,7 @@ html{
 }
 
 /*여기부터 mypage*/
-.profile_modal{
+.profile_modal {
     width: 15rem;
     height: 9rem;
     background-color: white;
@@ -156,9 +163,10 @@ html{
     left: 80rem;
     z-index: 50;
     border-radius: 10px;
-    
+
 }
-.pm_my_page{
+
+.pm_my_page {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -167,7 +175,8 @@ html{
     padding-left: 0.8rem;
 
 }
-.pm_book_mark{
+
+.pm_book_mark {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -175,7 +184,8 @@ html{
     align-items: center;
     padding-left: 0.8rem;
 }
-.pm_logout{
+
+.pm_logout {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -184,12 +194,14 @@ html{
     padding-left: 0.8rem;
     border-top: 1px solid gray;
 }
-.wrap{
+
+.wrap {
     background-color: #FAFAFA;
     height: 68.5rem;
 }
+
 /* 여기부터 edit_page */
-.edit_page{
+.edit_page {
     width: 70.4rem;
     height: 66.8rem;
     background-color: white;
@@ -197,7 +209,8 @@ html{
     margin: 0rem auto;
 
 }
-.ep_my_title{
+
+.ep_my_title {
     width: 50rem;
     height: 10rem;
     display: flex;
@@ -205,18 +218,21 @@ html{
     margin: 1rem auto;
     justify-content: center;
 }
-.ep_mt_my_img{
+
+.ep_mt_my_img {
     width: 20%;
     height: 100%;
     background-size: cover;
 }
-.ep_mt_edit_profile{
+
+.ep_mt_edit_profile {
     width: 40%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-.ep_mt_ep_nick_name{
+
+.ep_mt_ep_nick_name {
     width: 100%;
     height: 50%;
     display: flex;
@@ -226,7 +242,8 @@ html{
     font-size: 16px;
     font-weight: 530;
 }
-.ep_mt_ep_change_profile{
+
+.ep_mt_ep_change_profile {
     width: 100%;
     height: 50%;
     display: flex;
@@ -236,14 +253,16 @@ html{
     margin-left: 2rem;
     font-weight: 600;
 }
-.ep_user_name{
+
+.ep_user_name {
     width: 50rem;
     height: 5rem;
     display: flex;
     flex-direction: row;
     margin: 1rem auto;
 }
-.ep_un_text{
+
+.ep_un_text {
     width: 20%;
     height: 100%;
     display: flex;
@@ -252,7 +271,8 @@ html{
     font-size: 16px;
     font-weight: bold;
 }
-.ep_un_input_change_user_name{
+
+.ep_un_input_change_user_name {
     width: 80%;
     height: 100%;
     display: flex;
@@ -260,25 +280,29 @@ html{
     align-items: center;
     margin-left: 2rem;
 }
-.ep_user_under_comment{
+
+.ep_user_under_comment {
     width: 50rem;
     height: 5rem;
     display: flex;
     flex-direction: row;
     margin: 1rem auto;
 }
-.ep_uuc_none{
+
+.ep_uuc_none {
     width: 20%;
     height: 100%;
 
 }
-.ep_uuc_comments{
+
+.ep_uuc_comments {
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-.ep_uuc_top{
+
+.ep_uuc_top {
     width: 100%;
     height: 100%;
     display: flex;
@@ -287,7 +311,8 @@ html{
     margin-left: 2rem;
     color: gray;
 }
-.ep_uuc_under{
+
+.ep_uuc_under {
     width: 100%;
     height: 100%;
     display: flex;
@@ -296,14 +321,16 @@ html{
     margin-left: 2rem;
     color: gray;
 }
-.ep_my_nick_name{
+
+.ep_my_nick_name {
     width: 50rem;
     height: 6rem;
     display: flex;
     flex-direction: row;
     margin: 1rem auto;
 }
-.ep_mnn_nick_text{
+
+.ep_mnn_nick_text {
     width: 20%;
     height: 100%;
     display: flex;
@@ -314,7 +341,8 @@ html{
 
 
 }
-.ep_mnn_input_change_nick_name{
+
+.ep_mnn_input_change_nick_name {
     width: 80%;
     height: 100%;
     display: flex;
@@ -322,18 +350,21 @@ html{
     align-items: center;
     margin-left: 2rem;
 }
-.ep_nick_name_under_comment{
+
+.ep_nick_name_under_comment {
     width: 50rem;
     height: 4rem;
     display: flex;
     flex-direction: row;
     margin: 1rem auto;
 }
-.ep_nnuc_none{
+
+.ep_nnuc_none {
     width: 20%;
     height: 100%;
 }
-.ep_nnuc_comment{
+
+.ep_nnuc_comment {
     width: 80%;
     height: 100%;
     display: flex;
@@ -343,18 +374,20 @@ html{
     color: gray;
 }
 
-.ep_user_comment_under_comment{
+.ep_user_comment_under_comment {
     width: 50rem;
     height: 10rem;
     display: flex;
     flex-direction: row;
     margin: 1rem auto;
 }
-.ep_ucud_none{
+
+.ep_ucud_none {
     width: 20%;
     height: 100%;
 }
-.ep_ucud_comment{
+
+.ep_ucud_comment {
     width: 80%;
     height: 100%;
     display: flex;
@@ -362,7 +395,8 @@ html{
     justify-content: flex-start;
     align-items: center;
 }
-.ep_ucuc_top{
+
+.ep_ucuc_top {
     width: 100%;
     height: 50%;
     display: flex;
@@ -372,7 +406,8 @@ html{
     color: gray;
     font-weight: 700;
 }
-.ep_ucuc_under{
+
+.ep_ucuc_under {
     width: 100%;
     height: 50%;
     display: flex;
@@ -381,14 +416,16 @@ html{
     margin-left: 3rem;
     color: gray;
 }
-.ep_email{
+
+.ep_email {
     width: 50rem;
     height: 10rem;
     display: flex;
     flex-direction: row;
     margin: 1rem auto;
 }
-.ep_email_comment{
+
+.ep_email_comment {
     width: 20%;
     height: 100%;
     display: flex;
@@ -398,7 +435,8 @@ html{
     font-weight: bold;
 
 }
-.ep_email_input_email{
+
+.ep_email_input_email {
     width: 80%;
     height: 100%;
     display: flex;
@@ -406,7 +444,8 @@ html{
     align-items: center;
     margin-left: 2rem;
 }
-.summit{
+
+.summit {
     width: 7rem;
     height: 3rem;
     display: flex;
@@ -414,7 +453,21 @@ html{
     align-items: center;
     margin: 0 auto;
     background-color: rgb(145, 145, 231);
-    border-radius: 13px;    
+    border-radius: 13px;
     color: white;
     font-size: 13px;
+}
+
+#chooseFile {
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+}
+
+.profile_change_btn {
+    color: rgb(65, 147, 239);
+    font-weight: bold;
+    margin-left: 15px;
 }

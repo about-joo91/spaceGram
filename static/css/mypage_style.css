@@ -1,9 +1,11 @@
-html{
+html {
     font-size: 62.5%;
 }
-.wrap{
+
+.wrap {
     position: relative;
 }
+
 /*여기는 main의 header 가져옴*/
 .main_header {
     height: 65px;
@@ -25,7 +27,8 @@ html{
 .mh_name {
     font-size: x-large;
 }
-.mh_name:hover{
+
+.mh_name:hover {
     cursor: pointer;
 }
 
@@ -68,7 +71,7 @@ html{
 
 .mh_sb_ib_overlap_box {
     position: relative;
-    left: -95%;
+    left: -85%;
     top: 10px;
     display: flex;
     padding-left: 16px;
@@ -79,9 +82,11 @@ html{
     display: flex;
     align-items: center;
 }
-.bi bi-send mh_i_send:hover{
+
+.bi bi-send mh_i_send:hover {
     cursor: pointer;
 }
+
 .mh_i_home,
 .mh_i_send,
 .mh_i_square,
@@ -96,8 +101,9 @@ html{
     height: 25px;
     border-radius: 50%;
 }
+
 /* 여기가 프로필 모달 */
-.mp_profile_modal{
+.mp_profile_modal {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -106,7 +112,7 @@ html{
     display: none;
 }
 
-.profile_modal{
+.profile_modal {
     width: 15rem;
     height: 9rem;
     background-color: white;
@@ -117,9 +123,10 @@ html{
     left: 77%;
     z-index: 4;
     border-radius: 10px;
-    
+
 }
-.pm_my_page{
+
+.pm_my_page {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -128,7 +135,8 @@ html{
     padding-left: 0.8rem;
 
 }
-.pm_book_mark{
+
+.pm_book_mark {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -136,7 +144,8 @@ html{
     align-items: center;
     padding-left: 0.8rem;
 }
-.pm_logout{
+
+.pm_logout {
     width: 100%;
     height: 3rem;
     display: flex;
@@ -145,6 +154,7 @@ html{
     padding-left: 0.8rem;
     border-top: 1px solid gray;
 }
+
 /*여기부터 mypage*/
 .mypage {
     padding-top: 20px;
@@ -360,7 +370,8 @@ html{
     align-items: center;
     font-size: 14px;
 }
-.mp_pimg_hb_cf_post:hover{
+
+.mp_pimg_hb_cf_post:hover {
     cursor: pointer;
 }
 
@@ -374,7 +385,8 @@ html{
     font-weight: normal;
     border-top: none;
 }
-.mp_pimg_hb_cf_bookmark:hover{
+
+.mp_pimg_hb_cf_bookmark:hover {
     cursor: pointer;
 }
 
@@ -388,7 +400,8 @@ html{
     font-weight: normal;
     border-top: none;
 }
-.mp_pimg_hb_cf_taged:hover{
+
+.mp_pimg_hb_cf_taged:hover {
     cursor: pointer;
 }
 
@@ -399,7 +412,7 @@ html{
     flex-flow: row wrap;
     margin: 0 auto;
     justify-content: flex-start;
-    
+
 }
 
 .mp_pimg_pts_pl_post {
@@ -417,6 +430,7 @@ html{
     content: "";
     display: block;
 }
+
 .mp_pimg_pts_pl_post:hover {
     cursor: pointer;
 }
@@ -472,11 +486,13 @@ html{
     display: block;
     padding-bottom: 100%;
 }
-.is_highlight{
+
+.is_highlight {
     font-weight: bold !important;
     border-top: 0.5px solid black !important;
 }
-.is_none{
+
+.is_none {
     font-weight: normal !important;
     border-top: none !important;
 }

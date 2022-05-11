@@ -58,7 +58,8 @@
                 </div>
                 <div class="hm_w_b_cb_under">
                     <div class="hm_w_b_cb_u_my_account_box">
-                        <img src={{my_account.profile_img}} class="hm_w_b_cb_u_my_ab_circle_avatar">
+                        <img src=data:image/jpeg;base64,{{my_account.profile_img}}
+                            class="hm_w_b_cb_u_my_ab_circle_avatar">
                         <div class="hm_w_b_cb_u_my_ab_txt">
                             <div class="hm_w_b_cb_u_mc_my_id">{{post.user_nick_name}}</div>
                             <div class="hm_w_b_cb_u_mc_mydesc">{{post.content}}</div>
@@ -66,7 +67,7 @@
                     </div>
                     {% for comment in post.comment %}
                     <div class="hm_w_b_cb_other_account_box">
-                        <img src="{{comment.profile_img}}" class="hm_w_b_cb_u_circle_avatar">
+                        <img src="data:image/jpeg;base64,{{comment.profile_img}}" class="hm_w_b_cb_u_circle_avatar">
                         <div class="hm_w_b_cb_u_other_id">{{comment.nick_name}}</div>
                         <div class="hm_w_b_cb_u_comments">{{comment.comment}}</div>
                     </div>
@@ -110,7 +111,7 @@
                 <div class="um_comment_page">
                     <div class="um_cp_my_account">
                         {% if my_account is not none %}
-                        <img class="um_cp_ma_img" src="{{my_account.get('profile_img')}}" alt="">
+                        <img class="um_cp_ma_img" src="data:image/jpeg;base64,{{my_account.get('profile_img')}}" alt="">
                         <div class="um_cp_ma_id">{{my_account.get('nick_name')}}</div>
                         {% endif %}
                     </div>
@@ -140,7 +141,7 @@
                 <i class="bi bi-compass mh_i_compass"></i>
                 <i class="bi bi-heart mh_i_heart"></i>
                 {% if my_account is not none %}
-                <img src="{{my_account.get('profile_img')}}" class="mh_circle_avatar">
+                <img src="data:image/jpeg;base64,{{my_account.get('profile_img')}}" class="mh_circle_avatar">
                 {% endif %}
             </div>
         </div>
@@ -237,7 +238,8 @@
             <div class="mb_l_main_cards" id="image_{{post._id}}_{{post.file | length}}">
                 <div class="mb_l_mc_header">
                     <div class="mb_l_mc_h_front">
-                        <img src="{{post.get('user_info').get('profile_img')}}" class="mb_l_mc_h_f_circle_avatar">
+                        <img src="data:image/jpeg;base64,{{post.get('user_info').get('profile_img')}}"
+                            class="mb_l_mc_h_f_circle_avatar">
                         <div class="mb_l_mc_h_f_id">{{post.get('user_info').get('nick_name')}}</div>
                     </div>
                     <div class="mb_l_mc_h_back">
@@ -292,7 +294,7 @@
                         </div>
                         {% if post.liked_people | length > 0 %}
                         <div class="mb_l_mc_c_lk_liked_person">
-                            <img src="{{post.get('liked_person_info')[-1].profile_img}}"
+                            <img src="data:image/jpeg;base64,{{post.get('liked_person_info')[-1].profile_img}}"
                                 class="mb_l_mc_c_lk_lp_circle_avatar">
                             <div class="mb_l_mc_c_lk_lp_id">{{post.get('liked_person_info')[-1].nick_name}} 님 외
                                 {{post.liked_people |
@@ -337,7 +339,8 @@
             <div class="mb_rf_my_account">
                 <div class="mb_rf_ma_front">
                     {% if my_account is not none %}
-                    <img src="{{my_account.get('profile_img')}}" class="mb_rf_ma_f_circle_avatar">
+                    <img src="data:image/jpeg;base64,{{my_account.get('profile_img')}}"
+                        class="mb_rf_ma_f_circle_avatar">
 
                     <div class="mb_rf_ma_f_txt_wrapper">
                         <div class="mb_rf_ma_f_tw_id">{{my_account.get('nick_name')}}</div>
@@ -358,7 +361,7 @@
             {% for user in users %}
             <div class="mb_rf_recommend_account">
                 <div class="mb_rf_ra_front">
-                    <img src="{{user.get('profile_img')}}" class="mb_rf_ra_f_circle_avatar">
+                    <img src="data:image/jpeg;base64,{{user.get('profile_img')}}" class="mb_rf_ra_f_circle_avatar">
                     <div class="mb_rf_ra_f_txt">
                         <div class="mb_rf_ra_f_t_id">{{user.get('nick_name')}}</div>
                         <div class="mb_rf_ra_f_t_follower">blahblah님이 팔로우합니다</div>

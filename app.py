@@ -83,7 +83,6 @@ def join_page():
 def edit_page(user):
     if user is not None:
         my_name = db.user.find_one({'_id': ObjectId(user["id"])})
-        print(my_name)
 
         return render_template('edit_page.html', my_name = my_name)
 
@@ -103,7 +102,6 @@ def update_user(user):
         }
 
         name = ObjectId(user["id"])
-        print("name : ",name)
         db.user.update_one({'_id' : name}, {'$set':doc})
         return jsonify({"result" : "success", "msg" : "수정되었습니다!!"})
 
@@ -150,7 +148,6 @@ def check():
 @authrize
 def my_page(user):
     if user is not None:
-        print("user= ", user)
         my_post = list(db.posts.find({'user_id' : user.get('id')}))
         my_follower = list(db.follower_map.find({'user_id' : user.get('id')}))
         my_follow = list(db.follower_map.find({'target_user_id' : user.get('id')}))
@@ -329,6 +326,26 @@ def bookmark(user):
         else:
             db.book_mark.delete_one({'user_id': user_id, 'post_id': post_id})
         return jsonify({'result':'success'})  
+
+
+@app.route('/edit_page/profile', methods=['POST'])
+@authrize
+def change_profile(user):
+    if user is not None:
+        user_id = user.get('id')
+        file = request.files['img']
+        extension = file.filename.split('.')[-1]
+        format = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
+        img = Image.open(file)
+        img_resize = img.resize((100, 100))
+        buffered = BytesIO()
+        img_resize.save(buffered, format)
+        image_base64 = base64.b64encode(buffered.getvalue())
+        db.user.update_one({'_id': ObjectId(user_id)}, {'$set' : {
+            'profile_img': image_base64.decode('utf-8')
+        }})
+        user = db.user.find_one({'_id':ObjectId(user_id)})
+        return jsonify({"result": "success", "msg": "수정되었습니다!"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
