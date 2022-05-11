@@ -11,7 +11,7 @@ import hashlib
 from bson.objectid import ObjectId
 from PIL import Image
 import certifi
-client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+client = MongoClient('mongodb+srv://test:spaceGram5@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 
 
 SECRET_KEY = 'spaceGram'
@@ -65,8 +65,8 @@ def home(user):
             post['liked_person_info'] = []
             for liked_person in post['liked_people']:
                 post['liked_person_info'].append(db.user.find_one({'_id' : ObjectId(liked_person)}, {'password':0}))
+        my_account['book_marked']  = list(map(lambda x: x['post_id'], list(db.book_mark.find({'user_id':user_id}, {'_id':0, 'user_id':0,'timestamp':0}))))
         post_list = sorted(post_list, key=lambda post: (post['timestamp']))
-        
         return render_template('main.html', posts = post_list , users=user_list, my_account = my_account)
 
 @app.route('/')
@@ -177,7 +177,8 @@ def my_page(user):
 def book_mark_list(user):
     if user is not None:
         book_mark_post = list(db.book_mark.find({'user_id' : user["id"]}))
-
+        for book_mark in book_mark_post:
+            post_id = book_mark['post_id']
 
         for post in book_mark_post:
             post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
@@ -261,6 +262,7 @@ def delete_post(user):
 def likes(user):
     if user is not None:
         user_id = user.get('id')
+        print(user_id)
         post_id_receive = request.form['post_id']
         action_receive = request.form['action_give']
         doc = {
@@ -282,23 +284,18 @@ def likes(user):
 @authrize
 def bookmark(user):
     if user is not None:
-        user_id = user.get('id'),
+        user_id = user.get('id')
         post_id = request.form['post_id']
-        print(user_id)
-        result = db.book_mark.find_one({
-            'user_id' : user_id,
-            'post_id' : post_id
-        })
-        doc = {
-            'user_id': user_id,
-            'post_id': post_id,
-            'timestamp': datetime.utcnow()
-        }
-        if result is None:
-            db.book_mark.insert_one(doc)
+        action_receive = request.form['action_give']
+        if action_receive == 'bookmark':
+            db.book_mark.insert_one({
+                'user_id': user_id,
+                'post_id': post_id,
+                'timestamp': datetime.utcnow()
+            })
         else:
             db.book_mark.delete_one({'user_id': user_id, 'post_id': post_id})
-        return jsonify({'result':'success'})     
+        return jsonify({'result': 'success'})     
 
 @app.route('/comment', methods=['POST'])
 @authrize

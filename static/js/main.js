@@ -258,17 +258,17 @@ function like_button(post_id) {
 }
 // book_mark 기능 구현...
 function book_mark_button(post_id) {
-    let booK_mark = document.getElementById("book_mark_" + post_id)
-    if (booK_mark.classList.contains("bi-bookmark")){
-        console.log(post_id)
+    let book_mark = document.getElementById("book_mark_" + post_id)
+    if (book_mark.classList.contains('bi-bookmark')) {
         $.ajax({
             type: 'POST',
             url: '/book_mark',
             data: {
                 post_id: post_id,
+                action_give: 'bookmark'
             },
             success: function (response) {
-                booK_mark.classList.replace('bi-book_mark', 'bi-book_mark-fill')
+                book_mark.classList.replace('bi-bookmark', 'bi-bookmark-fill')
             }
         })
     } else {
@@ -276,18 +276,17 @@ function book_mark_button(post_id) {
             type: 'POST',
             url: '/book_mark',
             data: {
-                post_id: post_id
+                post_id: post_id,
+                action_give: 'bookmarked'
             },
             success: function (response) {
-                booK_mark.classList.replace('bi-book_mark-fill', 'bi-book_mark')
-
+                book_mark.classList.replace('bi-bookmark-fill', 'bi-bookmark')
             }
         })
     }
-    window.location.reload()
 
-    
 
+    // window.location.reload()
 }
 // 게시물에서 내가 버튼을 누르면. 게시물의 post 아이디가 있어야함
 
