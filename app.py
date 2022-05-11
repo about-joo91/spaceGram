@@ -47,7 +47,7 @@ def home(user):
         for post in post_list:
             post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
             post['timestamp'] = (datetime.utcnow() - post['timestamp'])
-            post['user_info'] = db.user.find_one({'_id' : ObjectId(post.get('user_id'))})
+            post['user_info'] = db.user.find_one({'_id' : ObjectId(post.get('user_id'))},{'password':0})
             comments = list(db.comment.find({'post_id':str(post['_id'])}, {"_id":0}))
             user_info_comments =[]
             for comment in comments:
@@ -249,7 +249,13 @@ def post_file(user):
         }
         db.posts.insert_one(doc)
         return jsonify({'msg': '저장완료!'})
-
+@app.route('/posts/delete', methods=['POST'])
+@authrize
+def delete_post(user):
+    if user is not None:
+        post_id = request.form['post_id']
+        db.posts.delete_one({'_id' : ObjectId(post_id)})
+        return jsonify({"result": "success", 'msg' : '포스트가 삭제 되었습니다.'})
 @app.route('/like', methods=['POST'])
 @authrize
 def likes(user):

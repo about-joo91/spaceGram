@@ -46,9 +46,10 @@
             <div class="hm_w_b_content_box">
                 <div class="hm_w_b_cb_my_account">
                     <div class="hm_w_b_cb_mc_front">
-                        <img class="hm_w_b_cb_mc_f_circle_avatar" src="/static/images/df.jpeg">
+                        <img class="hm_w_b_cb_mc_f_circle_avatar"
+                            src="data:image/jpeg;base64,{{post.user_info.profile_img}}">
                         <div class="hm_w_b_cb_mc_f_txt">
-                            <div class="hm_w_b_cb_mc_f_t_id">{{post.user_nick_name}}
+                            <div class="hm_w_b_cb_mc_f_t_id">{{post.user_info.nick_name}}
                                 <i class="bi bi-dot"></i>
                                 <span class="hm_w_b_cb_mc_f_t_i_following_button">팔로잉</span>
                             </div>
@@ -58,10 +59,10 @@
                 </div>
                 <div class="hm_w_b_cb_under">
                     <div class="hm_w_b_cb_u_my_account_box">
-                        <img src=data:image/jpeg;base64,{{my_account.profile_img}}
+                        <img src=data:image/jpeg;base64,{{post.user_info.profile_img}}
                             class="hm_w_b_cb_u_my_ab_circle_avatar">
                         <div class="hm_w_b_cb_u_my_ab_txt">
-                            <div class="hm_w_b_cb_u_mc_my_id">{{post.user_nick_name}}</div>
+                            <div class="hm_w_b_cb_u_mc_my_id">{{post.user_info.nick_name}}</div>
                             <div class="hm_w_b_cb_u_mc_mydesc">{{post.content}}</div>
                         </div>
                     </div>
@@ -77,15 +78,26 @@
         </div>
     </div>
     <div class="small_modal_wrapper" id="small_modal_wrapper_{{post._id}}">
+        {% if my_account._id == post.user_info._id %}
+        <div class="sm_w_body" id="sm_w_body_{{post._id}}" style="height: 280px !important;">
+            <div class="sm_w_body_txt sm_w_b_t_red" onclick="delete_post('{{post._id}}')">삭제</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">수정</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">댓글 기능 해제</div>
+            <div class="sm_w_body_txt sm_w_b_t_black">게시물로 이동</div>
+            <div class="sm_w_body_txt sm_w_b_t_black" onclick="small_modal_out('{{post._id}}')">취소</div>
+        </div>
+        {% else %}
         <div class="sm_w_body" id="sm_w_body_{{post._id}}">
             <div class="sm_w_body_txt sm_w_b_t_red">신고</div>
-            <div class="sm_w_body_txt sm_w_b_t_red">팔로우 취소</div>
+            <div class="sm_w_body_txt sm_w_b_t_red" id="sm_b_{{post.user_info._id}}" onclick="follow_btn(this)">팔로우 취소
+            </div>
             <div class="sm_w_body_txt sm_w_b_t_black">게시물로 이동</div>
             <div class="sm_w_body_txt sm_w_b_t_black">공유 대상...</div>
             <div class="sm_w_body_txt sm_w_b_t_black">링크 복사</div>
             <div class="sm_w_body_txt sm_w_b_t_black">퍼가기</div>
             <div class="sm_w_body_txt sm_w_b_t_black" onclick="small_modal_out('{{post._id}}')">취소</div>
         </div>
+        {% endif %}
     </div>
     {% endfor %}
     <div class="upload_modal_wrapper">
@@ -240,7 +252,7 @@
                     <div class="mb_l_mc_h_front">
                         <img src="data:image/jpeg;base64,{{post.get('user_info').get('profile_img')}}"
                             class="mb_l_mc_h_f_circle_avatar">
-                        <div class="mb_l_mc_h_f_id">{{post.get('user_info').get('nick_name')}}</div>
+                        <a href="/my_page" class="mb_l_mc_h_f_id">{{post.user_info.nick_name}}</a>
                     </div>
                     <div class="mb_l_mc_h_back">
                         <i class="bi bi-three-dots mb_l_mc_h_b_dot_icon" onclick="small_modal_in('{{post._id}}')"></i>
@@ -302,7 +314,7 @@
                         </div>
                         {% endif %}
                         <div class="mb_l_mc_c_lk_my_comment">
-                            <div class="mb_l_mc_c_lk_mc_id">{{post.user_nick_name}}</div>
+                            <div class="mb_l_mc_c_lk_mc_id">{{post.user_info.nick_name}}</div>
                             <div class="mb_l_mc_c_lk_mc_comment">{{post.content}}</div>
                         </div>
                         {% if post['comment'] | length > 1 %}
