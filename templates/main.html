@@ -289,7 +289,7 @@
                                 <i class="bi bi-send mb_l_mc_c_lk_ic_icons"></i>
                             </div>
                             <div class="mb_l_mc_c_lk_ic_back">
-                                <i class="bi bi-bookmark mb_l_mc_c_lk_ic_icons"></i>
+                                <i class="bi bi-bookmark mb_l_mc_c_lk_ic_icons" id="book_mark_{{post._id}}" onclick="book_mark_button('{{post._id}}')"></i>
                             </div>
                         </div>
                         {% if post.liked_people | length > 0 %}

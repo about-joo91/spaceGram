@@ -256,6 +256,41 @@ function like_button(post_id) {
     }
     window.location.reload()
 }
+// book_mark 기능 구현...
+function book_mark_button(post_id) {
+    let booK_mark = document.getElementById("book_mark_" + post_id)
+    if (booK_mark.classList.contains("bi-bookmark")){
+        console.log(post_id)
+        $.ajax({
+            type: 'POST',
+            url: '/book_mark',
+            data: {
+                post_id: post_id,
+            },
+            success: function (response) {
+                booK_mark.classList.replace('bi-book_mark', 'bi-book_mark-fill')
+            }
+        })
+    } else {
+        $.ajax({
+            type: 'POST',
+            url: '/book_mark',
+            data: {
+                post_id: post_id
+            },
+            success: function (response) {
+                booK_mark.classList.replace('bi-book_mark-fill', 'bi-book_mark')
+
+            }
+        })
+    }
+    window.location.reload()
+
+    
+
+}
+// 게시물에서 내가 버튼을 누르면. 게시물의 post 아이디가 있어야함
+
 function change_comment_input(obj) {
     let post_id = obj.id.split('_')[2]
     let submit_post_id = document.getElementById('submit_' + post_id)

@@ -11,7 +11,7 @@ import hashlib
 from bson.objectid import ObjectId
 from PIL import Image
 import certifi
-client = MongoClient('mongodb+srv://test:spaceGram5@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 
 
 SECRET_KEY = 'spaceGram'
@@ -269,7 +269,30 @@ def likes(user):
                 'user_id': user_id,
                 'post_id': post_id_receive
             })
-        return jsonify({'result':'success'})      
+        return jsonify({'result':'success'})   
+
+# 북마크 
+@app.route('/book_mark', methods=['POST'])
+@authrize
+def bookmark(user):
+    if user is not None:
+        user_id = user.get('id'),
+        post_id = request.form['post_id']
+        print(user_id)
+        result = db.book_mark.find_one({
+            'user_id' : user_id,
+            'post_id' : post_id
+        })
+        doc = {
+            'user_id': user_id,
+            'post_id': post_id,
+            'timestamp': datetime.utcnow()
+        }
+        if result is None:
+            db.book_mark.insert_one(doc)
+        else:
+            db.book_mark.delete_one({'user_id': user_id, 'post_id': post_id})
+        return jsonify({'result':'success'})     
 
 @app.route('/comment', methods=['POST'])
 @authrize
@@ -308,24 +331,7 @@ def follow(user):
 
 
 
-# 북마크 
-@app.route('/mypage/book_mark', methods=['POST'])
-@authrize
-def bookmark(user):
-    if user is not None:
-        user_id = user.get('_id'),
-        post_id = request.form['post_id']
-        result = db.book_mark.find_one({'user_id': user_id, 'post_id': post_id})
-        doc = {
-            'user_id': user_id,
-            'post_id': post_id,
-            'timestamp': datetime.utcnow()
-        }
-        if result is not None:
-            db.book_mark.insert_one(doc)
-        else:
-            db.book_mark.delete_one({'user_id': user_id, 'post_id': post_id})
-        return jsonify({'result':'success'})  
+
 
 
 @app.route('/edit_page/profile', methods=['POST'])
