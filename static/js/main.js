@@ -104,9 +104,11 @@ const um_preview_images = document.querySelector('.um_preview_images')
 function isValid(data) {
     if (data.types.indexOf('Files') < 0)
         return false;
-    if (data.files[0].type.indexOf('image') < 0) {
-        alert('이미지 파일만 업로드 가능합니다.')
-        return false;
+    for (let i = 0; i < data.files.length; i++) {
+        if (data.files[i].type.indexOf('image') < 0) {
+            alert('이미지 파일만 업로드 가능합니다.')
+            return false;
+        }
     }
     if (data.files[0].size >= 1024 * 1024 * 50) {
         alert('50MB 이상인 파일은 업로드 할 수 없습니다.')

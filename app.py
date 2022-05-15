@@ -11,7 +11,7 @@ import hashlib
 from bson.objectid import ObjectId
 from PIL import Image
 import certifi
-client = MongoClient('mongodb+srv://test:spaceGram5@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+client = MongoClient('mongodb+srv://@cluster0.qwbpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', tlsCAFile=certifi.where())
 
 
 SECRET_KEY = 'spaceGram'
@@ -98,7 +98,6 @@ def update_user(user):
         "email" : new_email_receive,  
         "nick_name" : new_nick_name_receive,  
         "user_name" : new_user_name_receive
-        # "profile_img": "static/images/profile_img.png",
         }
 
         name = ObjectId(user["id"])
@@ -153,7 +152,6 @@ def my_page(user):
         my_follow = list(db.follower_map.find({'target_user_id' : user.get('id')}))
         my_name = db.user.find_one({'_id': ObjectId(user.get('id'))})
 
-       
         count_my_post = len(my_post)
         count_my_follower = len(my_follower)
         count_my_follow = len(my_follow)
@@ -177,9 +175,6 @@ def my_page(user):
 def book_mark_list(user):
     if user is not None:
         book_mark_post = list(db.book_mark.find({'user_id' : user["id"]}))
-        for book_mark in book_mark_post:
-            post_id = book_mark['post_id']
-
         for post in book_mark_post:
             post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
 
@@ -189,13 +184,10 @@ def book_mark_list(user):
 @app.route('/my_page/tag')
 @authrize
 def tag_list(user):
-    if user is not None:
-        
-        tag_post = list(db.tag_post_map.find({'user_id' : user["id"]}))
-        
+    if user is not None:      
+        tag_post = list(db.tag_post_map.find({'user_id' : user["id"]}))    
         for post in tag_post:
             post['file'] = list(map(lambda x: x.decode('utf-8'), post['file']))
-
         return jsonify({"result" : "success", 'post' : tag_post})
 
 
